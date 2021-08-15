@@ -34,7 +34,7 @@ if (count($icons)) {
     $icons[0]['purpose'] = 'any maskable';
 }
 
-$json = render('css/favicons/manifest.json', ['icons' => $icons]);
+$json = render('img/favicons/manifest.json', ['icons' => $icons]);
 
 try {
     echo json_encode(

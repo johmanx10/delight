@@ -7,5 +7,10 @@
         </picture>
         {{ company.name }}
     </a>
-    <a id="phone" href="tel:{{ company.phone.number }}">{{ company.phone.label }}</a>
+    <a id="phone"
+       title="Neem telefonisch contact op"
+       href="tel:{{ company.phone.number }}"
+    >
+        {{ company.phone.label }}
+    </a>
 {% endblock %}

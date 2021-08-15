@@ -33,7 +33,8 @@ public/img/favicons/manifest.json: \
 	public/img/favicons/android-chrome-512x512.png \
 	public/img/favicons/android-chrome-192x192.webp \
 	public/img/favicons/android-chrome-512x512.webp \
-	$(TEMPLATES) $(CONFIG)
+	templates/pages/img/favicons/manifest.json.twig \
+	$(CONFIG)
 	@mkdir -p $(shell dirname $@)
 	bin/favicon-manifest public/img/favicons/android-chrome-*.* > $@
 
