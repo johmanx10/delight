@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+if (!file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    echo 'public';
+    exit(1);
+}
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+foreach (PAGES as $id => $page) {
+    echo sprintf('public/%s', $page['output']) . PHP_EOL;
+}
