@@ -1,0 +1,21 @@
+{
+  "name": "delight/website",
+  "description": "Website for Delight Coaching",
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": "^8.0",
+    "twig/twig": "^3.0",
+    "voku/html-min": "^4.4",
+    "tubalmartin/cssmin": "^4.1"
+  },
+  "autoload": {
+    "files": [
+      "config/config.php",
+      "src/render.php"
+    ],
+    "psr-4": {
+      "Delight\\Website\\": "src"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "author": "Anja de Boer Groenhof",
+    "language": "nl-NL",
+    "themeColor": "#00004C"
+  },
+  "company": {
+    "name": "Delight coachingpraktijk",
+    "shortName": "Delight",
+    "phone": {
+      "label": "0610 777 673",
+      "number": "+610777673"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use voku\helper\HtmlMinInterface;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+/** @var HtmlMinInterface $minifier */
+$minifier = require_once __DIR__ . '/../src/minifier.php';
+$webRoot = realpath(__DIR__ . '/..') . '/public';
+
+foreach (PAGES as $id => $page) {
+    echo sprintf('> %s', $page['output']) . PHP_EOL;
+
+    if (!is_readable($page['controller'])) {
+        fwrite(
+            STDERR,
+            sprintf(
+                'Could not read page: "%s" %s',
+                $id,
+                json_encode($page, JSON_PRETTY_PRINT)
+            ) . PHP_EOL
+        );
+        exit(1);
+    }
+
+    try {
+        /** @noinspection PhpIncludeInspection */
+        $output = (string)require $page['controller'];
+    } catch (Throwable $exception) {
+        fwrite(
+            STDERR,
+            sprintf(
+                'Could not create build page: "%s" %s',
+                $id,
+                json_encode($page, JSON_PRETTY_PRINT)
+            ) . PHP_EOL
+        );
+        fwrite(STDERR, $exception->getMessage() . PHP_EOL);
+
+        if ($exception instanceof \Twig\Error\Error) {
+            fwrite(
+                STDERR,
+                sprintf(
+                    'In %s on line %d.',
+                    str_replace(
+                        realpath(__DIR__ . '/..') . '/',
+                        '',
+                        $exception->getSourceContext()?->getPath() ?? 'Unknown'
+                    ),
+                    $exception->getTemplateLine()
+                ) . PHP_EOL
+            );
+        }
+
+        exit(2);
+    }
+
+    $file = $webRoot . '/' . $page['output'];
+    $dir = dirname($file);
+
+    if (!is_dir($dir) && !mkdir($dir, recursive: true)) {
+        fwrite(
+            STDERR,
+            sprintf(
+                'Could not create output directory "%s" for page "%s"',
+                $dir,
+                $id
+            ) . PHP_EOL
+        );
+        exit(3);
+    }
+
+    $output = $minifier->minify($output);
+    $numBytes = strlen($output);
+
+    if (file_put_contents($file, $output) !== $numBytes) {
+        fwrite(
+            STDERR,
+            sprintf(
+                'Could not write output to "%s" for page "%s"',
+                $file,
+                $id
+            ) . PHP_EOL
+        );
+        exit(4);
+    }
+
+    if ($numBytes === 0) {
+        fwrite(
+            STDERR,
+            sprintf('Empty output for page "%s"', $id) . PHP_EOL
+        );
+    }
+}

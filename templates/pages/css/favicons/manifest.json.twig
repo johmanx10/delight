@@ -1,0 +1,19 @@
+{
+    "name": "{{ company.name }}",
+    "short_name": "{{ company.shortName }}",
+    "icons": [
+        {% for icon in icons %}
+            {
+                "src": "{{ icon.src }}",
+                "sizes": "{{ icon.sizes }}",
+                "type": "{{ icon.type }}"{% if icon.purpose is defined %},
+                "purpose": "{{ icon.purpose }}"
+            {% endif %}
+            }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ],
+    "start_url": "{{ url('home') }}",
+    "theme_color": "{{ meta.themeColor }}",
+    "background_color": "{{ meta.themeColor }}",
+    "display": "standalone"
+}

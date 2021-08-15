@@ -1,0 +1,25 @@
+{% macro navLink(id, current = false) %}
+    <a href="{{ path(id) }}"
+       title="{{ label(id) }}"
+       {% if current %}class="active" aria-current="page"{% endif %}
+    >
+        {{ label(id) }}
+    </a>
+{% endmacro %}
+
+{% block nav %}
+    {% for navLocation,navSide in nav %}
+        <ul>
+            {% for id in navSide %}
+                <li>
+                    <a href="{{ path(id) }}"
+                       title="{{ label(id) }}"
+                       {% if id == _route %}class="active" aria-current="page"{% endif %}
+                    >
+                        {{ label(id) }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

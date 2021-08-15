@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+a[href^='tel:']::before {
+    display: inline-block;
+    content: "📞";
+    margin-right: .3rem;
+}
+
+header h1 {
+    display: inline;
+}
+
+header picture {
+    margin-right: .3rem;
+}
+
+header a:not([href^='tel:']) {
+    text-decoration: none;
+}

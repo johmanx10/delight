@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use tubalmartin\CssMin\Minifier;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$minifier = new Minifier(raisePhpLimits: true);
+echo $minifier->run(stream_get_contents(STDIN));

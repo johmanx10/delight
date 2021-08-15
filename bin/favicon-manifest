@@ -1,0 +1,57 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$icons = array_map(
+    function (string $file): array {
+        $attributes = getimagesize($file);
+        [$width, $height] = $attributes;
+
+        return [
+            'src' => basename($file),
+            'sizes' => sprintf('%dx%d', $width, $height),
+            'type' => $attributes['mime']
+        ];
+    },
+    array_filter(
+        array_slice($argv, 1),
+        fn (string $file) => file_exists($file)
+    )
+);
+
+usort(
+    $icons,
+    fn ($a, $b) => (
+        $a['sizes'] <=> $b['sizes']
+        ?: $a['type'] <=> $b['type']
+    )
+);
+
+if (count($icons)) {
+    $icons[0]['purpose'] = 'any maskable';
+}
+
+$json = render('css/favicons/manifest.json', ['icons' => $icons]);
+
+try {
+    echo json_encode(
+        value: json_decode(
+            json: $json,
+            flags: JSON_THROW_ON_ERROR
+        ),
+        flags: JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
+    );
+} catch (JsonException $exception) {
+    fwrite(
+        STDERR,
+        sprintf(
+            '%s => %s',
+            $exception->getMessage(),
+            $json
+        ) . PHP_EOL
+    );
+    exit(1);
+}
