@@ -27,7 +27,6 @@ foreach (PAGES as $id => $page) {
     }
 
     try {
-        /** @noinspection PhpIncludeInspection */
         $output = (string)require $page['controller'];
     } catch (Throwable $exception) {
         fwrite(

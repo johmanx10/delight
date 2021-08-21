@@ -38,4 +38,14 @@ $environment->addFunction(
     )
 );
 
+$environment->addFunction(
+    new TwigFunction(
+        'css',
+        fn (string $filename) => file_get_contents(
+            __DIR__ . '/../public/css/' . $filename
+        ),
+        ['is_safe' => ['html']]
+    )
+);
+
 return $environment;

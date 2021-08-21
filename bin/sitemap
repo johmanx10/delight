@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$document = new DOMDocument();
+$document->loadXML(render('sitemap.xml'));
+
+if (!$document->schemaValidate(__DIR__ . '/../schemas/sitemap.xsd')) {
+    fwrite(STDERR, 'Sitemap is invalid.');
+    exit(1);
+}
+
+echo $document->saveXML();

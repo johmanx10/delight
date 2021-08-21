@@ -1,13 +1,51 @@
 @charset "UTF-8";
 
+:root {
+    font-size: 16px;
+}
+
+@media (max-width: 800px) {
+    .hidden-sm {
+        display: none;
+    }
+}
+
+@media (min-width: 801px) {
+    body {
+        margin: 0 auto !important;
+        width: 800px;
+    }
+
+    a[href^='tel:'] {
+        font-size: inherit;
+    }
+}
+
+@media (min-width: 1280px) {
+    :root {
+        font-size: 22px;
+    }
+
+    body {
+        width: 1280px;
+    }
+}
+
 a[href^='tel:']::before {
     display: inline-block;
     content: "📞";
     margin-right: .3rem;
 }
 
-header h1 {
-    display: inline;
+header > div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 3rem;
+    line-height: 1.6em;
+}
+
+header a[href^='tel:'] {
+    font-size: 2rem;
 }
 
 header picture {
@@ -16,4 +54,9 @@ header picture {
 
 header a:not([href^='tel:']) {
     text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    background: rgba(240, 240, 240, .8);
 }

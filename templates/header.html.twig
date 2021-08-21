@@ -1,16 +1,16 @@
 {% block header %}
-    <a id="brand" href="{{ path('home') }}" title="{{ company.name }}">
-        <picture>
-            <source type="image/webp" srcset="img/logo-80x80.webp 2x, img/logo-40x40.webp">
-            <source type="image/png" srcset="img/logo-80x80.png 2x">
-            <img alt="Company logo" width="40" height="40" src="img/logo-40x40.png" />
-        </picture>
-        {{ company.name }}
-    </a>
-    <a id="phone"
-       title="Neem telefonisch contact op"
-       href="tel:{{ company.phone.number }}"
-    >
-        {{ company.phone.label }}
-    </a>
+    <div itemscope itemtype="https://schema.org/LocalBusiness">
+        <a itemprop="brand" itemscope itemtype="https://schema.org/Brand" href="{{ path('home') }}" title="{{ company.name }}">
+            <picture itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <source type="image/webp" srcset="img/logo-80x80.webp 2x, img/logo-40x40.webp">
+                <source type="image/png" srcset="img/logo-80x80.png 2x">
+                <img itemprop="contentUrl" alt="Company logo" width="40" height="40" src="img/logo-40x40.png" />
+            </picture>
+            <span itemprop="name">{{ company.name }}</span>
+        </a>
+        <a title="Bel nu met {{ company.name }}"
+           href="tel:{{ company.phone.number }}"
+           itemprop="telephone"
+        ><span class="hidden-sm">{{ company.phone.label }}</span></a>
+    </div>
 {% endblock %}

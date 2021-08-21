@@ -4,28 +4,41 @@
         {% block meta %}
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="description" content="{{ meta.description }}">
+            <meta itemprop="description" name="description" content="{{ meta.description }}">
             <meta name="author" content="{{ meta.author }}">
             <meta name="theme-color" content="{{ meta.themeColor }}">
+            <meta name="robots" content="{{ meta.robots }}">
             <title>{{ title }}</title>
             <link rel="canonical" href="{{ meta.canonical }}">
         {% endblock %}
 
-        {% block stylesheets %}
-            <link rel="stylesheet" type="text/css" href="css/style.css">
+        {% block critical_styles %}
+            <style>{{ css('style.css') }}</style>
         {% endblock %}
+        {% block stylesheets %}{% endblock %}
 
         {% include 'favicons.html.twig' %}
+
+        {% block opengraph %}{% endblock %}
     </head>
 
-    <body>
+    <body itemscope itemtype="{% block schema %}https://schema.org/WebPage{% endblock %}">
         {% block body %}
-            <header>{% include 'header.html.twig' %}</header>
-            <nav>{% include 'nav.html.twig' %}</nav>
+            <header itemscope itemtype="https://schema.org/WPHeader">
+                {% include 'header.html.twig' %}
+            </header>
 
-            <main>{% block main %}{% endblock %}</main>
+            <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+                {% include 'nav.html.twig' %}
+            </nav>
 
-            <footer>{% include 'footer.html.twig' %}</footer>
+            <main itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
+                {% block main %}{% endblock %}
+            </main>
+
+            <footer itemscope itemtype="https://schema.org/WPFooter">
+                {% include 'footer.html.twig' %}
+            </footer>
         {% endblock %}
     </body>
 </html>

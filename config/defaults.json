@@ -2,7 +2,8 @@
   "meta": {
     "author": "Anja de Boer Groenhof",
     "language": "nl-NL",
-    "themeColor": "#00004C"
+    "themeColor": "#00004C",
+    "robots": "noindex, nofollow"
   },
   "company": {
     "name": "Delight coachingpraktijk",

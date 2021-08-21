@@ -15,7 +15,7 @@ function render(string $page, array $data = []): string
     }
 
     return $environment->render(
-        in_array(pathinfo($page, PATHINFO_EXTENSION), ['json'])
+        in_array(pathinfo($page, PATHINFO_EXTENSION), ['json', 'xml'])
             ? sprintf('pages/%s.twig', $page)
             : sprintf('pages/%s.html.twig', $page),
         array_replace_recursive(

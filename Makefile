@@ -7,4 +7,4 @@ CONFIG := $(shell find config -type f)
 include make/*.mk
 
 clean:
-	rm -rf public/*
+	rm -rf public/* schemas
