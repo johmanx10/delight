@@ -35,15 +35,26 @@ public/img/shields/gat-%.webp: assets/GAT.png
 	convert $^ $(CONVERT_OPTIONS) -resize $(*F) -density $(*F) $@
 
 shields:: public/img/shields/cat-118x117.png
+shields:: public/img/shields/cat-189x188.png
 shields:: public/img/shields/cat-236x234.png
 shields:: public/img/shields/gat-114x106.png
+shields:: public/img/shields/gat-182x170.png
 shields:: public/img/shields/gat-228x212.png
 shields:: public/img/shields/cat-118x117.webp
+shields:: public/img/shields/cat-189x188.webp
 shields:: public/img/shields/cat-236x234.webp
 shields:: public/img/shields/gat-114x106.webp
+shields:: public/img/shields/gat-182x170.webp
 shields:: public/img/shields/gat-228x212.webp
 
 public:: | shields
+
+public/img/external-link-%.webp: assets/external-link.png
+	@mkdir -p $(@D)
+	convert $^ $(CONVERT_OPTIONS) -resize $(*F) -density $(*F) $@
+
+public:: public/img/external-link-16x16.webp
+public:: public/img/external-link-22x22.webp
 
 public/img/favicons/favicon.ico: assets/logo.png
 	@mkdir -p $(@D)

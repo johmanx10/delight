@@ -24,21 +24,35 @@
 
     <body itemscope itemtype="{% block schema %}https://schema.org/WebPage{% endblock %}">
         {% block body %}
-            <header itemscope itemtype="https://schema.org/WPHeader">
-                {% include 'header.html.twig' %}
-            </header>
+            <div id="header-container">
+                <header itemscope itemtype="https://schema.org/WPHeader">
+                    {% include 'header.html.twig' %}
+                </header>
+            </div>
 
-            <nav id="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
-                {% include 'nav.html.twig' %}
-            </nav>
+            <div id="nav-container">
+                <nav id="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                    {% include 'nav.html.twig' %}
+                </nav>
+            </div>
 
-            <main itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
-                {% block main %}{% endblock %}
-            </main>
+            <div id="main-container">
+                <main itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
+                    {% block main %}{% endblock %}
+                </main>
+            </div>
 
-            <footer itemscope itemtype="https://schema.org/WPFooter">
-                {% include 'footer.html.twig' %}
-            </footer>
+            <div class="footer-container footer-doormat">
+                <footer itemscope itemtype="https://schema.org/WPFooter">
+                    {% include 'footer/doormat.html.twig' %}
+                </footer>
+            </div>
+
+            <div class="footer-container footer-service">
+                <footer itemscope itemtype="https://schema.org/WPFooter">
+                    {% include 'footer/service.html.twig' %}
+                </footer>
+            </div>
         {% endblock %}
     </body>
 </html>

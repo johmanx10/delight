@@ -1,0 +1,83 @@
+{% block footer_doormat %}
+    <div id="doormat">
+        <h2 id="doormatTitle">Ontdek alles bij {{ company.name }}</h2>
+        <div>
+            <nav aria-labelledby="doormatTitle">
+                {% for group,links in nav.doormat %}
+                    <div>
+                        <strong>{{ group }}</strong>
+                        {% for id in links %}
+                            <a href="{{ path(id) }}" title="{{ label(id) }}">
+                                {{- label(id) -}}
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </nav>
+        </div>
+        <p>
+{#            TODO: Finish styling#}
+            Bekijk ook onze Facebook-pagina.
+        </p>
+    </div>
+
+    <div>
+        <h2>Alternatieve therapeuten</h2>
+
+        <div id="alt-therapy">
+            <div id="cat" itemscope itemtype="https://schema.org/Organization">
+                <a href="https://catcollectief.nl/"
+                   rel="noreferrer"
+                   target="_blank"
+                   itemprop="brand"
+                   itemscope itemtype="https://schema.org/Brand"
+                   title="Collectief alternatieve therapeuten">
+                    <meta name="name" content="Collectief alternatieve therapeuten">
+                    <picture itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                        <source type="image/webp" srcset="img/shields/cat-189x188.webp" media="(min-width: 1280px)">
+                        <source type="image/png" srcset="img/shields/cat-189x188.png" media="(min-width: 1280px)">
+                        <source type="image/webp" srcset="img/shields/cat-236x234.webp 2x, img/shields/cat-118x117.webp">
+                        <source type="image/png" srcset="img/shields/cat-236x234.png 2x">
+                        <img
+                            alt="Collectief alternatieve therapeuten"
+                            itemprop="contentUrl"
+                            width="118"
+                            height="117"
+                            src="img/shields/cat-118x117.png" />
+                    </picture>
+                </a>
+            </div>
+
+            <div id="gat" itemscope itemtype="https://schema.org/Organization">
+                <a href="https://www.gatgeschillen.nl/"
+                   rel="noreferrer"
+                   target="_blank"
+                   itemprop="brand"
+                   itemscope itemtype="https://schema.org/Brand"
+                   title="Geschillen alternatieve therapeuten">
+                    <meta name="name" content="GAT Geschillen">
+                    <picture itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                        <source type="image/webp" srcset="img/shields/gat-182x170.webp" media="(min-width: 1280px)">
+                        <source type="image/png" srcset="img/shields/gat-182x170.png" media="(min-width: 1280px)">
+                        <source type="image/webp" srcset="img/shields/gat-228x212.webp 2x, img/shields/gat-114x106.webp">
+                        <source type="image/png" srcset="img/shields/gat-228x212.png 2x">
+                        <img
+                            alt="Geschillen alternatieve therapeuten"
+                            itemprop="contentUrl"
+                            width="114"
+                            height="106"
+                            src="img/shields/gat-114x106.png" />
+                    </picture>
+                </a>
+            </div>
+        </div>
+
+        <p>
+            {{ company.name }} is onderdeel van het
+            <a href="https://catcollectief.nl/"
+               rel="noreferrer"
+               target="_blank"
+               title="Collectief alternatieve therapeuten">collectief alternatieve therapeuten</a>.
+        </p>
+    </div>
+{% endblock %}

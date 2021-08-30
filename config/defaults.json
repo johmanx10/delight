@@ -7,6 +7,9 @@
   },
   "company": {
     "name": "Delight coachingpraktijk",
+    "email": {
+      "address": "delightcoaching21@gmail.com"
+    },
     "shortName": "Delight",
     "phone": {
       "label": "0610 777 673",
