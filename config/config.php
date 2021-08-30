@@ -40,7 +40,7 @@ const PAGES = [
         'output' => 'over-mij.html'
     ],
     'reviews' => [
-        'label' => 'Beoordelingen',
+        'label' => 'Reviews',
         'path' => '/beoordelingen.html',
         'controller' => __DIR__ . '/../pages/reviews.php',
         'output' => 'beoordelingen.html'
@@ -65,18 +65,21 @@ const TEMPLATE_OPTIONS = [
 ];
 
 const NAV_LAYOUT = [
-    'start' => [
+    'links' => [
         'home',
         'holistisch-therapeut',
         'life-coach',
         'reiki',
         'over-jou',
-        'over-mij'
-    ],
-    'end' => [
+        'over-mij',
         'reviews',
-        'blog',
+//        'blog',
         'contact'
+    ],
+    'doormat' => [
+        'Diensten' => ['holistisch-therapeut', 'life-coach', 'reiki'],
+        'Impressies' => ['over-jou', 'over-mij', 'reviews'],
+        'Klantenservice' => ['contact']
     ]
 ];
 

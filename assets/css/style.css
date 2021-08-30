@@ -1,16 +1,134 @@
 @charset "UTF-8";
 
 :root {
+    --theme-primary: #27759c;
+    --theme-secondary: #aecee5;
+
     font-size: 16px;
+    font-family: "Liberation Serif", "Times New Roman", serif;
 }
 
-@media (max-width: 800px) {
+body > nav {
+    background: var(--theme-secondary);
+    display: flex;
+    justify-content: stretch;
+    justify-items: center;
+    flex-wrap: wrap;
+}
+
+body > nav a {
+    display: block;
+    line-height: 1.2em;
+    padding: .6em 1em;
+    text-decoration: none;
+    color: inherit;
+}
+
+body > nav a:hover, nav a.active {
+    background: var(--theme-primary);
+    color: #fff;
+}
+
+#doormat nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+}
+
+#doormat nav > div > * {
+    display: block;
+}
+
+#doormat nav > div > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#doormat nav > div > a:hover {
+    color: var(--theme-primary);
+}
+
+a[href="#nav"], a[href="#"] {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
     .hidden-sm {
         display: none;
     }
+
+    a[href="#"] {
+        display: block;
+        text-align: right;
+        background: inherit;
+        color: inherit;
+        padding-right: .625em;
+    }
+
+    a[href="#"]:hover {
+        background: inherit;
+        text-decoration: underline;
+        color: inherit;
+    }
+
+    a[href="#"]:after {
+        font-size: 1.6em;
+        display: inline-block;
+        content: "⨯";
+    }
+
+    a[href="#nav"] {
+        display: block;
+        float: right;
+        margin: 1em 0 0 .3em;
+        height: auto !important;
+    }
+
+    a[href="#nav"]:before {
+        font-size: 2em;
+        display: block;
+        content: "☰";
+    }
+
+    header, main, footer {
+        padding: 0 1em;
+    }
+
+    header a[href^='tel:'] {
+        line-height: 2em;
+    }
+
+    body > nav {
+        display: none;
+        background: #fff;
+        font-size: 1.6em;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+
+    body > nav:target {
+        display: block;
+    }
+
+    #doormat nav {
+        display: block;
+        font-size: 1.4em;
+        line-height: 1.6em;
+    }
+
+    #doormat nav div {
+        margin-bottom: 1em;
+    }
+
+    #doormat nav div a {
+        border-bottom: 1px solid #ccc;
+    }
 }
 
-@media (min-width: 801px) {
+@media not screen and (max-width: 800px) {
     body {
         margin: 0 auto !important;
         width: 800px;
@@ -19,11 +137,39 @@
     a[href^='tel:'] {
         font-size: inherit;
     }
+
+    body > nav, body > nav a {
+        border-radius: .3em;
+    }
 }
 
-@media (min-width: 1280px) {
+header picture {
+    position: relative;
+    margin-right: .3rem;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 1;
+}
+
+header picture img {
+    position: absolute;
+    top: .09em;
+}
+
+@media screen and (min-width: 1280px) {
     :root {
-        font-size: 22px;
+        font-size: 1.6rem;
+    }
+
+    header picture {
+        width: 64px;
+        height: 64px;
+    }
+
+    header picture img {
+        width: 64px;
+        height: 64px;
     }
 
     body {
@@ -31,16 +177,21 @@
     }
 }
 
+header a[href^='tel:'] {
+    color: var(--theme-primary)
+}
+
 a[href^='tel:']::before {
     display: inline-block;
     content: "📞";
     margin-right: .3rem;
+    font-size: .75em;
 }
 
 header > div {
     display: flex;
     justify-content: space-between;
-    font-size: 3rem;
+    font-size: 3.0rem;
     line-height: 1.6em;
 }
 
@@ -48,15 +199,33 @@ header a[href^='tel:'] {
     font-size: 2rem;
 }
 
-header picture {
-    margin-right: .3rem;
-}
-
 header a:not([href^='tel:']) {
     text-decoration: none;
     color: inherit;
+    height: 1.6em;
+    overflow: hidden;
 }
 
-nav {
-    background: rgba(240, 240, 240, .8);
+@media print {
+    img {
+        filter: grayscale(100%);
+    }
+
+    * {
+        color: #000 !important;
+    }
+
+    header > div {
+        font-size: 2em;
+        line-height: 2em;
+    }
+
+    nav, footer {
+        display: none
+    }
+}
+
+main {
+    background: #eee;
+    height: 18em;
 }

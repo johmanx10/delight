@@ -9,8 +9,10 @@ public/img/favicons/android-chrome-%.webp public/img/logo-%.webp: assets/logo.pn
 	convert $^ $(CONVERT_OPTIONS) -resize $(*F) -density $(*F) $@
 
 public:: public/img/logo-40x40.png
+public:: public/img/logo-64x64.png
 public:: public/img/logo-80x80.png
 public:: public/img/logo-40x40.webp
+public:: public/img/logo-64x64.webp
 public:: public/img/logo-80x80.webp
 
 favicons:: public/img/favicons/favicon-16x16.png

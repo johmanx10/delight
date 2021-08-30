@@ -1,7 +1,10 @@
 {% block header %}
+    <a href="#nav" target="_self" rel="noopener nofollow" title="Open menu"><span class="hidden-sm">Open menu</span></a>
     <div itemscope itemtype="https://schema.org/LocalBusiness">
         <a itemprop="brand" itemscope itemtype="https://schema.org/Brand" href="{{ path('home') }}" title="{{ company.name }}">
             <picture itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <source type="image/webp" srcset="img/logo-64x64.webp" media="(min-width: 1280px)">
+                <source type="image/png" srcset="img/logo-64x64.png" media="(min-width: 1280px)">
                 <source type="image/webp" srcset="img/logo-80x80.webp 2x, img/logo-40x40.webp">
                 <source type="image/png" srcset="img/logo-80x80.png 2x">
                 <img itemprop="contentUrl" alt="Company logo" width="40" height="40" src="img/logo-40x40.png" />

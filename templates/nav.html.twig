@@ -1,25 +1,11 @@
-{% macro navLink(id, current = false) %}
-    <a href="{{ path(id) }}"
-       title="{{ label(id) }}"
-       {% if current %}class="active" aria-current="page"{% endif %}
-    >
-        {{ label(id) }}
-    </a>
-{% endmacro %}
-
 {% block nav %}
-    {% for navLocation,navSide in nav %}
-        <ul>
-            {% for id in navSide %}
-                <li>
-                    <a href="{{ path(id) }}"
-                       title="{{ label(id) }}"
-                       {% if id == _route %}class="active" aria-current="page"{% endif %}
-                    >
-                        {{ label(id) }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+    <a href="#" target="_self" rel="noopener nofollow" title="Sluit menu"><span class="hidden-sm">Sluit menu</span></a>
+    {% for id in nav.links %}
+        <a href="{{ path(id) }}"
+           title="{{ label(id) }}"
+           {% if id == _route %}class="active" aria-current="page"{% endif %}
+        >
+            {{- label(id) -}}
+        </a>
     {% endfor %}
 {% endblock %}

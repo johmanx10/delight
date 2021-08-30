@@ -19,7 +19,7 @@ sitemap: public/sitemap.xml
 public:: | sitemap
 
 public/robots.txt: public/sitemap.xml
-	echo "Sitemap: $(^F)" > $@
+	echo "Sitemap: $(shell php -r 'require "config/config.php"; echo WEBSITE;')/$(^F)" > $@
 
 robots: public/robots.txt
 
