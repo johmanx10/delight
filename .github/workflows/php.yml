@@ -1,0 +1,20 @@
+name: PHP
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  php:
+    name: GrumPHP
+    runs-on: ubuntu-latest
+    container: srcoder/development-php:php80-fpm
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build website
+        run: make public

@@ -74,6 +74,7 @@ public/img/favicons/manifest.json: \
 	public/img/favicons/android-chrome-192x192.webp \
 	public/img/favicons/android-chrome-512x512.webp \
 	templates/pages/img/favicons/manifest.json.twig \
+	vendor \
 	$(CONFIG)
 	@mkdir -p $(@D)
 	bin/favicon-manifest public/img/favicons/android-chrome-*.* > $@
