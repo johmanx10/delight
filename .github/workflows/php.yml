@@ -31,6 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     if: ${{ github.event_name == 'push' }}
+    environment:
+      name: gh-pages
+      url: https://janmarten.name/delight
 
     steps:
       - name: Checkout repository
@@ -38,6 +41,8 @@ jobs:
 
       - name: Download artifact
         uses: actions/download-artifact@v2
+        env:
+          WEBSITE: ${{ secrets.WEBSITE }}
         with:
           name: public
           path: public

@@ -90,7 +90,9 @@ define(
 
 define(
     'WEBSITE',
-    IS_DEVELOPMENT
-        ? 'http://johmanx10.delight.localhost'
-        : 'https://www.delightcoachingpraktijk.nl/'
+    getenv('WEBSITE') ?: (
+        IS_DEVELOPMENT
+            ? 'http://johmanx10.delight.localhost'
+            : 'https://www.delightcoachingpraktijk.nl'
+    )
 );
