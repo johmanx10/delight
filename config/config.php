@@ -5,55 +5,55 @@ declare(strict_types=1);
 const PAGES = [
     'home' => [
         'label' => 'Home',
-        'path' => '/',
+        'path' => '',
         'controller' => __DIR__ . '/../pages/home.php',
         'output' => 'index.html'
     ],
     'holistisch-therapeut' => [
         'label' => 'Holistisch therapeut',
-        'path' => '/holistisch-therapeut.html',
+        'path' => 'holistisch-therapeut.html',
         'controller' => __DIR__ . '/../pages/holistisch-therapeut.php',
         'output' => 'holistisch-therapeut.html'
     ],
     'life-coach' => [
         'label' => 'Life coach',
-        'path' => '/life-coach.html',
+        'path' => 'life-coach.html',
         'controller' => __DIR__ . '/../pages/life-coach.php',
         'output' => 'life-coach.html'
     ],
     'reiki' => [
         'label' => 'Reiki',
-        'path' => '/reiki.html',
+        'path' => 'reiki.html',
         'controller' => __DIR__ . '/../pages/reiki.php',
         'output' => 'reiki.html'
     ],
     'over-jou' => [
         'label' => 'Over jou',
-        'path' => '/over-jou.html',
+        'path' => 'over-jou.html',
         'controller' => __DIR__ . '/../pages/over-jou.php',
         'output' => 'over-jou.html'
     ],
     'over-mij' => [
         'label' => 'Over mij',
-        'path' => '/over-mij.html',
+        'path' => 'over-mij.html',
         'controller' => __DIR__ . '/../pages/over-mij.php',
         'output' => 'over-mij.html'
     ],
     'reviews' => [
         'label' => 'Reviews',
-        'path' => '/beoordelingen.html',
+        'path' => 'beoordelingen.html',
         'controller' => __DIR__ . '/../pages/reviews.php',
         'output' => 'beoordelingen.html'
     ],
     'blog' => [
         'label' => 'Blog',
-        'path' => '/blog/',
+        'path' => 'blog/',
         'controller' => __DIR__ . '/../pages/blog.php',
         'output' => 'blog/index.html'
     ],
     'contact' => [
         'label' => 'Contact',
-        'path' => '/contact.html',
+        'path' => 'contact.html',
         'controller' => __DIR__ . '/../pages/contact.php',
         'output' => 'contact.html'
     ]
