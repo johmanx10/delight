@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  php:
+  build:
     name: Build website
     runs-on: ubuntu-latest
     container: srcoder/development-php:php80-fpm
@@ -19,8 +19,14 @@ jobs:
       - name: Build website
         run: make public
 
+  deploy:
+    name: Deploy website
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: ${{ github.event_name == 'push' }}
+
+    steps:
       - name: Deploy
-        if: ${{ github.event_name == 'push' }}
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
