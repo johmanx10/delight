@@ -36,6 +36,12 @@
                 </nav>
             </div>
 
+            <div id="nav-contextual">
+                <nav>
+                    {% block nav_contextual %}{% endblock %}
+                </nav>
+            </div>
+
             <div id="main-container">
                 <main itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
                     {% block main %}{% endblock %}

@@ -1,4 +1,12 @@
 {% extends 'base.html.twig' %}
 
+{% block nav_contextual %}
+    Mijn naam is
+    <a href="{{ path('over-mij') }}" title="{{ label('over-mij') }}"><strong>{{ meta.author }}</strong></a>
+en ik verwelkom je in
+    <a href="{{ path('contact') }}" title="{{ label('contact') }}">mijn praktijk</a> in <strong>Leeuwarden</strong>.
+{% endblock %}
+
 {% block main %}
+    &laquo;Hier volgt nog inhoud&raquo;
 {% endblock %}

@@ -3,13 +3,30 @@
 :root {
     --theme-primary: #27759c;
     --theme-secondary: #aecee5;
+    --theme-tertiary: #43bb8b;
 
     font-size: 16px;
     font-family: "Liberation Serif", "Times New Roman", serif;
 }
 
+#nav-contextual {
+    background: var(--theme-primary);
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.6em;
+    padding: .3em 0;
+}
+
+#nav-contextual a {
+    color: inherit;
+}
+
 a:link, a:hover {
     color: var(--theme-primary)
+}
+
+a:visited {
+    color: var(--theme-tertiary);
 }
 
 a[target="_blank"]:after {
@@ -65,6 +82,10 @@ header a[href="#nav"], #nav a[href="#"] {
     display: none;
 }
 
+header a[href^='tel:'] {
+    font-size: 2rem;
+}
+
 #alt-therapy picture {
     display: block;
     position: relative;
@@ -92,6 +113,23 @@ header a[href="#nav"], #nav a[href="#"] {
 .footer-service {
     background: var(--theme-primary);
     color: #fff;
+}
+
+#service > p {
+    font-size: 1.2em;
+}
+
+#service strong {
+    display: block;
+    margin-bottom: .15em;
+}
+
+#service {
+    text-align: left;
+}
+
+#service a:before {
+    font-size: 1.0em;
 }
 
 @media screen and (max-width: 800px) {
@@ -156,7 +194,7 @@ header a[href="#nav"], #nav a[href="#"] {
         display: block;
     }
 
-    #doormat nav, #doormat p {
+    #doormat nav, .footer-doormat p {
         display: block;
         font-size: 1.4em;
         line-height: 1.6em;
@@ -170,12 +208,21 @@ header a[href="#nav"], #nav a[href="#"] {
         border-bottom: 1px solid #ccc;
     }
 
+    #doormat > *:last-child {
+        text-align: center;
+    }
+
     #alt-therapy {
         display: flex;
         justify-content: space-evenly;
     }
 
-    footer > div:last-child > :not(div) {
+    #nav-contextual {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .footer-doormat footer > div:last-child > :not(div) {
         text-align: center;
     }
 }
@@ -190,11 +237,19 @@ header a[href="#nav"], #nav a[href="#"] {
         font-size: inherit;
     }
 
+    header a[href^='tel:'] {
+        font-size: 1.8rem;
+    }
+
     #nav-container {
         background: var(--theme-secondary);
     }
 
-    footer, #alt-therapy {
+    #nav-contextual {
+        text-align: right;
+    }
+
+    footer, #alt-therapy, #nav {
         display: flex;
         justify-content: space-between;
     }
@@ -203,11 +258,11 @@ header a[href="#nav"], #nav a[href="#"] {
         margin-left: 1.6em;
     }
 
-    footer > div:last-child > :not(div) {
+    .footer-doormat > footer > div:last-child > :not(div) {
         text-align: right;
     }
 
-    footer > div:last-child {
+    .footer-doormat > footer > div:last-child {
         max-width: 17em;
     }
 
@@ -217,18 +272,28 @@ header a[href="#nav"], #nav a[href="#"] {
         flex-direction: column;
     }
 
-    #doormat > * {
-        display: flex;
-        justify-content: space-between;
-    }
-
     #doormat > *:last-child {
         margin-top: auto;
     }
 
     #doormat nav {
         width: 100%;
-   }
+    }
+
+    #service {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    #service > p {
+        padding-left: 1.4em;
+    }
+
+    #service h2 {
+        min-width: 25%;
+    }
 }
 
 header picture {
@@ -311,10 +376,6 @@ header > div {
     line-height: 1.6em;
 }
 
-header a[href^='tel:'] {
-    font-size: 2rem;
-}
-
 header a:not([href^='tel:']) {
     text-decoration: none;
     color: inherit;
@@ -343,11 +404,21 @@ header a:not([href^='tel:']) {
 
 main {
     background: #eee;
-    height: 18em;
+    height: 12em;
+    line-height: 12em;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
 }
 
 .footer-doormat footer > div, .footer-service {
     margin-top: 2.4em
+}
+
+.footer-doormat h2 {
+    color: var(--theme-primary);
 }
 
 .footer-service {
