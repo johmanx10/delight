@@ -8,7 +8,7 @@ on:
 
 jobs:
   php:
-    name: GrumPHP
+    name: Build website
     runs-on: ubuntu-latest
     container: srcoder/development-php:php80-fpm
 
