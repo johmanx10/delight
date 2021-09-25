@@ -18,6 +18,8 @@ jobs:
 
       - name: Build website
         run: make public
+        env:
+          WEBSITE: ${{ secrets.WEBSITE }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
@@ -31,9 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     if: ${{ github.event_name == 'push' }}
-    environment:
-      name: gh-pages
-      url: https://janmarten.name/delight
+    environment: github-pages
 
     steps:
       - name: Checkout repository
@@ -47,8 +47,6 @@ jobs:
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
-        env:
-          WEBSITE: ${{ secrets.WEBSITE }}
         with:
-          branch: github-pages
+          branch: gh-pages
           folder: public
