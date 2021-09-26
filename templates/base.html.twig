@@ -25,37 +25,37 @@
 
     <body itemscope itemtype="{% block schema %}https://schema.org/WebPage{% endblock %}">
         {% block body %}
-            <div id="header-container">
+            <div id="header-container" class="container">
                 <header itemscope itemtype="https://schema.org/WPHeader">
                     {% include 'header.html.twig' %}
                 </header>
             </div>
 
-            <div id="nav-container" class="nav-container">
+            <div id="nav-container" class="nav-container container">
                 <nav id="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
                     {% include 'nav.html.twig' %}
                 </nav>
             </div>
 
-            <div id="nav-contextual" class="nav-container container-shadow">
+            <div id="nav-contextual" class="nav-container container shadow">
                 <nav>
                     {% block nav_contextual %}{% endblock %}
                 </nav>
             </div>
 
-            <div id="main-container">
+            <div id="main-container" class="container">
                 <main itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
                     {% block main %}{% endblock %}
                 </main>
             </div>
 
-            <div class="footer-container footer-doormat">
+            <div class="footer-container footer-doormat container">
                 <footer itemscope itemtype="https://schema.org/WPFooter">
                     {% include 'footer/doormat.html.twig' %}
                 </footer>
             </div>
 
-            <div class="footer-container footer-service container-shadow">
+            <div class="footer-container footer-service container shadow">
                 <footer itemscope itemtype="https://schema.org/WPFooter">
                     {% include 'footer/service.html.twig' %}
                 </footer>

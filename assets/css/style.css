@@ -5,6 +5,9 @@
     --theme-secondary: #aecee5;
     --theme-tertiary: #43bb8b;
 
+    --shadow-color: rgba(0, 0, 0, .25);
+    --shadow-size: .1rem .2rem .2rem;
+
     font-size: 16px;
     font-family: sans-serif;
 }
@@ -252,15 +255,15 @@ header a[href^='tel:'] {
 
     #nav a.active, #nav a:hover {
         border-radius: .3em .3em 0 0;
-        box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .25);
     }
 
-    @media not screen and (prefers-reduced-motion: reduce) {
-        .container-shadow {
-            position: relative;
-            z-index: 100;
-            box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .25);
-        }
+    #nav a.active, #nav a:hover, .shadow {
+        box-shadow: var(--shadow-size) var(--shadow-color);
+    }
+
+    .container.shadow {
+        position: relative;
+        z-index: 100;
     }
 
     footer, #nav, #alt-therapy {
