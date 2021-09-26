@@ -132,6 +132,11 @@ header a[href^='tel:'] {
     font-size: 1.0em;
 }
 
+#alt-therapy {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 @media screen and (max-width: 800px) {
     .hidden-sm {
         display: none;
@@ -212,11 +217,6 @@ header a[href^='tel:'] {
         text-align: center;
     }
 
-    #alt-therapy {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
     #nav-contextual {
         padding-left: 1em;
         padding-right: 1em;
@@ -263,7 +263,7 @@ header a[href^='tel:'] {
         }
     }
 
-    footer, #alt-therapy, #nav {
+    footer, #nav, #alt-therapy {
         display: flex;
         justify-content: space-between;
     }
@@ -277,7 +277,7 @@ header a[href^='tel:'] {
     }
 
     .footer-doormat > footer > div:last-child {
-        max-width: 19em;
+        max-width: 18.2em;
     }
 
     #doormat {
