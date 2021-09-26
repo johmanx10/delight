@@ -255,7 +255,8 @@ header a[href^='tel:'] {
     #nav-container {
         --shadow-color: var(--theme-secondary-shadow);
         background: var(--theme-secondary);
-        box-shadow: inset 0 .5em .5em #fff;
+        box-shadow: inset 0 2em 2em #fff;
+        margin-top: .3em;
     }
 
     #nav-contextual {
