@@ -31,13 +31,13 @@
                 </header>
             </div>
 
-            <div id="nav-container">
+            <div id="nav-container" class="nav-container">
                 <nav id="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
                     {% include 'nav.html.twig' %}
                 </nav>
             </div>
 
-            <div id="nav-contextual">
+            <div id="nav-contextual" class="nav-container container-shadow">
                 <nav>
                     {% block nav_contextual %}{% endblock %}
                 </nav>
@@ -55,7 +55,7 @@
                 </footer>
             </div>
 
-            <div class="footer-container footer-service">
+            <div class="footer-container footer-service container-shadow">
                 <footer itemscope itemtype="https://schema.org/WPFooter">
                     {% include 'footer/service.html.twig' %}
                 </footer>

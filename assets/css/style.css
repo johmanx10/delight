@@ -247,6 +247,20 @@ header a[href^='tel:'] {
 
     #nav-contextual {
         text-align: right;
+        margin-bottom: 2rem;
+    }
+
+    #nav a.active, #nav a:hover {
+        border-radius: .3em .3em 0 0;
+        box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .25);
+    }
+
+    @media not screen and (prefers-reduced-motion: reduce) {
+        .container-shadow {
+            position: relative;
+            z-index: 100;
+            box-shadow: .1rem .2rem .2rem rgba(0, 0, 0, .25);
+        }
     }
 
     footer, #alt-therapy, #nav {
@@ -384,20 +398,7 @@ header a:not([href^='tel:']) {
 }
 
 @media print {
-    img {
-        filter: grayscale(100%);
-    }
-
-    * {
-        color: #000 !important;
-    }
-
-    header > div {
-        font-size: 2em;
-        line-height: 2em;
-    }
-
-    #nav-container, #footer-container {
+    .footer-container, .nav-container  {
         display: none;
     }
 }
