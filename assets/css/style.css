@@ -337,7 +337,7 @@ header picture img {
     top: .09em;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 2000px) {
     :root {
         font-size: 1.6rem;
     }

@@ -23,8 +23,8 @@
 # Design
 - [x] Breakpoints
   - [x] SM: mobile < 800px
-  - [x] MD: tablet / desktop > 800px < 1280px
-  - [x] LG: large device > 1280px
+  - [x] MD: tablet / desktop > 800px < 2000px
+  - [x] LG: large device > 2000px
 - [x] Header
    - [x] Logo / branding
    - [x] Phone CTA
