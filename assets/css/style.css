@@ -1,12 +1,20 @@
 @charset "UTF-8";
 
 :root {
-    --theme-primary: #27759c;
-    --theme-secondary: #aecee5;
+    --theme-primary: hsl(200, 60%, 38%);
+    --theme-secondary: hsl(205, 59%, 79%);
     --theme-tertiary: #43bb8b;
 
+    --theme-primary-shadow: hsla(200, 60%, 25%, .25);
+    --theme-secondary-shadow: hsla(205, 59%, 50%, .25);
+
     --shadow-color: rgba(0, 0, 0, .25);
-    --shadow-size: .1rem .2rem .2rem;
+    --shadow-aspect-ratio: 2/1;
+    --shadow-size: .2em;
+    --shadow-dimensions:
+        calc(var(--shadow-size) * 1)
+        calc(var(--shadow-size) * var(--shadow-aspect-ratio))
+        calc(var(--shadow-size) * var(--shadow-aspect-ratio));
 
     font-size: 16px;
     font-family: sans-serif;
@@ -42,7 +50,6 @@ a[target="_blank"]:after {
 }
 
 #nav {
-    background: var(--theme-secondary);
     display: flex;
     justify-content: stretch;
     justify-items: center;
@@ -114,6 +121,7 @@ header a[href^='tel:'] {
 }
 
 .footer-service {
+    --shadow-color: var(--theme-primary-shadow);
     background: var(--theme-primary);
     color: #fff;
 }
@@ -245,7 +253,9 @@ header a[href^='tel:'] {
     }
 
     #nav-container {
+        --shadow-color: var(--theme-secondary-shadow);
         background: var(--theme-secondary);
+        box-shadow: inset 0 .5em .5em #fff;
     }
 
     #nav-contextual {
@@ -258,7 +268,7 @@ header a[href^='tel:'] {
     }
 
     #nav a.active, #nav a:hover, .shadow {
-        box-shadow: var(--shadow-size) var(--shadow-color);
+        box-shadow: var(--shadow-dimensions) var(--shadow-color);
     }
 
     .container.shadow {
