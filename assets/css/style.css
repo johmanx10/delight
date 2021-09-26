@@ -277,7 +277,7 @@ header a[href^='tel:'] {
     }
 
     .footer-doormat > footer > div:last-child {
-        max-width: 18em;
+        max-width: 19em;
     }
 
     #doormat {
