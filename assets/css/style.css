@@ -27,6 +27,7 @@
 }
 
 #nav-contextual {
+    --icon-phone: var(--icon-phone-secondary);
     background: var(--theme-primary);
     color: #fff;
     font-size: 1rem;

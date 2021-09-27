@@ -1,3 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block schema %}https://schema.org/ItemPage{% endblock %}
+
+{% block nav_contextual %}
+    Plan een afspraak <strong>holistische therapie</strong>
+    <a href="{{ path('contact') }}" title="{{ label('contact') }}">mijn praktijk</a> in <strong>Leeuwarden</strong>.
+{% endblock %}
+
+{% block main %}
+    &laquo;Hier volgt nog inhoud&raquo;
+{% endblock %}
