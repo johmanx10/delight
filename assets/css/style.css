@@ -137,6 +137,10 @@ header a[href^='tel:'] {
     text-align: left;
 }
 
+#service > p {
+    line-height: 1.4;
+}
+
 #service > p > strong {
     font-size: 1.2em;
     display: block;
@@ -329,8 +333,9 @@ header a[href^='tel:'] {
 
     #service a:before {
         float: left;
-        font-size: 3em;
-        margin-right: .3em;
+        font-size: 4.2em;
+        line-height: 1;
+        margin-right: .2em;
     }
 
     #service h2 {
