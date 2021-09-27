@@ -16,6 +16,12 @@
         calc(var(--shadow-size) * var(--shadow-aspect-ratio))
         calc(var(--shadow-size) * var(--shadow-aspect-ratio));
 
+    --icon-phone: "📞";
+    --icon-phone-secondary: "✆";
+    --icon-email: "✉";
+    --icon-menu: "☰";
+    --icon-close: "⨯";
+
     font-size: 16px;
     font-family: sans-serif;
 }
@@ -126,17 +132,15 @@ header a[href^='tel:'] {
     color: #fff;
 }
 
-#service > p {
-    font-size: 1.2em;
-}
-
-#service strong {
-    display: block;
-    margin-bottom: .15em;
-}
-
 #service {
+    --icon-phone: var(--icon-phone-secondary);
     text-align: left;
+}
+
+#service > p > strong {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: .3em;
 }
 
 #service a:before {
@@ -170,7 +174,7 @@ header a[href^='tel:'] {
     a[href="#"]:after {
         font-size: 1.6em;
         display: inline-block;
-        content: "⨯";
+        content: var(--icon-close);
     }
 
     header a[href="#nav"] {
@@ -183,7 +187,7 @@ header a[href^='tel:'] {
     a[href="#nav"]:before {
         font-size: 2em;
         display: block;
-        content: "☰";
+        content: var(--icon-menu);
     }
 
     header, main, footer {
@@ -319,6 +323,16 @@ header a[href^='tel:'] {
         padding-left: 1.4em;
     }
 
+    #service > p > strong {
+        /*margin-bottom: 1em;*/
+    }
+
+    #service a:before {
+        float: left;
+        font-size: 3em;
+        margin-right: .3em;
+    }
+
     #service h2 {
         min-width: 28%;
     }
@@ -385,14 +399,14 @@ header a[href^='tel:'] {
 
 a[href^='tel:']::before {
     display: inline-block;
-    content: "📞";
+    content: var(--icon-phone);
     margin-right: .3rem;
     font-size: .75em;
 }
 
 a[href^='mailto:']::before {
     display: inline-block;
-    content: "✉";
+    content: var(--icon-email);
     margin-right: .3rem;
     font-size: .75em;
 }
