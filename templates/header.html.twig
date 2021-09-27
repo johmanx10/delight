@@ -1,5 +1,5 @@
 {% block header %}
-    <a href="#nav" target="_self" rel="noopener nofollow" title="Open menu"><span class="hidden-sm">Open menu</span></a>
+    <a href="{{ path(_route) }}#nav" target="_self" rel="noopener nofollow" title="Open menu"><span class="hidden-sm">Open menu</span></a>
     <div itemscope itemtype="https://schema.org/LocalBusiness">
         <a itemprop="brand" itemscope itemtype="https://schema.org/Brand" href="{{ path('home') }}" title="{{ company.name }}">
             <picture itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">

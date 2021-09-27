@@ -95,7 +95,7 @@ a[target="_blank"]:after {
     color: var(--theme-primary);
 }
 
-header a[href="#nav"], #nav a[href="#"] {
+header a[href$="#nav"], #nav a[href$="#"] {
     display: none;
 }
 
@@ -162,7 +162,7 @@ header a[href^='tel:'] {
         display: none;
     }
 
-    #nav a[href="#"] {
+    #nav a[href$="#"] {
         display: block;
         text-align: right;
         background: inherit;
@@ -170,26 +170,26 @@ header a[href^='tel:'] {
         padding-right: .625em;
     }
 
-    a[href="#"]:hover {
+    a[href$="#"]:hover {
         background: inherit;
         text-decoration: underline;
         color: inherit;
     }
 
-    a[href="#"]:after {
+    a[href$="#"]:after {
         font-size: 1.6em;
         display: inline-block;
         content: var(--icon-close);
     }
 
-    header a[href="#nav"] {
+    header a[href$="#nav"] {
         display: block;
         float: right;
         margin: 1em 0 0 .3em;
         height: auto !important;
     }
 
-    a[href="#nav"]:before {
+    a[href$="#nav"]:before {
         font-size: 2em;
         display: block;
         content: var(--icon-menu);

@@ -1,5 +1,5 @@
 {% block nav %}
-    <a href="#" target="_self" rel="noopener nofollow" title="Sluit menu"><span class="hidden-sm">Sluit menu</span></a>
+    <a href="{{ path(_route) }}#" target="_self" rel="noopener nofollow" title="Sluit menu"><span class="hidden-sm">Sluit menu</span></a>
     {% for id in nav.links %}
         <a href="{{ path(id) }}"
            title="{{ label(id) }}"
