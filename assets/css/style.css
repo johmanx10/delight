@@ -408,6 +408,7 @@ a[href^='tel:']::before {
     content: var(--icon-phone);
     margin-right: .3rem;
     font-size: .75em;
+    line-height: 1;
 }
 
 a[href^='mailto:']::before {
@@ -415,6 +416,7 @@ a[href^='mailto:']::before {
     content: var(--icon-email);
     margin-right: .3rem;
     font-size: .75em;
+    line-height: 1;
 }
 
 header > div {
