@@ -169,6 +169,7 @@ header a[href^='tel:'] {
 #authority > * {
     display: block;
     margin: 0 0 1em;
+    color: #666;
 }
 
 #authority dl {
