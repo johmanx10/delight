@@ -10,6 +10,23 @@
     "email": {
       "address": "delightcoaching21@gmail.com"
     },
+    "founder": {
+      "givenName": "Anja",
+      "familyName": "de Boer Groenhof"
+    },
+    "address": {
+      "locality": "Leeuwarden",
+      "postalCode": "8913 CZ",
+      "street": "Fonteinland",
+      "number": "7A",
+      "country": "Nederland"
+    },
+    "chamberOfCommerce": {
+      "identifier": "787416880000"
+    },
+    "tax": {
+      "vatId": "NL003379104B62"
+    },
     "shortName": "Delight",
     "phone": {
       "label": "0610 777 673",

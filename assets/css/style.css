@@ -157,6 +157,38 @@ header a[href^='tel:'] {
     justify-content: space-evenly;
 }
 
+.footer-authority > footer {
+    display: block;
+    padding: 3em 0;
+}
+
+#authority {
+    text-align: center;
+}
+
+#authority > * {
+    display: block;
+    margin: 0 0 1em;
+}
+
+#authority dl {
+    display: inline-grid;
+    grid-template-columns: minmax(7rem, min-content) minmax(9rem, min-content);
+}
+
+#authority dl > dt {
+    text-align: left;
+}
+
+#authority dl > dd {
+    margin: 0;
+    text-align: right;
+}
+
+dfn[title],abbr[title] {
+    cursor: help;
+}
+
 @media screen and (max-width: 800px) {
     .hidden-sm {
         display: none;

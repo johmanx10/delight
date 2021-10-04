@@ -1,12 +1,14 @@
 {% block footer_service %}
-<div id="service">
+<div id="service" itemscope itemtype="https://schema.org/MedicalBusiness">
     <h2>Service & Contact</h2>
     <p>
+        <meta itemprop="email" content="{{ company.email.address }}">
         <strong>Wil je iets overleggen?</strong>
         <a title="Stuur een e-mail naar {{ company.name }}" href="mailto:{{ company.name }}<{{ company.email.address }}>">Stuur een e-mail</a>
         en vertel me waar ik je mee kan helpen.
     </p>
     <p>
+        <meta itemprop="telephone" content="{{ company.phone.number }}">
         <strong>Afspraak maken?</strong>
         <a title="Bel nu met {{ company.name }}" href="tel:{{ company.phone.number }}">Bel nu</a>
         om een afspraak te maken, verplaatsen of door te nemen.

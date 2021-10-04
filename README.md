@@ -17,8 +17,8 @@
       - [x] Android
       - [x] Other devices
       - [x] Manifest generator
-- [ ] Continuous integration
-- [ ] Continuous deployment
+- [x] Continuous integration
+- [x] Continuous deployment
 
 # Design
 - [x] Breakpoints
@@ -35,7 +35,7 @@
   - [x] Site navigation
   - [x] Contextual navigation
 - [x] Doormat footer
-- [ ] Service footer
+- [x] Service footer
    - [ ] Location
 - [ ] Authority footer (copyright notice, branding, location, etc.)
 
@@ -66,8 +66,8 @@
 
 # Hosting
 - [x] GIT repository
-- [ ] Webserver
-  - [ ] Implement continuous deployment using GitHub Actions
+- [x] Webserver
+  - [x] Implement continuous deployment using GitHub Actions
 - [ ] Transfer domain
    - [ ] Get domain transfer code from VistaPrint
    - [ ] Register domain at new domain registrar

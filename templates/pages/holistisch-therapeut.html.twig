@@ -3,8 +3,16 @@
 {% block schema %}https://schema.org/ItemPage{% endblock %}
 
 {% block nav_contextual %}
-    Plan een afspraak <strong>holistische therapie</strong>
-    <a href="{{ path('contact') }}" title="{{ label('contact') }}">mijn praktijk</a> in <strong>Leeuwarden</strong>.
+    Plan een afspraak <strong>holistische therapie</strong> in
+    <span itemscope itemtype="https://schema.org/MedicalBusiness">
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+            <a href="{{ path('contact') }}" title="{{ label('contact') }}">mijn <span itemprop="name">praktijk</span></a>
+            in
+            <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <strong itemprop="addressLocality">{{ company.address.locality }}</strong>.
+            </span>
+        </span>
+    </span>
 {% endblock %}
 
 {% block main %}
