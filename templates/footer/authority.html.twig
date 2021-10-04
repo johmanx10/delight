@@ -29,11 +29,11 @@
                 </dfn>
             </dt>
             <dd>
+                <meta itemprop="vatID" content="{{ company.tax.vatId }}">
                 <a href="https://ec.europa.eu/taxation_customs/vies/vatRequest.html"
                    title="Btw-identificatienummer valideren"
                    target="_blank"
-                   rel="noreferrer nofollow"
-                   itemprop="vatID">{{ company.tax.vatId }}</a>
+                   rel="noreferrer nofollow">{{ company.tax.vatId }}</a>
             </dd>
 
             <dt>
@@ -42,11 +42,11 @@
                 </dfn>
             </dt>
             <dd>
+                <meta itemprop="identifier" content="{{ company.chamberOfCommerce.identifier }}">
                 <a href="https://www.kvk.nl/orderstraat/product-kiezen/?kvknummer={{ company.chamberOfCommerce.identifier }}"
                    title="Bedrijfsinformatie {{ company.name }}"
                    target="_blank"
-                   rel="noreferrer nofollow"
-                   itemprop="identifier">{{ company.chamberOfCommerce.identifier }}</a>
+                   rel="noreferrer nofollow">{{ company.chamberOfCommerce.identifier }}</a>
             </dd>
         </dl>
         <p>Copyright &copy; {{ date('now')|date('Y') }}</p>
