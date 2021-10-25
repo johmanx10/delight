@@ -45,7 +45,7 @@ jobs:
     name: Deploy website
     runs-on: ubuntu-latest
     needs: [build]
-    if: ${{ github.event_name == 'push' && !env.ACT }}
+    if: ${{ (github.event_name == 'push') && (!env.ACT) }}
     environment: github-pages
 
     steps:
