@@ -1,6 +1,6 @@
 # Composer configuration
-PHP := $(shell command -v php || echo php)
-COMPOSER := $(shell command -v composer.phar || command -v composer || echo composer)
+PHP := $(shell command -v php || which php || echo php)
+COMPOSER := $(shell command -v composer.phar || which composer.phar || command -v composer2 || which composer2 || command -v composer || which composer || echo composer)
 COMPOSER_VENDOR_DIR := $(shell $(COMPOSER) config vendor-dir || echo vendor)
 COMPOSER_AUTOLOAD := $(shell echo "$(COMPOSER_VENDOR_DIR)/autoload.php")
 

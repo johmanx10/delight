@@ -1,6 +1,6 @@
 CSS := $(shell find assets/css -type f)
 
-public/css/style.css: $(CSS) | bin/minify-css vendor
+public/css/style.css: $(CSS) | svg bin/minify-css vendor
 	@mkdir -p $(shell dirname $@)
 	cat $^ | bin/minify-css > $@
 

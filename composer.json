@@ -5,6 +5,7 @@
   "prefer-stable": true,
   "require": {
     "php": "^8.0",
+    "ext-fileinfo": "*",
     "ext-json": "*",
     "ext-dom": "*",
     "twig/twig": "^3.0",

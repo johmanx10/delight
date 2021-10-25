@@ -16,11 +16,12 @@
         calc(var(--shadow-size) * var(--shadow-aspect-ratio))
         calc(var(--shadow-size) * var(--shadow-aspect-ratio));
 
-    --icon-phone: "📞";
-    --icon-phone-secondary: "✆";
-    --icon-email: "✉";
-    --icon-menu: "☰";
-    --icon-close: "⨯";
+    --icon-phone: url(/img/svg/solid/phone.svg);
+    --icon-phone-secondary: url(/img/svg/outline/phone.svg);
+    --icon-email: url(/img/svg/outline/inbox.svg);
+    --icon-menu: url(/img/svg/outline/menu.svg);
+    --icon-close: url(/img/svg/outline/x.svg);
+    --icon-external-link: url(/img/svg/outline/external-link.svg);
 
     font-size: 16px;
     font-family: sans-serif;
@@ -39,21 +40,43 @@
     color: inherit;
 }
 
+
 a:link, a:hover {
-    color: var(--theme-primary)
+    color: var(--theme-primary);
 }
 
 a:visited {
     color: var(--theme-tertiary);
 }
 
+a:before, a:after {
+    background-color: currentColor;
+    width: 1em;
+    height: 1em;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    clip-path: padding-box;
+}
+
+a:before, a:after {
+    transform: translateY(.15em);
+}
+
+a:after {
+    margin: 0 -.15em 0 .15em;
+}
+
+a:before {
+    margin: 0 .15em 0 -.15em;
+}
+
 a[target="_blank"]:after {
     display: inline-block;
-    content: url("img/external-link-16x16.webp");
-    width: 16px;
-    height: 16px;
-    transform: translateY(.15em);
-    margin-right: -.15em;
+    content: "";
+    mask-image: var(--icon-external-link);
+    -webkit-mask-image: var(--icon-external-link);
 }
 
 #nav {
@@ -174,7 +197,7 @@ header a[href^='tel:'] {
 
 #authority dl {
     display: inline-grid;
-    grid-template-columns: minmax(7rem, min-content) minmax(9rem, min-content);
+    grid-template-columns: minmax(7rem, min-content) minmax(10rem, min-content);
     row-gap: .5em;
 }
 
@@ -191,6 +214,7 @@ dfn[title],abbr[title] {
     cursor: help;
 }
 
+/* Mobile */
 @media screen and (max-width: 800px) {
     .hidden-sm {
         display: none;
@@ -213,20 +237,27 @@ dfn[title],abbr[title] {
     a[href$="#"]:after {
         font-size: 1.6em;
         display: inline-block;
-        content: var(--icon-close);
+        content: "";
+        mask-image: var(--icon-close);
+        -webkit-mask-image: var(--icon-close);
     }
 
     header a[href$="#nav"] {
         display: block;
         float: right;
-        margin: 1em 0 0 .3em;
+        margin: .6em 0 0 .3em;
         height: auto !important;
     }
 
+    header a:not([itemprop="brand"]) {
+        font-size: 2rem;
+    }
+
     a[href$="#nav"]:before {
-        font-size: 2em;
         display: block;
-        content: var(--icon-menu);
+        content: "";
+        mask-image: var(--icon-menu);
+        -webkit-mask-image: var(--icon-menu);
     }
 
     header, main, footer {
@@ -234,7 +265,11 @@ dfn[title],abbr[title] {
     }
 
     header a[href^='tel:'] {
-        line-height: 2em;
+        color: inherit !important;
+    }
+
+    header a[href^='tel:']:before {
+        font-size: 1em;
     }
 
     #nav {
@@ -281,6 +316,7 @@ dfn[title],abbr[title] {
     }
 }
 
+/* Desktop and large desktop */
 @media not screen and (max-width: 800px) {
     body > div > * {
         margin: 0 auto !important;
@@ -362,15 +398,12 @@ dfn[title],abbr[title] {
         padding-left: 1.4em;
     }
 
-    #service > p > strong {
-        /*margin-bottom: 1em;*/
-    }
-
     #service a:before {
         float: left;
         font-size: 4.2em;
         line-height: 1;
         margin-right: .2em;
+        transform: revert;
     }
 
     #service h2 {
@@ -392,13 +425,13 @@ header picture img {
     top: .09em;
 }
 
+/* Large desktop */
 @media screen and (min-width: 2000px) {
     :root {
         font-size: 1.6rem;
     }
 
     a[target="_blank"]:after {
-        content: url("img/external-link-22x22.webp");
         width: 22px;
         height: 22px;
     }
@@ -437,19 +470,21 @@ header a[href^='tel:'] {
     color: var(--theme-primary)
 }
 
-a[href^='tel:']::before {
+a[href^='tel:']:before {
     display: inline-block;
-    content: var(--icon-phone);
+    content: "";
+    mask-image: var(--icon-phone);
+    -webkit-mask-image: var(--icon-phone);
     margin-right: .3rem;
-    font-size: .75em;
     line-height: 1;
 }
 
 a[href^='mailto:']::before {
     display: inline-block;
-    content: var(--icon-email);
+    content: "";
+    mask-image: var(--icon-email);
+    -webkit-mask-image: var(--icon-email);
     margin-right: .3rem;
-    font-size: .75em;
     line-height: 1;
 }
 
