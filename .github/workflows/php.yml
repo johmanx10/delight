@@ -18,6 +18,11 @@ jobs:
           if ! apt satisfy git-lfs &> /dev/null; then apt update -y; fi
           apt install git-lfs -y
 
+      - name: Install NPM
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+          apt-get install -y nodejs
+
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
@@ -29,6 +34,7 @@ jobs:
           WEBSITE: ${{ secrets.WEBSITE }}
 
       - name: Upload artifact
+        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v2
         with:
           name: public
@@ -39,7 +45,7 @@ jobs:
     name: Deploy website
     runs-on: ubuntu-latest
     needs: [build]
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' && !env.ACT }}
     environment: github-pages
 
     steps:
@@ -48,6 +54,7 @@ jobs:
 
       - name: Download artifact
         uses: actions/download-artifact@v2
+
         with:
           name: public
           path: public
