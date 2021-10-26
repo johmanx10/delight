@@ -8,4 +8,14 @@ use tubalmartin\CssMin\Minifier;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $minifier = new Minifier(raisePhpLimits: true);
-echo $minifier->run(stream_get_contents(STDIN));
+echo preg_replace_callback(
+    '#url\((\/.+?)\)#',
+    fn (array $matches) => str_replace(
+        $matches[1],
+        dataUri(
+            __DIR__ . '/../public/' . $matches[1]
+        ),
+        $matches[0]
+    ),
+    $minifier->run(stream_get_contents(STDIN))
+);

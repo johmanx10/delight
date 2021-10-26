@@ -43,18 +43,8 @@ $environment->addFunction(
         'css',
         fn (string $filename) => sprintf(
             '<style>%s</style>',
-            preg_replace_callback(
-                '#url\(([\'"]?\/.+?[\'"]?)\)#',
-                fn (array $matches) => str_replace(
-                    $matches[1],
-                    dataUri(
-                        __DIR__ . '/../public/' . trim($matches[1], '"\'')
-                    ),
-                    $matches[0]
-                ),
-                file_get_contents(
-                    __DIR__ . '/../public/css/' . $filename
-                )
+            file_get_contents(
+                __DIR__ . '/../public/css/' . $filename
             )
         ),
         ['is_safe' => ['html']]
