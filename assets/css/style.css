@@ -80,6 +80,12 @@ a[target="_blank"]:after {
     -webkit-mask-image: var(--icon-external-link);
 }
 
+p.block {
+    box-shadow: inset 1em 0 0 0 var(--theme-secondary);
+    padding: 0 1em 0 2em;
+    font-style: italic;
+}
+
 #nav {
     display: flex;
     justify-content: stretch;
