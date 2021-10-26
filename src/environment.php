@@ -42,8 +42,9 @@ $environment->addFunction(
     new TwigFunction(
         'css',
         fn (string $filename) => sprintf(
-            '<link rel="stylesheet" href="css/%s" />',
-            ltrim($filename, '/')
+            '<link rel="stylesheet" href="css/%s?v=%s" />',
+            ltrim($filename, '/'),
+            trim(`git log -1 --format=%h assets/css/$filename`)
         ),
         ['is_safe' => ['html']]
     )
