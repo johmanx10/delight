@@ -1,7 +1,7 @@
 HTML := $(shell bin/build-targets)
 PHP_SOURCE := $(shell find src -type f)
 
-$(HTML):: vendor $(PAGES) $(TEMPLATES) $(CONFIG) public/css/style.css $(PHP_SOURCE)
+$(HTML):: vendor $(PAGES) $(TEMPLATES) $(CONFIG) $(PHP_SOURCE)
 	bin/build
 
 html: $(HTML)
