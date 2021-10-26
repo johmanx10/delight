@@ -42,10 +42,8 @@ $environment->addFunction(
     new TwigFunction(
         'css',
         fn (string $filename) => sprintf(
-            '<style>%s</style>',
-            file_get_contents(
-                __DIR__ . '/../public/css/' . $filename
-            )
+            '<link rel="stylesheet" href="css/%s" />',
+            ltrim($filename, '/')
         ),
         ['is_safe' => ['html']]
     )
