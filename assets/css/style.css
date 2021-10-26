@@ -347,12 +347,10 @@ dfn[title],abbr[title] {
         height: 1em;
         padding: .2em .5em .5em;
         transform: translateY(1.3em);
-        opacity: .8;
     }
 
     header a[href^='tel:']:hover {
         box-shadow: var(--shadow-dimensions) var(--shadow-color);
-        opacity: 1;
     }
 
     #nav-container {
