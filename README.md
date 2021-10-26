@@ -3,7 +3,7 @@
    - [x] Template engine
    - [x] HTML minifier
    - [x] CSS minifier
-     - [ ] Inline media importer
+     - [x] Inline media importer
    - [x] Sitemap generator
       - [x] Sitemap validator
    - [x] Robots.txt generator
@@ -36,8 +36,7 @@
   - [x] Contextual navigation
 - [x] Doormat footer
 - [x] Service footer
-   - [ ] Location
-- [ ] Authority footer (copyright notice, branding, location, etc.)
+- [x] Authority footer (copyright notice, branding, location, etc.)
 
 # Content
 - [ ] Home
