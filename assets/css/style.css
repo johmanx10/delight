@@ -332,7 +332,27 @@ dfn[title],abbr[title] {
     }
 
     header a[href^='tel:'] {
-        font-size: 1.8rem;
+        --shadow-color: var(--theme-primary-shadow);
+        --shadow-size: .1em;
+        --shadow-dimensions:
+            calc(var(--shadow-size) * 1)
+            calc(var(--shadow-size) * var(--shadow-aspect-ratio))
+            calc(var(--shadow-size) * var(--shadow-aspect-ratio));
+        background: var(--theme-primary);
+        font-size: 1.2rem;
+        color: #fff;
+        text-decoration: none;
+        border-radius: .2em;
+        line-height: 1;
+        height: 1em;
+        padding: .2em .5em .5em;
+        transform: translateY(1.3em);
+        opacity: .8;
+    }
+
+    header a[href^='tel:']:hover {
+        box-shadow: var(--shadow-dimensions) var(--shadow-color);
+        opacity: 1;
     }
 
     #nav-container {
@@ -468,10 +488,6 @@ header picture img {
         width: 182px;
         height: 170px;
     }
-}
-
-header a[href^='tel:'] {
-    color: var(--theme-primary)
 }
 
 a[href^='tel:']:before {
