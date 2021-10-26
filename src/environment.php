@@ -44,7 +44,11 @@ $environment->addFunction(
         fn (string $filename) => sprintf(
             '<link rel="stylesheet" href="css/%s?v=%s" />',
             ltrim($filename, '/'),
-            trim(`git log -1 --format=%h assets/css/$filename`)
+            substr(
+                sha1_file(__DIR__ . '/../public/css/' . $filename),
+                0,
+                8
+            )
         ),
         ['is_safe' => ['html']]
     )
