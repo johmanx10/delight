@@ -49,13 +49,6 @@ shields:: public/img/shields/gat-228x212.webp
 
 public:: | shields
 
-public/img/external-link-%.webp: assets/external-link.png
-	@mkdir -p $(@D)
-	convert $^ $(CONVERT_OPTIONS) -resize $(*F) -density $(*F) $@
-
-public:: public/img/external-link-16x16.webp
-public:: public/img/external-link-22x22.webp
-
 public/img/favicons/favicon.ico: assets/logo.png
 	@mkdir -p $(@D)
 	convert $^ $(CONVERT_OPTIONS) -resize 128x128 -density 128x128 $@
