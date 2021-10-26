@@ -175,6 +175,10 @@ header a[href^='tel:'] {
     font-size: 1.0em;
 }
 
+#service a[href^='tel:']:before {
+    margin-left: -.1em;
+}
+
 #alt-therapy {
     display: flex;
     justify-content: space-evenly;
