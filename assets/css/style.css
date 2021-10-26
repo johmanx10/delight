@@ -40,7 +40,6 @@
     color: inherit;
 }
 
-
 a:link, a:hover {
     color: var(--theme-primary);
 }
@@ -49,6 +48,7 @@ a:visited {
     color: var(--theme-tertiary);
 }
 
+/* Shared link icon properties */
 a:before, a:after {
     background-color: currentColor;
     width: 1em;
@@ -72,6 +72,7 @@ a:before {
     margin: 0 .15em 0 -.15em;
 }
 
+/* External links */
 a[target="_blank"]:after {
     display: inline-block;
     content: "";
@@ -120,10 +121,6 @@ a[target="_blank"]:after {
 
 header a[href$="#nav"], #nav a[href$="#"] {
     display: none;
-}
-
-header a[href^='tel:'] {
-    font-size: 2rem;
 }
 
 #alt-therapy picture {
@@ -224,12 +221,17 @@ dfn[title],abbr[title] {
         display: none;
     }
 
+    header a:not([itemprop="brand"]) {
+        font-size: 2rem;
+    }
+
+    /* Close menu */
     #nav a[href$="#"] {
         display: block;
         text-align: right;
         background: inherit;
         color: inherit;
-        padding-right: .625em;
+        line-height: 1.5em;
     }
 
     a[href$="#"]:hover {
@@ -239,13 +241,14 @@ dfn[title],abbr[title] {
     }
 
     a[href$="#"]:after {
-        font-size: 1.6em;
+        font-size: 1.4em;
         display: inline-block;
         content: "";
         mask-image: var(--icon-close);
         -webkit-mask-image: var(--icon-close);
     }
 
+    /* Menu */
     header a[href$="#nav"] {
         display: block;
         float: right;
@@ -253,13 +256,10 @@ dfn[title],abbr[title] {
         height: auto !important;
     }
 
-    header a:not([itemprop="brand"]) {
-        font-size: 2rem;
-    }
-
     a[href$="#nav"]:before {
         display: block;
         content: "";
+        transform: translateY(.1em);
         mask-image: var(--icon-menu);
         -webkit-mask-image: var(--icon-menu);
     }
@@ -504,6 +504,12 @@ header a:not([href^='tel:']) {
     color: inherit;
     height: 1.6em;
     overflow: hidden;
+}
+
+header span[itemprop='name'] {
+    font-size: .75em;
+    position: relative;
+    top: -.05em;
 }
 
 @media print {
