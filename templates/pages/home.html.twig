@@ -20,5 +20,55 @@
 {% endblock %}
 
 {% block main %}
-    &laquo;Hier volgt nog inhoud&raquo;
+    <p>
+        Huisje, boompje, beestje: dat is wat jij allemaal van je lijstje kunt
+        afvinken.
+        Je hebt een fijn gezin thuis en bent druk bezig met je carrière.
+        Maar door alle hectiek vergeet je eigenlijk wie het belangrijkste is: jijzelf.
+        Het liefst ren, hol en vlieg je voor iedereen, maar dit maakt jou niet
+        gelukkiger. Je zit al een tijdje niet lekker in je vel.
+        Hoe zorg je ervoor dat je het heft weer in eigen handen neemt?
+    </p>
+
+    <h1>Haal het beste van jezelf naar boven!</h1>
+    <p>
+        Zorgzaam zijn zit in de genen van de vrouw. Wanneer een
+        dierbare hulp nodig heeft, sta je snel paraat om de zorgrol
+        op je te nemen. Maar het is verleidelijk om in deze zorgrol
+        te blijven hangen. En dat is juist een valkuil. Daardoor is de
+        kans groot dat je ongelukkig wordt, wat voor lichamelijke
+        en geestelijke klachten kan zorgen.
+        <a href="{{ path('holistisch-therapeut') }}" title="{{ label('holistisch-therapeut') }}">Holistisch therapeut</a>,
+        <a href="{{ path('lifecoach') }}" title="{{ label('lifecoach') }}">lifecoach</a>
+        en <a href="{{ path('reiki') }}" title="{{ label('reiki') }}">reikimaster</a>
+        {{ company.founder.givenName }} {{ company.founder.familyName }}
+        helpt je om je geluk weer te vinden.
+    </p>
+
+    <picture id="home_hero">
+        <source type="image/webp" srcset="img/photos/home_hero-1280x853.webp" media="(min-width: 2000px)">
+        <source type="image/png" srcset="img/photos/home_hero-1280x853.png" media="(min-width: 2000px)">
+        <source type="image/webp" srcset="img/photos/home_hero-1600x1067.webp 2x, img/photos/home_hero-800x534.webp">
+        <source type="image/png" srcset="img/photos/home_hero-1600x1067.png 2x">
+        <img
+                alt="{{ company.founder.givenName }} op het strand, wijzend naar de verte"
+                width="800"
+                height="533"
+                src="img/photos/home_hero-800x534.png">
+    </picture>
+
+    <h2>Dieper kijken</h2>
+    <p>
+        Anja vertelt: 'Soms is het lastig om te achterhalen waarom
+        je je precies ongelukkig voelt. Je hebt toch een carrière en
+        een gezin thuis? Wanneer je dan ook naar de arts gaat met
+        je gevoelens en eventuele klachten, komt de daadwerkelijke
+        oorzaak niet gelijk aan het licht. Je voelt je onbegrepen
+        en overgevoelig. Ik ben er dan voor je om dieper te gaan
+        kijken. Die doe ik door
+        <a href="{{ path('lifecoach') }}" title="{{ label('lifecoach') }}">lifecoaching</a>,
+        <a href="{{ path('holistisch-therapeut') }}" title="{{ label('holistisch-therapeut') }}">Holistische technieken</a>
+        en <a href="{{ path('reiki') }}" title="{{ label('reiki') }}">reiki</a>
+        te combineren.'
+    </p>
 {% endblock %}

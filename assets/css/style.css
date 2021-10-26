@@ -217,6 +217,11 @@ dfn[title],abbr[title] {
 
 /* Mobile */
 @media screen and (max-width: 800px) {
+    #home_hero img {
+        width: 100%;
+        height: auto;
+    }
+
     .hidden-sm {
         display: none;
     }
@@ -449,6 +454,11 @@ header picture img {
 
 /* Large desktop */
 @media screen and (min-width: 2000px) {
+    #home_hero img {
+        width: 1280px;
+        height: 853px;
+    }
+
     :root {
         font-size: 1.6rem;
     }
@@ -532,17 +542,6 @@ header span[itemprop='name'] {
     }
 }
 
-main {
-    background: #eee;
-    height: 12em;
-    line-height: 12em;
-    font-size: 2em;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    overflow: hidden;
-}
-
 .footer-doormat footer > div, .footer-service {
     margin-top: 2.4em
 }
@@ -557,4 +556,17 @@ main {
 
 .footer-service a {
     color: #fff;
+}
+
+main p {
+    line-height: 1.6em;
+    margin-top: .6em;
+}
+
+main p + p {
+    margin-top: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: .67em 0 0;
 }

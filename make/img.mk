@@ -79,3 +79,18 @@ favicons:: public/img/favicons/android-chrome-512x512.webp
 favicons:: public/img/favicons/manifest.json
 
 public:: | favicons
+
+public/img/photos/%:
+	$(eval DIMENSIONS := $(shell echo $(*F) | cut -d- -f2 | cut -d. -f1))
+	$(eval NAME := $(shell echo $(*F) | cut -d- -f1))
+	@mkdir -p $(@D)
+	convert assets/photos/$(NAME).png $(CONVERT_OPTIONS) -resize $(DIMENSIONS) -density $(DIMENSIONS) $@
+
+photos:: public/img/photos/home_hero-800x534.png
+photos:: public/img/photos/home_hero-800x534.webp
+photos:: public/img/photos/home_hero-1280x853.png
+photos:: public/img/photos/home_hero-1280x853.webp
+photos:: public/img/photos/home_hero-1600x1067.png
+photos:: public/img/photos/home_hero-1600x1067.webp
+
+public:: | photos
