@@ -41,23 +41,14 @@ $environment->addFunction(
 $environment->addFunction(
     new TwigFunction(
         'css',
-        fn (string $filename, bool $embedUrls = true) => sprintf(
+        fn (string $filename) => sprintf(
             '<style>%s</style>',
             preg_replace_callback(
                 '#url\(([\'"]?\/.+?[\'"]?)\)#',
                 fn (array $matches) => str_replace(
                     $matches[1],
-                    $embedUrls
-                        ? dataUri(
-                            __DIR__ . '/../public/' . trim($matches[1], '"\'')
-                        )
-                        : sprintf(
-                        '%s/%s',
-                        rtrim(WEBSITE, '/'),
-                        trim(
-                            ltrim($matches[1], '/'),
-                            '"\''
-                        )
+                    dataUri(
+                        __DIR__ . '/../public/' . trim($matches[1], '"\'')
                     ),
                     $matches[0]
                 ),
