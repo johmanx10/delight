@@ -573,6 +573,6 @@ main p + p {
     margin-top: 1em;
 }
 
-h1, h2, h3, h4, h5, h6 {
+main h1, main h2 {
     margin: .67em 0 0;
 }
