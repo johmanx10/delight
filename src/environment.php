@@ -41,13 +41,17 @@ $environment->addFunction(
 $environment->addFunction(
     new TwigFunction(
         'css',
-        fn (string $filename, bool $embedUrls = true) => preg_replace_callback(
-            '#url\(([\'"]?\/.+?[\'"]?)\)#',
-            fn (array $matches) => str_replace(
-                $matches[1],
-                $embedUrls
-                    ? dataUri(__DIR__ . '/../public/' . trim($matches[1], '"\''))
-                    : sprintf(
+        fn (string $filename, bool $embedUrls = true) => sprintf(
+            '<style>%s</style>',
+            preg_replace_callback(
+                '#url\(([\'"]?\/.+?[\'"]?)\)#',
+                fn (array $matches) => str_replace(
+                    $matches[1],
+                    $embedUrls
+                        ? dataUri(
+                            __DIR__ . '/../public/' . trim($matches[1], '"\'')
+                        )
+                        : sprintf(
                         '%s/%s',
                         rtrim(WEBSITE, '/'),
                         trim(
@@ -55,10 +59,11 @@ $environment->addFunction(
                             '"\''
                         )
                     ),
-                $matches[0]
-            ),
-            file_get_contents(
-                __DIR__ . '/../public/css/' . $filename
+                    $matches[0]
+                ),
+                file_get_contents(
+                    __DIR__ . '/../public/css/' . $filename
+                )
             )
         ),
         ['is_safe' => ['html']]
