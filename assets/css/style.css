@@ -18,7 +18,7 @@
 
     --icon-phone: url(/img/svg/solid/phone.svg);
     --icon-phone-secondary: url(/img/svg/outline/phone.svg);
-    --icon-email: url(/img/svg/outline/inbox.svg);
+    --icon-email: url(/img/svg/outline/mail.svg);
     --icon-menu: url(/img/svg/outline/menu.svg);
     --icon-close: url(/img/svg/outline/x.svg);
     --icon-external-link: url(/img/svg/outline/external-link.svg);
@@ -176,10 +176,7 @@ header a[href$="#nav"], #nav a[href$="#"] {
 
 #service a:before {
     font-size: 1.0em;
-}
-
-#service a[href^='tel:']:before {
-    margin-left: -.095em;
+    margin-left: -.085em;
 }
 
 #alt-therapy {
