@@ -59,17 +59,20 @@
     </picture>
 
     {{ heading(2, 'Dieper kijken') }}
-    <p>
-        Anja vertelt: 'Soms is het lastig om te achterhalen waarom
-        je je precies ongelukkig voelt. Je hebt toch een carrière en
-        een gezin thuis? Wanneer je dan ook naar de arts gaat met
-        je gevoelens en eventuele klachten, komt de daadwerkelijke
-        oorzaak niet gelijk aan het licht. Je voelt je onbegrepen
-        en overgevoelig. Ik ben er dan voor je om dieper te gaan
-        kijken. Die doe ik door
-        <a href="{{ path('life-coach') }}" title="{{ label('life-coach') }}">lifecoaching</a>,
-        <a href="{{ path('holistisch-therapeut') }}" title="{{ label('holistisch-therapeut') }}">holistische technieken</a>
-        en <a href="{{ path('reiki') }}" title="{{ label('reiki') }}">reiki</a>
-        te combineren.'
-    </p>
+    <figure>
+        <figcaption>{{ company.founder.givenName }} vertelt:</figcaption>
+        <blockquote>
+            <p>Soms is het lastig om te achterhalen waarom
+                je je precies ongelukkig voelt. Je hebt toch een carrière en
+                een gezin thuis? Wanneer je dan ook naar de arts gaat met
+                je gevoelens en eventuele klachten, komt de daadwerkelijke
+                oorzaak niet gelijk aan het licht. Je voelt je onbegrepen
+                en overgevoelig. Ik ben er dan voor je om dieper te gaan
+                kijken. Die doe ik door
+                <a href="{{ path('life-coach') }}" title="{{ label('life-coach') }}">lifecoaching</a>,
+                <a href="{{ path('holistisch-therapeut') }}" title="{{ label('holistisch-therapeut') }}">holistische technieken</a>
+                en <a href="{{ path('reiki') }}" title="{{ label('reiki') }}">reiki</a>
+                te combineren.</p>
+        </blockquote>
+    </figure>
 {% endblock %}

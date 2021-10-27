@@ -231,6 +231,38 @@ dfn[title],abbr[title] {
     cursor: help;
 }
 
+blockquote {
+    margin: 0;
+}
+
+figure {
+    margin: 1em 0;
+}
+
+figure figcaption {
+    float: left;
+    display: block;
+    margin: 1.2em 1em 0 1em;
+    font-style: italic;
+    color: var(--theme-primary);
+    font-weight: bolder;
+}
+
+blockquote p {
+    padding: 1em;
+    /*background: var(--theme-secondary);*/
+    box-shadow: var(--shadow-dimensions) var(--theme-secondary-shadow);
+    border-radius: .5em;
+}
+
+blockquote p::before {
+    content: '\201C';
+}
+
+blockquote p::after {
+    content: '\201D';
+}
+
 /* Mobile */
 @media screen and (max-width: 800px) {
     #home_hero img {
