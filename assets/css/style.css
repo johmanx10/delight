@@ -21,6 +21,7 @@
     --icon-email: url(/img/svg/outline/mail.svg);
     --icon-menu: url(/img/svg/outline/menu.svg);
     --icon-close: url(/img/svg/outline/x.svg);
+    --icon-link: url(/img/svg/solid/link.svg);
     --icon-external-link: url(/img/svg/outline/external-link.svg);
 
     font-size: 16px;
@@ -49,7 +50,7 @@ a:visited {
 }
 
 /* Shared link icon properties */
-a:before, a:after {
+a:before, a:after, a.anchor {
     background-color: currentColor;
     width: 1em;
     height: 1em;
@@ -58,6 +59,18 @@ a:before, a:after {
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     clip-path: padding-box;
+}
+
+a.anchor {
+    color: inherit;
+    float: left;
+    display: none;
+    font-size: .75em;
+    margin-left: -1.3em;
+    margin-top: .3em;
+    padding-right: .3em;
+    mask-image: var(--icon-link);
+    -webkit-mask-image: var(--icon-link);
 }
 
 a:before, a:after {
@@ -335,6 +348,10 @@ dfn[title],abbr[title] {
         width: 800px;
     }
 
+    *:hover > a.anchor {
+        display: revert;
+    }
+
     a[href^='tel:'] {
         font-size: inherit;
     }
@@ -564,6 +581,7 @@ header span[itemprop='name'] {
 main p {
     line-height: 1.6em;
     margin-top: .6em;
+    text-align: justify;
 }
 
 main p + p {

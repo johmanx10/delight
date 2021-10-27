@@ -2,6 +2,7 @@ NPM := $(shell command -v npm || which npm || echo npm)
 SVGS := \
 	outline/phone.svg \
 	solid/phone.svg \
+	solid/link.svg \
 	outline/mail.svg \
 	outline/menu.svg \
 	outline/external-link.svg \

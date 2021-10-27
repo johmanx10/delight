@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
+use Symfony\Component\String\Slugger\AsciiSlugger;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
+use Twig\Extra\String\StringExtension;
 use Twig\Loader\FilesystemLoader;
 use Twig\TwigFunction;
 
@@ -15,6 +17,7 @@ $environment = new Environment(
 );
 
 $environment->addExtension(new DebugExtension());
+$environment->addExtension(new StringExtension());
 $environment->addFunction(
     new TwigFunction(
         'path',
@@ -49,6 +52,21 @@ $environment->addFunction(
                 0,
                 8
             )
+        ),
+        ['is_safe' => ['html']]
+    )
+);
+
+$slugger = new AsciiSlugger();
+
+$environment->addFunction(
+    new TwigFunction(
+        'heading',
+        fn (int $level, string $text) => sprintf(
+            '<h%1$d id="%3$s"><a class="anchor" href="#%3$s" aria-hidden="true"></a>%2$s</h%1$d>',
+            $level,
+            $text,
+            $slugger->slug(strtolower($text))
         ),
         ['is_safe' => ['html']]
     )

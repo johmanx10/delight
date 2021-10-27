@@ -10,7 +10,8 @@
     "ext-dom": "*",
     "twig/twig": "^3.0",
     "voku/html-min": "^4.4",
-    "tubalmartin/cssmin": "^4.1"
+    "tubalmartin/cssmin": "^4.1",
+    "twig/string-extra": "^3.3"
   },
   "autoload": {
     "files": [
