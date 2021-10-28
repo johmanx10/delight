@@ -6,6 +6,7 @@
   "require": {
     "php": "^8.0",
     "ext-fileinfo": "*",
+    "ext-spl": "*",
     "ext-json": "*",
     "ext-dom": "*",
     "twig/twig": "^3.0",
