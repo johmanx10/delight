@@ -14,8 +14,7 @@ final class OpenGraphCompiler implements ContextCompilerInterface
 
     public function __construct(
         private string $root,
-        private string $website,
-        private int $maxImages = 1
+        private string $website
     ) {}
 
     public function compile(array $context): array
@@ -96,26 +95,28 @@ final class OpenGraphCompiler implements ContextCompilerInterface
                 'og:image:width' => $width,
                 'og:image:height' => $height,
                 'og:image:alt' => $alt,
-                'size' => $size,
                 'pixels' => $width * $height
             ];
         }
 
+        // Sort images by dimensions.
         usort(
             $images,
             fn (array $a, array $b) => (
                 // Hoist the largest image in dimensions.
-                $b['pixels'] <=> $a['pixels']
-                // Penalize file size.
-                ?: $a['size'] <=> $b['size']
+                $a['pixels'] <=> $b['pixels']
             )
         );
 
         $images = array_reduce(
-            array_slice($images, 0, $this->maxImages),
+            // Only return 1 image per type.
+            array_values(
+                array_column($images, null, 'og:image:type')
+            ),
             fn (array $carry, array $image) => array_merge(
                 $carry,
                 [
+                    // Only keep properties that are valid for opengraph.
                     array_filter(
                         $image,
                         fn (string $key) => str_starts_with($key, 'og:image'),
