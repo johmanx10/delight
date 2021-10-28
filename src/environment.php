@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Delight\Website\SRI\SubResource;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
@@ -44,15 +45,18 @@ $environment->addFunction(
 $environment->addFunction(
     new TwigFunction(
         'css',
-        fn (string $filename) => sprintf(
-            '<link rel="stylesheet" href="css/%s?v=%s" />',
-            ltrim($filename, '/'),
-            substr(
-                sha1_file(__DIR__ . '/../public/css/' . $filename),
-                0,
-                8
-            )
-        ),
+        function (string $filename) : string {
+            $resource = SubResource::sha256(
+                __DIR__ . '/../public/css/' . $filename
+            );
+
+            return sprintf(
+                '<link rel="stylesheet" href="css/%1$s?v=%2$.8s" integrity="%3$s" />',
+                ltrim($filename, '/'),
+                bin2hex($resource->getHash()),
+                $resource
+            );
+        },
         ['is_safe' => ['html']]
     )
 );
