@@ -45,20 +45,23 @@
         helpt je om je geluk weer te vinden.
     </p>
 
-    <picture id="home_hero">
-        <source type="image/webp" srcset="img/photos/home_hero-1280x853.webp" media="(min-width: 2000px)">
-        <source type="image/png" srcset="img/photos/home_hero-1280x853.png" media="(min-width: 2000px)">
-        <source type="image/webp" srcset="img/photos/home_hero-1600x1067.webp 2x, img/photos/home_hero-800x534.webp">
-        <source type="image/png" srcset="img/photos/home_hero-1600x1067.png 2x">
-        <img
-            alt="{{ company.founder.givenName }} op het strand, wijzend naar de verte"
-            width="800"
-            height="533"
-            src="img/photos/home_hero-800x534.png">
-    </picture>
+    <figure itemprop="primaryImageOfPage" itemscope itemtype="https://schema.org/ImageObject">
+        <picture id="home_hero">
+            <source type="image/webp" srcset="img/photos/home_hero-1280x853.webp" media="(min-width: 2000px)">
+            <source type="image/png" srcset="img/photos/home_hero-1280x853.png" media="(min-width: 2000px)">
+            <source type="image/webp" srcset="img/photos/home_hero-1600x1067.webp 2x, img/photos/home_hero-800x534.webp">
+            <source type="image/png" srcset="img/photos/home_hero-1600x1067.png 2x">
+            <img
+                alt="{{ company.founder.givenName }} op het strand, wijzend naar de verte"
+                width="800"
+                height="533"
+                itemprop="contentUrl"
+                src="img/photos/home_hero-800x534.png">
+        </picture>
+    </figure>
 
     {{ h2('Dieper kijken') }}
-    <figure>
+    <figure class="quote">
         <figcaption>{{ company.founder.givenName }} vertelt:</figcaption>
         <blockquote>
             <p>Soms is het lastig om te achterhalen waarom

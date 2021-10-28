@@ -21,6 +21,8 @@
 {% endblock %}
 
 {% block other_social %}
+    <meta itemprop="url" content="{{ meta.canonical }}">
+
     {% if social['og:image'] is defined %}
         {% set url = social['og:image'] %}
         {% if url is iterable %}

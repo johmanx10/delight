@@ -9,7 +9,9 @@ return render(
     [
         'title' => 'Delight Coachingpraktijk',
         'meta' => [
-            'description' => 'Overzicht van redenen om gebruik te maken van Delight Coachingpraktijk.'
+            'description' => <<<DESCRIPTION
+            Je voelt je onbegrepen en overgevoelig. Ik ben er voor je om dieper te gaan kijken. Die doe ik door lifecoaching, holistische technieken en reiki te combineren.
+            DESCRIPTION
         ],
         'social' => [
             'image' => [

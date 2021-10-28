@@ -236,10 +236,14 @@ blockquote {
 }
 
 figure {
+    margin: 0;
+}
+
+figure.quote {
     margin: 1em 0;
 }
 
-figure figcaption {
+figure.quote figcaption {
     float: left;
     display: block;
     margin: 1.2em 1em 0 1em;
