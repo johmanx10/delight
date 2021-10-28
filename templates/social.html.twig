@@ -1,7 +1,7 @@
 {% macro renderMetaTags(attributes) %}
     {% for property, content in attributes %}
         {% if content is iterable %}
-            {{ _self.rendetMetaTags(content) }}
+            {{ _self.renderMetaTags(content) }}
         {% else %}
             <meta property="{{ property }}" content="{{ content }}">
         {% endif %}
