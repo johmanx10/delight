@@ -2,17 +2,5 @@
 
 {% block schema %}https://schema.org/CollectionPage{% endblock %}
 
-{% block nav_contextual %}
-    Wil je ook verder geholpen worden?
-    <span itemscope itemtype="https://schema.org/MedicalBusiness">
-        <meta itemprop="email" content="{{ company.email.address }}">
-        <meta itemprop="telephone" content="{{ company.phone.number }}">
-        <strong><a title="Stuur een e-mail naar {{ company.name }}" href="mailto:{{ company.name }}<{{ company.email.address }}>">Stuur een e-mail</a></strong>
-        of <strong><a title="Bel nu met {{ company.name }}" href="tel:{{ company.phone.number }}">bel nu</a></strong>
-        om een afspraak te maken.
-    </span>
-{% endblock %}
-
 {% block main %}
-    &laquo;Hier volgt nog inhoud&raquo;
 {% endblock %}
