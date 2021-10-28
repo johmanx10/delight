@@ -1,0 +1,15 @@
+{% macro link(href, attributes = {"rel": "stylesheet"}, algo = 'sha256') %}
+    {% set resource = sri(href, algo) %}
+    <link
+        href="{{ href }}?v={{ "%.8s"|format(resource.hashAsString) }}"
+        {% for attribute, value in attributes %}
+            {% if value is same as false %}
+            {% elseif value is same as true %}
+            {{ attribute }}="{{ attribute }}"
+            {% else %}
+            {{ attribute }}="{{ value }}"
+            {% endif %}
+        {% endfor %}
+        integrity="{{ resource }}"
+    />
+{% endmacro %}

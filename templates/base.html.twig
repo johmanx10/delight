@@ -14,7 +14,8 @@
         {% endblock %}
 
         {% block critical_styles %}
-            {{ css('style.css') }}
+            {% import 'macros.html.twig' as html %}
+            {{ html.link('css/style.css') }}
         {% endblock %}
         {% block stylesheets %}{% endblock %}
 

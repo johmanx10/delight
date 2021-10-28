@@ -1,7 +1,9 @@
 {% block favicons %}
-    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" sizes="180x180" type="image/png">
-    <link rel="icon" href="img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="icon" href="img/favicons/favicon.ico" sizes="128x128" type="image/x-icon">
-    <link rel="manifest" href="img/favicons/manifest.json">
+    {% import 'macros.html.twig' as html %}
+
+    {% for favicon in favicons %}
+        {{ html.link(favicon.href, favicon) }}
+    {% endfor %}
+
+    {{ html.link('img/favicons/manifest.json', {'rel': 'manifest'}) }}
 {% endblock %}

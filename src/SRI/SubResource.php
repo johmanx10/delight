@@ -10,13 +10,13 @@ use Stringable;
 final class SubResource implements Stringable
 {
     /** @todo Turn into Enum in PHP 8.1 */
-    private const ALGO_SHA256 = 'sha256';
-    private const ALGO_SHA384 = 'sha384';
-    private const ALGO_SHA512 = 'sha512';
+    public const ALGO_SHA256 = 'sha256';
+    public const ALGO_SHA384 = 'sha384';
+    public const ALGO_SHA512 = 'sha512';
 
     private string $hash;
 
-    private function __construct(
+    public function __construct(
         private string $algo,
         private SplFileInfo $resource
     ) {}
@@ -24,6 +24,11 @@ final class SubResource implements Stringable
     public function getHash(): string
     {
         return $this->hash ??= self::calculateHash($this->algo, $this->resource);
+    }
+
+    public function getHashAsString(): string
+    {
+        return bin2hex($this->getHash());
     }
 
     private static function calculateHash(string $algo, SplFileInfo $resource): string
@@ -37,30 +42,6 @@ final class SubResource implements Stringable
             '%s-%s',
             $this->algo,
             base64_encode($this->getHash())
-        );
-    }
-
-    public static function sha256(string $resource): self
-    {
-        return new self(
-            self::ALGO_SHA256,
-            new SplFileInfo($resource)
-        );
-    }
-
-    public static function sha384(string $resource): self
-    {
-        return new self(
-            self::ALGO_SHA384,
-            new SplFileInfo($resource)
-        );
-    }
-
-    public static function sha512(string $resource): self
-    {
-        return new self(
-            self::ALGO_SHA512,
-            new SplFileInfo($resource)
         );
     }
 }

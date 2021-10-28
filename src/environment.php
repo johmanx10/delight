@@ -44,20 +44,11 @@ $environment->addFunction(
 
 $environment->addFunction(
     new TwigFunction(
-        'css',
-        function (string $filename) : string {
-            $resource = SubResource::sha256(
-                __DIR__ . '/../public/css/' . $filename
-            );
-
-            return sprintf(
-                '<link rel="stylesheet" href="css/%1$s?v=%2$.8s" integrity="%3$s" />',
-                ltrim($filename, '/'),
-                bin2hex($resource->getHash()),
-                $resource
-            );
-        },
-        ['is_safe' => ['html']]
+        'sri',
+        fn (string $filename, string $algo = null) => new SubResource(
+            $algo ?? SubResource::ALGO_SHA256,
+            new SplFileInfo(__DIR__ . '/../public/' . $filename)
+        )
     )
 );
 
