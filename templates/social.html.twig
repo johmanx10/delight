@@ -19,3 +19,13 @@
         social|filter((content, property) => property starts with 'twitter:')
     ) }}
 {% endblock %}
+
+{% block other_social %}
+    {% if social['og:image'] is defined %}
+        {% set url = social['og:image'] %}
+        {% if url is iterable %}
+            {% set url = (social['og:image']|first)['og:image'] %}
+        {% endif %}
+        <meta itemprop="image" content="{{ url }}">
+    {% endif %}
+{% endblock %}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ meta.language }}">
+<html lang="{{ meta.language }}" itemscope itemtype="{% block schema %}https://schema.org/WebPage{% endblock %}">
     <head>
         {% block meta %}
             <meta charset="utf-8">
@@ -25,7 +25,7 @@
         {% endblock %}
     </head>
 
-    <body itemscope itemtype="{% block schema %}https://schema.org/WebPage{% endblock %}" class="page-{{ _route }}">
+    <body class="page-{{ _route }}">
         {% block body %}
             <div id="header-container" class="container">
                 <header itemscope itemtype="https://schema.org/WPHeader">
