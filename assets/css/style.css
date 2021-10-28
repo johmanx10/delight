@@ -518,11 +518,6 @@ header picture img {
         font-size: 1.6rem;
     }
 
-    a[target="_blank"]:after {
-        width: 22px;
-        height: 22px;
-    }
-
     header picture {
         width: 64px;
         height: 64px;
