@@ -4,4 +4,9 @@ declare(strict_types=1);
 
 use voku\helper\HtmlMin;
 
-return new HtmlMin();
+$minifier = new HtmlMin();
+
+$minifier->doRemoveSpacesBetweenTags();
+$minifier->doRemoveWhitespaceAroundTags();
+
+return $minifier;
