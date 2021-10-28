@@ -10,7 +10,7 @@ return render(
         'title' => 'Delight Coachingpraktijk',
         'meta' => [
             'description' => <<<DESCRIPTION
-            Je voelt je onbegrepen en overgevoelig. Ik ben er voor je om dieper te gaan kijken. Die doe ik door lifecoaching, holistische technieken en reiki te combineren.
+            Je voelt je onbegrepen en overgevoelig. Ik ben er voor je om dieper te gaan kijken. Dit doe ik door lifecoaching, holistische technieken en reiki te combineren.
             DESCRIPTION
         ],
         'social' => [
