@@ -38,12 +38,3 @@ function compileContext(array $context): array
         $context
     );
 }
-
-function dataUri(string $fileName): string
-{
-    return sprintf(
-        'data:%s;base64,%s',
-        mime_content_type($fileName),
-        base64_encode(file_get_contents($fileName))
-    );
-}

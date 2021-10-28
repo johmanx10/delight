@@ -7,14 +7,21 @@ use tubalmartin\CssMin\Minifier;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+function dataUri(string $fileName): string
+{
+    return sprintf(
+        'data:%s;base64,%s',
+        mime_content_type($fileName),
+        base64_encode(file_get_contents($fileName))
+    );
+}
+
 $minifier = new Minifier(raisePhpLimits: true);
 echo preg_replace_callback(
     '#url\((\/.+?)\)#',
     fn (array $matches) => str_replace(
         $matches[1],
-        dataUri(
-            __DIR__ . '/../public/' . $matches[1]
-        ),
+        dataUri(__DIR__ . '/../public/' . $matches[1]),
         $matches[0]
     ),
     $minifier->run(stream_get_contents(STDIN))
