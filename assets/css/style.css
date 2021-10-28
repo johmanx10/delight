@@ -250,7 +250,6 @@ figure figcaption {
 
 blockquote p {
     padding: 1em;
-    /*background: var(--theme-secondary);*/
     box-shadow: var(--shadow-dimensions) var(--theme-secondary-shadow);
     border-radius: .5em;
 }

@@ -59,17 +59,19 @@ $environment->addFunction(
 
 $slugger = new AsciiSlugger();
 
-$environment->addFunction(
-    new TwigFunction(
-        'heading',
-        fn (int $level, string $text) => sprintf(
-            '<h%1$d id="%3$s"><a class="anchor" href="#%3$s" aria-hidden="true"></a>%2$s</h%1$d>',
-            $level,
-            $text,
-            $slugger->slug(strtolower($text))
-        ),
-        ['is_safe' => ['html']]
-    )
-);
+foreach (range(1, 6) as $level) {
+    $environment->addFunction(
+        new TwigFunction(
+            sprintf('h%d', $level),
+            fn (string $text) => sprintf(
+                '<h%1$d id="%3$s"><a class="anchor" href="#%3$s" aria-hidden="true"></a>%2$s</h%1$d>',
+                $level,
+                $text,
+                $slugger->slug(strtolower($text))
+            ),
+            ['is_safe' => ['html']]
+        )
+    );
+}
 
 return $environment;
