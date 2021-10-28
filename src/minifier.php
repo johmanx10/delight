@@ -6,7 +6,6 @@ use voku\helper\HtmlMin;
 
 $minifier = new HtmlMin();
 
-$minifier->doRemoveSpacesBetweenTags();
 $minifier->doRemoveWhitespaceAroundTags();
 
 return $minifier;
