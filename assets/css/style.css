@@ -587,8 +587,21 @@ header span[itemprop='name'] {
 }
 
 @media print {
-    .footer-container, .nav-container  {
+    .footer-container, .nav-container {
         display: none;
+    }
+
+    * {
+        box-shadow: revert !important;
+    }
+
+    a:visited {
+        color: var(--theme-primary) !important;
+    }
+
+    header a[href^='tel:'] {
+        background: inherit !important;
+        color: var(--theme-primary) !important;
     }
 }
 
