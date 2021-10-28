@@ -19,7 +19,12 @@ function render(string $page, array $data = []): string
             ? sprintf('pages/%s.twig', $page)
             : sprintf('pages/%s.html.twig', $page),
         array_replace_recursive(
-            compileContext(['_route' => $page]),
+            compileContext(
+                array_replace_recursive(
+                    $data,
+                    ['_route' => $page]
+                )
+            ),
             $data
         )
     );

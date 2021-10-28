@@ -1,0 +1,21 @@
+{% macro renderMetaTags(attributes) %}
+    {% for property, content in attributes %}
+        {% if content is iterable %}
+            {{ _self.rendetMetaTags(content) }}
+        {% else %}
+            <meta property="{{ property }}" content="{{ content }}">
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% block opengraph %}
+    {{ _self.renderMetaTags(
+        social|filter((content, property) => property starts with 'og:')
+    ) }}
+{% endblock %}
+
+{% block twitter %}
+    {{ _self.renderMetaTags(
+        social|filter((content, property) => property starts with 'twitter:')
+    ) }}
+{% endblock %}

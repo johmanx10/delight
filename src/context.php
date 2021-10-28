@@ -7,16 +7,20 @@ use Delight\Website\Context\DefaultsCompiler;
 use Delight\Website\Context\FaviconCompiler;
 use Delight\Website\Context\NavCompiler;
 use Delight\Website\Context\PageCompiler;
+use Delight\Website\Context\OpenGraphCompiler;
 use Delight\Website\ContextCompilerInterface;
+
+$webRoot = __DIR__ . '/../public/';
 
 return new class (
     new DefaultsCompiler(__DIR__ . '/../config/defaults.json'),
     new PageCompiler(PAGES),
     new NavCompiler(NAV_LAYOUT),
-    new FaviconCompiler(__DIR__ . '/../public/', 'img/favicons/favicon.ico'),
-    new FaviconCompiler(__DIR__ . '/../public/', 'img/favicons/favicon-*.png'),
-    new FaviconCompiler(__DIR__ . '/../public/', 'img/favicons/apple-touch-icon.png', 'apple-touch-icon'),
-    new CanonicalCompiler(WEBSITE)
+    new FaviconCompiler($webRoot, 'img/favicons/favicon.ico'),
+    new FaviconCompiler($webRoot, 'img/favicons/favicon-*.png'),
+    new FaviconCompiler($webRoot, 'img/favicons/apple-touch-icon.png', 'apple-touch-icon'),
+    new CanonicalCompiler(WEBSITE),
+    new OpenGraphCompiler($webRoot, WEBSITE)
 ) implements ContextCompilerInterface {
     private array $compilers;
 
@@ -29,7 +33,7 @@ return new class (
     {
         return array_reduce(
             $this->compilers,
-            fn (array $carry, ContextCompilerInterface $compiler) => (
+            static fn (array $carry, ContextCompilerInterface $compiler) => (
                 $compiler->compile($carry)
             ),
             $context

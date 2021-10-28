@@ -5,6 +5,11 @@
     "themeColor": "#478fb8",
     "robots": "noindex, nofollow"
   },
+  "social": {
+    "og:locale": "nl_NL",
+    "og:site_name": "Delight coachingpraktijk",
+    "twitter:card": "summary_large_image"
+  },
   "company": {
     "name": "Delight coachingpraktijk",
     "email": {

@@ -13,15 +13,16 @@
             <link rel="canonical" href="{{ meta.canonical }}">
         {% endblock %}
 
-        {% block critical_styles %}
+        {% block stylesheets %}
             {% import 'macros.html.twig' as html %}
             {{ html.link('css/style.css') }}
         {% endblock %}
-        {% block stylesheets %}{% endblock %}
 
         {% include 'favicons.html.twig' %}
 
-        {% block opengraph %}{% endblock %}
+        {% block social %}
+            {% include 'social.html.twig' %}
+        {% endblock %}
     </head>
 
     <body itemscope itemtype="{% block schema %}https://schema.org/WebPage{% endblock %}" class="page-{{ _route }}">

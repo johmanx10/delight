@@ -10,6 +10,12 @@ return render(
         'title' => 'Delight Coachingpraktijk',
         'meta' => [
             'description' => 'Overzicht van redenen om gebruik te maken van Delight Coachingpraktijk.'
+        ],
+        'social' => [
+            'image' => [
+                'pattern' => 'img/photos/home_hero-*x*.*',
+                'alt' => 'Anja op het strand, wijzend naar de verte'
+            ]
         ]
     ]
 );
