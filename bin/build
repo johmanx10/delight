@@ -32,27 +32,25 @@ foreach (PAGES as $id => $page) {
         fwrite(
             STDERR,
             sprintf(
-                'Could not create build page: "%s" %s',
+                'Could not build page: "%s" %s',
                 $id,
                 json_encode($page, JSON_PRETTY_PRINT)
             ) . PHP_EOL
         );
         fwrite(STDERR, $exception->getMessage() . PHP_EOL);
 
-        if ($exception instanceof \Twig\Error\Error) {
-            fwrite(
-                STDERR,
-                sprintf(
-                    'In %s on line %d.',
-                    str_replace(
-                        realpath(__DIR__ . '/..') . '/',
-                        '',
-                        $exception->getSourceContext()?->getPath() ?? 'Unknown'
-                    ),
-                    $exception->getTemplateLine()
-                ) . PHP_EOL
-            );
-        }
+        fwrite(
+            STDERR,
+            sprintf(
+                'In %s on line %d.',
+                str_replace(
+                    realpath(__DIR__ . '/..') . '/',
+                    '',
+                    $exception->getFile() ?? 'Unknown'
+                ),
+                $exception->getLine()
+            ) . PHP_EOL
+        );
 
         exit(2);
     }
