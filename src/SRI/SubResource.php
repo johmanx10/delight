@@ -33,7 +33,7 @@ final class SubResource implements Stringable
 
     private static function calculateHash(string $algo, SplFileInfo $resource): string
     {
-        return hash($algo, file_get_contents($resource->getRealPath()), true);
+        return hash($algo, file_get_contents($resource->getPathname()), true);
     }
 
     public function __toString(): string
