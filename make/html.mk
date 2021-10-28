@@ -1,7 +1,7 @@
 HTML := $(shell bin/build-targets)
 PHP_SOURCE := $(shell find src -type f)
 
-$(HTML):: vendor $(PAGES) $(TEMPLATES) $(CONFIG) $(PHP_SOURCE) public/css/style.css
+$(HTML):: vendor $(PAGES) $(TEMPLATES) $(CONFIG) $(PHP_SOURCE) public/css/style.css | favicons
 	bin/build
 
 html: $(HTML)
