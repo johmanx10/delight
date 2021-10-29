@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace Delight\Website\Context;
 
 use Delight\Website\ContextCompilerInterface;
+use Delight\Website\OpenGraph\Image;
+use Delight\Website\OpenGraph\ImageException;
+use Delight\Website\OpenGraph\ImageFactory;
+use Delight\Website\OpenGraph\ImageFilterInterface;
 
 final class OpenGraphCompiler implements ContextCompilerInterface
 {
-    private const IMAGE_MIN_WIDTH = 600;
-    private const IMAGE_MIN_HEIGHT = 315;
-    private const IMAGE_MAX_SIZE = 1024 ** 2; // 1 MB
-
     public function __construct(
         private string $root,
-        private string $website
+        private ImageFactory $imageFactory,
+        private ImageFilterInterface $imageFilter
     ) {}
 
     public function compile(array $context): array
@@ -38,99 +39,70 @@ final class OpenGraphCompiler implements ContextCompilerInterface
         if (isset($context['social']['image']['pattern'])
             && isset($context['social']['image']['alt'])
         ) {
-            $graph = array_replace_recursive(
-                $graph,
-                $this->findImages(
-                    $context['social']['image']['pattern'],
-                    $context['social']['image']['alt']
-                )
+            $images = $this->findImages(
+                $context,
+                $context['social']['image']['pattern'],
+                $context['social']['image']['alt']
             );
+
+            if (count($images) > 0) {
+                $graph['og:image'] = array_merge(
+                    $graph['og:image'] ?? [],
+                    $images
+                );
+            }
         }
 
         return $graph;
     }
 
-    private function findImages(string $pattern, string $alt): array
-    {
-        $images = [];
-        $files = glob(
-            sprintf(
-                '%s/%s',
-                rtrim($this->root, '/'),
-                ltrim($pattern, '/')
+    private function findImages(
+        array $context,
+        string $pattern,
+        string $alt
+    ): array {
+        $images = $this->imageFilter->filterImages(
+            $context,
+            ...array_reduce(
+                glob(
+                    sprintf(
+                        '%s/%s',
+                        rtrim($this->root, '/'),
+                        ltrim($pattern, '/')
+                    )
+                ) ?: [],
+                function (array $carry, string $file) use($alt): array {
+                    try {
+                        $carry[] = $this->imageFactory->createImage($file, $alt);
+                    } catch (ImageException) {
+                        // Ignore this image.
+                    }
+
+                    return $carry;
+                },
+                []
             )
-        ) ?: [];
-
-        foreach ($files as $file) {
-            $size = filesize($file);
-
-            // Only proceed when the file size is agreeable.
-            if ($size === 0 || $size > self::IMAGE_MAX_SIZE) {
-                continue;
-            }
-
-            $attributes = getimagesize($file);
-
-            // Only proceed when the file is an image file.
-            if (!str_starts_with($attributes['mime'] ?? '', 'image/')) {
-                continue;
-            }
-
-            [$width, $height] = $attributes;
-
-            // Only proceed when the dimensions of the image are within bounds.
-            if ($width < self::IMAGE_MIN_WIDTH
-                || $height < self::IMAGE_MIN_HEIGHT
-            ) {
-                continue;
-            }
-
-            $images[] = [
-                'og:image' => sprintf(
-                    '%s/%s',
-                    rtrim($this->website, '/'),
-                    ltrim(str_replace($this->root, '', $file), '/')
-                ),
-                'og:image:type' => $attributes['mime'],
-                'og:image:width' => $width,
-                'og:image:height' => $height,
-                'og:image:alt' => $alt,
-                'pixels' => $width * $height
-            ];
-        }
+        );
 
         // Sort images by dimensions.
         usort(
             $images,
-            fn (array $a, array $b) => (
+            fn (Image $a, Image $b) => (
                 // Hoist the largest image in dimensions.
-                $a['pixels'] <=> $b['pixels']
+                $b->getNumPixels() <=> $a->getNumPixels()
             )
         );
 
-        $images = array_reduce(
-            // Only return 1 image per type.
-            array_values(
-                array_column($images, null, 'og:image:type')
-            ),
-            fn (array $carry, array $image) => array_merge(
-                $carry,
-                [
-                    // Only keep properties that are valid for opengraph.
-                    array_filter(
-                        $image,
-                        fn (string $key) => str_starts_with($key, 'og:image'),
-                        ARRAY_FILTER_USE_KEY
-                    )
-                ]
-            ),
-            []
-        );
-
-        return (
-            count($images) === 1
-                ? reset($images)
-                : ['og:image' => $images]
+        // Only return 1 image per type.
+        return array_values(
+            array_reduce(
+                $images,
+                fn (array $carry, Image $image) => array_replace(
+                    [$image->type => $image],
+                    $carry
+                ),
+                []
+            )
         );
     }
 }
