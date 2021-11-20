@@ -45,12 +45,12 @@ const PAGES = [
         'controller' => __DIR__ . '/../pages/reviews.php',
         'output' => 'beoordelingen.html'
     ],
-    'blog' => [
-        'label' => 'Blog',
-        'path' => 'blog/',
-        'controller' => __DIR__ . '/../pages/blog.php',
-        'output' => 'blog/index.html'
-    ],
+//    'blog' => [
+//        'label' => 'Blog',
+//        'path' => 'blog/',
+//        'controller' => __DIR__ . '/../pages/blog.php',
+//        'output' => 'blog/index.html'
+//    ],
     'contact' => [
         'label' => 'Contact',
         'path' => 'contact.html',

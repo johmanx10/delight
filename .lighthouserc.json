@@ -1,0 +1,30 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 1,
+      "maxAutodiscoverUrls": 0,
+      "staticDistDir": "public",
+      "settings": {
+        "chrome-flags": "--incognito --headless --no-sandbox"
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:all",
+      "assertions": {
+        "render-blocking-resources": ["error", {"maxLength": 1}],
+        "is-crawlable": "off",
+        "crawlable-anchors": "off",
+        "csp-xss": "off",
+        "service-worker": "off",
+        "themed-omnibox": "off",
+        "tap-targets": "off",
+        "splash-screen": "off",
+        "meta-description": "off",
+        "maskable-icon": "off",
+        "installable-manifest": "off",
+        "errors-in-console": "off",
+        "canonical": "off"
+      }
+    }
+  }
+}

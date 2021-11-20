@@ -21,7 +21,7 @@ jobs:
       - name: Install NPM
         run: |
           curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
-          apt-get install -y nodejs
+          apt install -y nodejs
 
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -40,6 +40,12 @@ jobs:
           name: public
           path: public
           retention-days: 5
+
+      - name: Install Chromium
+        run: apt install chromium chromium-l10n -y
+
+      - name: Lighthouse
+        run: make lighthouse
 
   deploy:
     name: Deploy website
