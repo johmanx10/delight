@@ -47,7 +47,7 @@ final class HeadingAnchorExtension extends AbstractExtension
     public static function createAnchor(string $id): string
     {
         return sprintf(
-            '<a class="anchor" href="#%s" aria-hidden="true"></a>',
+            '<a class="anchor" href="#%s" aria-hidden="true" tabindex="-1"></a>',
             $id
         );
     }
