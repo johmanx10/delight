@@ -23,7 +23,9 @@
         "maskable-icon": "off",
         "installable-manifest": "off",
         "errors-in-console": "off",
-        "canonical": "off"
+        "canonical": "off",
+        "content-width": "off",
+        "uses-long-cache-ttl": "off"
       }
     }
   }
