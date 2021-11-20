@@ -7,5 +7,6 @@ use voku\helper\HtmlMin;
 $minifier = new HtmlMin();
 
 $minifier->doRemoveWhitespaceAroundTags();
+$minifier->doRemoveOmittedQuotes(false);
 
 return $minifier;
