@@ -10,58 +10,31 @@ use Delight\Website\Context\PageCompiler;
 use Delight\Website\Context\OpenGraphCompiler;
 use Delight\Website\ContextCompilerInterface;
 use Delight\Website\OpenGraph\FacebookShareFilter;
-use Delight\Website\OpenGraph\ImageAspectRatioValidator;
-use Delight\Website\OpenGraph\ImageDimensionsValidator;
-use Delight\Website\OpenGraph\ImageFactory;
 use Delight\Website\OpenGraph\ImageFilterChain;
-use Delight\Website\OpenGraph\ImageSizeValidator;
-use Delight\Website\OpenGraph\ImageTypeValidator;
-use Delight\Website\OpenGraph\ImageValidatorChain;
 use Delight\Website\OpenGraph\TwitterCardFilter;
-
-$webRoot = __DIR__ . '/../public/';
 
 return new class (
     new DefaultsCompiler(__DIR__ . '/../config/defaults.json'),
     new PageCompiler(PAGES),
     new NavCompiler(NAV_LAYOUT),
-    new FaviconCompiler($webRoot, 'img/favicons/favicon.ico'),
-    new FaviconCompiler($webRoot, 'img/favicons/favicon-*.png'),
-    new FaviconCompiler($webRoot, 'img/favicons/apple-touch-icon.png', 'apple-touch-icon'),
+    new FaviconCompiler(WEB_ROOT, 'img/favicons/favicon.ico'),
+    new FaviconCompiler(WEB_ROOT, 'img/favicons/favicon-*.png'),
+    new FaviconCompiler(WEB_ROOT, 'img/favicons/apple-touch-icon.png', 'apple-touch-icon'),
     new CanonicalCompiler(WEBSITE),
     new OpenGraphCompiler(
-        $webRoot,
-        new ImageFactory(
-            $webRoot,
-            WEBSITE,
-            new ImageTypeValidator('image/*')
-        ),
+        WEB_ROOT,
+        require __DIR__ . '/../services/open-graph/image-factory.php',
         new ImageFilterChain(
             new TwitterCardFilter(
                 'summary',
-                new ImageValidatorChain(
-                    new ImageTypeValidator('image/png', 'image/webp', 'image/jpeg', 'image/gif'),
-                    new ImageDimensionsValidator(144, 144, 4096, 4096),
-                    new ImageAspectRatioValidator(1),
-                    new ImageSizeValidator(5 * 1024 ** 2)
-                )
+                require __DIR__ . '/../services/open-graph/image/validator/twitter/summary.php'
             ),
             new TwitterCardFilter(
                 'summary_large_image',
-                new ImageValidatorChain(
-                    new ImageTypeValidator('image/png', 'image/webp', 'image/jpeg', 'image/gif'),
-                    new ImageDimensionsValidator(300, 157, 4096, 4096),
-                    new ImageAspectRatioValidator(2),
-                    new ImageSizeValidator(5 * 1024 ** 2)
-                )
+                require __DIR__ . '/../services/open-graph/image/validator/twitter/summary_large_image.php'
             ),
             new FacebookShareFilter(
-                new ImageValidatorChain(
-                    new ImageTypeValidator('image/*'),
-                    new ImageDimensionsValidator(200, 200),
-                    new ImageAspectRatioValidator(1.91),
-                    new ImageSizeValidator(8 * 1024 ** 2)
-                )
+                require __DIR__ . '/../services/open-graph/image/validator/facebook.php'
             )
         )
     )

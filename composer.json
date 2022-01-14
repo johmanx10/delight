@@ -14,6 +14,9 @@
     "tubalmartin/cssmin": "^4.1",
     "twig/string-extra": "^3.3"
   },
+  "require-dev": {
+    "symfony/console": "^5.3"
+  },
   "autoload": {
     "files": [
       "config/config.php",

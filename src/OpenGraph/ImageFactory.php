@@ -27,10 +27,10 @@ final class ImageFactory
 
         $image = new Image(
             url: sprintf(
-                     '%s/%s',
-                     rtrim($this->website, '/'),
-                     ltrim(str_replace($this->root, '', $file), '/')
-                 ),
+                 '%s/%s',
+                 rtrim($this->website, '/'),
+                 ltrim(str_replace($this->root, '', $file), '/')
+             ),
             type: $attributes['mime'],
             alt: $alt,
             width: $width,

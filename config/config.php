@@ -96,3 +96,5 @@ define(
             : 'https://www.delightcoachingpraktijk.nl'
     )
 );
+
+const WEB_ROOT = __DIR__ . '/../public/';

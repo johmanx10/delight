@@ -1,0 +1,145 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Delight\Website\OpenGraph\ImageAspectRatioValidator;
+use Delight\Website\OpenGraph\ImageDimensionsValidator;
+use Delight\Website\OpenGraph\ImageException;
+use Delight\Website\OpenGraph\ImageFactory;
+use Delight\Website\OpenGraph\ImageTypeValidator;
+use Delight\Website\OpenGraph\ImageValidatorChain;
+use Delight\Website\OpenGraph\ImageValidatorInterface;
+use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$files = new AppendIterator();
+
+foreach (array_slice($argv, 1) as $pattern) {
+    $files->append(
+        new GlobIterator(
+            $pattern,
+            FilesystemIterator::CURRENT_AS_FILEINFO
+            | FilesystemIterator::SKIP_DOTS
+            | FilesystemIterator::KEY_AS_PATHNAME
+        )
+    );
+}
+
+/** @var ImageFactory $factory */
+$factory = require __DIR__ . '/../services/open-graph/image-factory.php';
+
+/** @var array<string,ImageValidatorInterface> $socials */
+$socials = [
+    // Omits file size and maximum dimensions for candidates.
+    'twitter:summary' => new ImageValidatorChain(
+        new ImageTypeValidator('image/png', 'image/webp', 'image/jpeg', 'image/gif'),
+        new ImageDimensionsValidator(144, 144),
+        new ImageAspectRatioValidator(1)
+    ),
+    // Omits file size and maximum dimensions for candidates.
+    'twitter:summary_large_image' => new ImageValidatorChain(
+        new ImageTypeValidator('image/png', 'image/webp', 'image/jpeg', 'image/gif'),
+        new ImageDimensionsValidator(300, 157),
+        new ImageAspectRatioValidator(2)
+    ),
+    // Omits file size and maximum dimensions for candidates.
+    'facebook' => new ImageValidatorChain(
+        new ImageTypeValidator('image/*'),
+        new ImageDimensionsValidator(200, 200),
+        new ImageAspectRatioValidator(1.91)
+    )
+];
+
+/** @var array<string,int> $breakpoints */
+$breakpoints = [
+    'Mobile' => 800,
+    'Mobile @2x' => 1600,
+    'Tablet / desktop' => 800,
+    'Large desktop' => 1280,
+];
+
+$output = new ConsoleOutput();
+$table = new Table($output);
+
+$table->setHeaderTitle('Candidate images');
+$table->setHeaders(
+    array_merge(
+        ['File', 'Dimensions', 'Aspect ratio'],
+        array_keys($breakpoints),
+        ['Social media']
+    )
+);
+
+/**
+ * @var string $path
+ * @var SplFileInfo $file
+ */
+foreach ($files as $path => $file) {
+    if (!$file->isFile()) {
+        continue;
+    }
+
+    try {
+        $image = $factory->createImage($file->getPathname(), $path);
+    } catch (ImageException $exception) {
+        continue;
+    }
+
+    $table->addRow(
+        array_merge(
+            [
+                sprintf(
+                    '%s/%s',
+                    basename($file->getPath()),
+                    $file->getFilename()
+                ),
+                sprintf('%dx%d', $image->width, $image->height),
+                sprintf(
+                    '%.2f:1',
+                    $image->getAspectRatio()
+                ),
+            ],
+            array_values(
+                array_map(
+                    function (int $breakpoint) use ($image): string {
+                        $percentage = $image->width / $breakpoint * 100;
+
+                        static $formats = [
+                            100 => 'Full-width',
+                            50 => '%.2f%%',
+                            30 => '<warning>%.2f%%</warning>',
+                            0 => '<error>%.2f%%</error>'
+                        ];
+
+                        foreach ($formats as $level => $format) {
+                            if ($percentage >= $level) {
+                                return sprintf($format, $percentage);
+                            }
+                        }
+
+                        return '<error>Could not calculate image dimensions</error>';
+                    },
+                    $breakpoints
+                )
+            ),
+            [
+                implode(
+                    ', ',
+                    array_keys(
+                        array_filter(
+                            $socials,
+                            fn (ImageValidatorInterface $validator) => (
+                                $validator->validate($image) === null
+                            )
+                        )
+                    )
+                )
+            ]
+        )
+    );
+}
+
+$table->render();
