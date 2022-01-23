@@ -2,11 +2,11 @@ CONVERT_OPTIONS=-strip
 
 public/img/favicons/favicon-%.png public/img/favicons/android-chrome-%.png public/img/logo-%.png: assets/logo.png
 	@mkdir -p $(@D)
-	convert $^ $(CONVERT_OPTIONS) -quality 05 -resize $(*F) -density $(*F) $@
+	convert $^ $(CONVERT_OPTIONS) -quality 05 -resize $(*F) $@
 
 public/img/favicons/android-chrome-%.webp public/img/logo-%.webp: assets/logo.png
 	@mkdir -p $(@D)
-	convert $^ $(CONVERT_OPTIONS) -resize $(*F) -density $(*F) $@
+	convert $^ $(CONVERT_OPTIONS) -resize $(*F) $@
 
 public:: public/img/logo-40x40.png
 public:: public/img/logo-64x64.png
@@ -51,13 +51,13 @@ public:: | shields
 
 public/img/favicons/favicon.ico: assets/logo.png
 	@mkdir -p $(@D)
-	convert $^ $(CONVERT_OPTIONS) -resize 128x128 -density 128x128 $@
+	convert $^ $(CONVERT_OPTIONS) -resize 128x128 $@
 
 favicons:: public/img/favicons/favicon.ico
 
 public/img/favicons/apple-touch-icon.png: assets/logo.png
 	@mkdir -p $(@D)
-	convert $^ $(CONVERT_OPTIONS) -resize 180x180 -density 180x180 $@
+	convert $^ $(CONVERT_OPTIONS) -resize 180x180 $@
 
 favicons:: public/img/favicons/apple-touch-icon.png
 public/img/favicons/manifest.json: \
@@ -84,13 +84,34 @@ public/img/photos/%:
 	$(eval DIMENSIONS := $(shell echo $(*F) | cut -d- -f2 | cut -d. -f1))
 	$(eval NAME := $(shell echo $(*F) | cut -d- -f1))
 	@mkdir -p $(@D)
-	convert assets/photos/$(NAME).png $(CONVERT_OPTIONS) -resize $(DIMENSIONS) -density $(DIMENSIONS) $@
+	convert -density 300 assets/photos/$(NAME).png $(CONVERT_OPTIONS) -resize $(DIMENSIONS) $@
 
-photos:: public/img/photos/home_hero-800x534.png
-photos:: public/img/photos/home_hero-800x534.webp
-photos:: public/img/photos/home_hero-1280x853.png
-photos:: public/img/photos/home_hero-1280x853.webp
-photos:: public/img/photos/home_hero-1600x1067.png
-photos:: public/img/photos/home_hero-1600x1067.webp
+photos:: public/img/photos/home_hero-800x.jpg
+photos:: public/img/photos/home_hero-800x.webp
+photos:: public/img/photos/home_hero-1280x.jpg
+photos:: public/img/photos/home_hero-1280x.webp
+photos:: public/img/photos/home_hero-1600x.jpg
+photos:: public/img/photos/home_hero-1600x.webp
+
+photos:: public/img/photos/reiki_hero-800x.jpg
+photos:: public/img/photos/reiki_hero-800x.webp
+photos:: public/img/photos/reiki_hero-1280x.jpg
+photos:: public/img/photos/reiki_hero-1280x.webp
+photos:: public/img/photos/reiki_hero-1600x.jpg
+photos:: public/img/photos/reiki_hero-1600x.webp
 
 public:: | photos
+
+public/img/diplomas:
+	mkdir -p $@
+
+public/img/diplomas/%.jpg: public/img/diplomas
+	convert -density 300 assets/diplomas/$*.png -resize 400x $@
+
+diplomas:: public/img/diplomas/reiki1.jpg
+diplomas:: public/img/diplomas/reiki2.jpg
+diplomas:: public/img/diplomas/reiki3.jpg
+diplomas:: public/img/diplomas/holistisch-therapeut.jpg
+diplomas:: public/img/diplomas/life-coach.jpg
+
+public:: | diplomas

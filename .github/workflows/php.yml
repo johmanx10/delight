@@ -28,6 +28,10 @@ jobs:
         with:
           lfs: true
 
+#      # https://www.kb.cert.org/vuls/id/332928/
+#      - name: Remove PDF restrictions for old versions of GhostScript
+#        run: sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
+
       - name: Build website
         run: make public
         env:

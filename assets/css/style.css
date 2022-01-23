@@ -259,16 +259,97 @@ blockquote p {
 }
 
 blockquote p::before {
-    content: '\201C';
+    content: '\2018';
 }
 
 blockquote p::after {
-    content: '\201D';
+    content: '\2019';
+}
+
+p a {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+figure.quote + p {
+    margin-top: 2em;
+}
+
+.grid {
+    display: grid;
+    column-gap: 1em;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.diplomas {
+    column-gap: 2em;
+    margin-bottom: 2em;
+}
+
+.diploma figure {
+    text-align: center;
+}
+
+.diploma figure img {
+    max-width: 100%;
+}
+
+.diploma {
+    display: grid;
+    grid-template-rows: 1fr 10em;
+    box-shadow: inset 0 -1em 0 0 var(--theme-secondary);
+    padding-bottom: 2em;
+}
+
+table tr>* {
+    line-height: 1.6em;
+}
+
+table.products tr>* {
+    text-align: right;
+    width: 200px;
+}
+
+table.products tr>*:first-child {
+    text-align: left;
+    width: 500px;
+}
+
+table.products tfoot td {
+    padding-top: 1em;
+    font-style: italic;
 }
 
 /* Mobile */
 @media screen and (max-width: 800px) {
-    #home_hero img {
+    .grid-cols-2 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .diploma {
+        grid-template-rows: auto;
+    }
+
+    .diploma p {
+        text-align: center;
+    }
+
+    picture.hero img {
         width: 100%;
         height: auto;
     }
@@ -509,7 +590,7 @@ header picture img {
 
 /* Large desktop */
 @media screen and (min-width: 2000px) {
-    #home_hero img {
+    picture.hero img {
         width: 1280px;
         height: 853px;
     }
@@ -633,4 +714,8 @@ main p + p {
 
 main h1, main h2 {
     margin: .67em 0 0;
+}
+
+main > * + h2 {
+    margin-top: 1.67em;
 }

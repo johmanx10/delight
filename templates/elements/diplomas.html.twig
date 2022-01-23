@@ -1,0 +1,18 @@
+{% block diplomas %}
+    {{ h2('Cerficering') }}
+    <div class="diplomas grid grid-cols-{{ max(1, min(3, diplomas|length)) }}">
+        {% for diploma in diplomas %}
+            <div class="diploma">
+                <figure>
+                    <figcaption>{{ h3(diploma.level, 'certificering-' ~ diploma.level) }}</figcaption>
+                    <img
+                        title="{{ diploma.level }}"
+                        alt="{{ diploma.level }}"
+                        src="{{ diploma.thumbnail }}" />
+                </figure>
+
+                <p>{{ diploma.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
