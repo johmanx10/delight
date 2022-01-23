@@ -18,14 +18,11 @@ function render(string $page, array $data = []): string
         in_array(pathinfo($page, PATHINFO_EXTENSION), ['json', 'xml'])
             ? sprintf('pages/%s.twig', $page)
             : sprintf('pages/%s.html.twig', $page),
-        array_replace_recursive(
-            compileContext(
-                array_replace_recursive(
-                    $data,
-                    ['_route' => $page]
-                )
-            ),
-            $data
+        compileContext(
+            array_replace_recursive(
+                $data,
+                ['_route' => $page]
+            )
         )
     );
 }

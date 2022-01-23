@@ -6,9 +6,11 @@
                 <figure>
                     <figcaption>{{ h3(diploma.level, 'certificering-' ~ diploma.level) }}</figcaption>
                     <img
+                        width="{{ diploma.thumbnail.width }}"
+                        height="{{ diploma.thumbnail.height }}"
                         title="{{ diploma.level }}"
                         alt="{{ diploma.level }}"
-                        src="{{ diploma.thumbnail }}" />
+                        src="{{ diploma.thumbnail.path }}" />
                 </figure>
 
                 <p>{{ diploma.description }}</p>

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Delight\Website\Context\CanonicalCompiler;
 use Delight\Website\Context\DefaultsCompiler;
+use Delight\Website\Context\DiplomasCompiler;
 use Delight\Website\Context\FaviconCompiler;
 use Delight\Website\Context\NavCompiler;
 use Delight\Website\Context\PageCompiler;
@@ -37,7 +38,8 @@ return new class (
                 require __DIR__ . '/../services/open-graph/image/validator/facebook.php'
             )
         )
-    )
+    ),
+    new DiplomasCompiler(WEB_ROOT)
 ) implements ContextCompilerInterface {
     private array $compilers;
 
