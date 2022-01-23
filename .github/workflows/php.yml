@@ -45,11 +45,11 @@ jobs:
           path: public
           retention-days: 5
 
-      - name: Install Chromium
-        run: apt install chromium chromium-l10n -y
-
-      - name: Lighthouse
-        run: make lighthouse
+#      - name: Install Chromium
+#        run: apt install chromium chromium-l10n -y
+#
+#      - name: Lighthouse
+#        run: make lighthouse
 
   deploy:
     name: Deploy website
