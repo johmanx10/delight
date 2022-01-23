@@ -23,6 +23,7 @@
         "maskable-icon": "off",
         "installable-manifest": "off",
         "errors-in-console": "off",
+        "long-tasks": "off",
         "canonical": "off",
         "content-width": "off",
         "uses-long-cache-ttl": "off"
