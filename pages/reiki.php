@@ -9,7 +9,7 @@ return render(
     [
         'title' => 'Reiki - Delight Coachingpraktijk',
         'meta' => [
-            'description' => ''
+            'description' => 'Wat is Reiki? Wat kun je verwachten van Reiki en wat gebeurt er tijdens een behandeling?'
         ],
         'social' => [
             'image' => [
