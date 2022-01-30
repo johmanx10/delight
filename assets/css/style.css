@@ -537,6 +537,17 @@ table.products tfoot td {
         max-width: 18.2em;
     }
 
+    .diplomas.grid-cols-1 .diploma {
+        display: grid;
+        column-gap: 2em;
+        grid-template-rows: none;
+        grid-template-columns: minmax(min-content, auto) 1fr;
+    }
+
+    .diplomas.grid-cols-1 .diploma p:first-of-type {
+        margin-top: 4.5em;
+    }
+
     #doormat {
         display: flex;
         min-height: 100%;

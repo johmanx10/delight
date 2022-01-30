@@ -2,6 +2,7 @@
     {{ h2('Cerficering') }}
     <div class="diplomas grid grid-cols-{{ max(1, min(3, diplomas|length)) }}">
         {% for diploma in diplomas %}
+            {# TODO: implement https://schema.org/EducationalOccupationalCredential #}
             <div class="diploma">
                 <figure>
                     <figcaption>{{ h3(diploma.level, 'certificering-' ~ diploma.level) }}</figcaption>

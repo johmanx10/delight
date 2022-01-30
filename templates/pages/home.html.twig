@@ -26,20 +26,10 @@
         helpt je om je geluk weer te vinden.
     </p>
 
-    <figure itemprop="primaryImageOfPage" itemscope itemtype="https://schema.org/ImageObject">
-        <picture id="home_hero" class="hero">
-            <source type="image/webp" srcset="img/photos/home_hero-1280x.webp" media="(min-width: 2000px)">
-            <source type="image/jpeg" srcset="img/photos/home_hero-1280x.jpg" media="(min-width: 2000px)">
-            <source type="image/webp" srcset="img/photos/home_hero-1600x.webp 2x, img/photos/home_hero-800x.webp">
-            <source type="image/jpeg" srcset="img/photos/home_hero-1600x.jpg 2x">
-            <img
-                alt="{{ company.founder.givenName }} op het strand, wijzend naar de verte"
-                width="800"
-                height="533"
-                itemprop="contentUrl"
-                src="img/photos/home_hero-800x.jpg">
-        </picture>
-    </figure>
+    {% include 'elements/hero.html.twig' with {
+        id: 'home',
+        alt: company.founder.givenName ~ ' op het strand, wijzend naar de verte'
+    } %}
 
     {{ h2('Dieper kijken') }}
     <figure class="quote">

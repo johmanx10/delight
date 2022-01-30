@@ -45,20 +45,10 @@
         Ik hoef je niet op de huid aan te raken.
     </p>
 
-    <figure itemprop="primaryImageOfPage" itemscope itemtype="https://schema.org/ImageObject">
-        <picture id="reiki_hero" class="hero">
-            <source type="image/webp" srcset="img/photos/reiki_hero-1280x.webp" media="(min-width: 2000px)">
-            <source type="image/jpeg" srcset="img/photos/reiki_hero-1280x.jpg" media="(min-width: 2000px)">
-            <source type="image/webp" srcset="img/photos/reiki_hero-1600x.webp 2x, img/photos/reiki_hero-800x.webp">
-            <source type="image/jpeg" srcset="img/photos/reiki_hero-1600x.jpg 2x">
-            <img
-                    alt="{{ company.founder.givenName }} met arm om schouders van partner"
-                    width="800"
-                    height="533"
-                    itemprop="contentUrl"
-                    src="img/photos/reiki_hero-800x.jpg">
-        </picture>
-    </figure>
+    {% include 'elements/hero.html.twig' with {
+        id: 'reiki',
+        alt: company.founder.givenName ~ ' met arm om schouders van partner'
+    } %}
 
     <p>
         Ik stem af, en daarmee bedoel ik; dat ik mijn eigen energie reinig en me

@@ -3,4 +3,122 @@
 {% block schema %}https://schema.org/ItemPage{% endblock %}
 
 {% block main %}
+    {{ h1('Life coach') }}
+
+    <figure class="quote">
+        <blockquote>
+            <p>Als life coach sta ik voor je klaar om in gesprek te gaan.
+            Voel je vrij om te vertellen wat je kwijt wil, of dwarszit.
+            Dat zorgt in eerste instantie bij veel vrouwen al voor opluchting.
+            Tijdens ons gesprek probeer ik signalen af te lezen en luister aandachtig.
+            Wellicht stel ik nog een paar gerichte vragen om bewustwording bij jou te creëren.
+            Hierbij vindt ik het belangrijk om fijn en toegankelijk met elkaar te blijven praten.
+            Het is nooit de bedoeling dat het als een verhoor gaat voelen.
+            Met life coaching hoop ik jouw energie en <q>ik-kracht</q> terug te vinden.</p>
+        </blockquote>
+    </figure>
+
+    <p>
+        <em>Wat doet een life coach precies, en waarom zou je daar voor willen kiezen?</em>
+    </p>
+    <p>
+        Life coaching staat voor advies en reflecteren, met iemand die neutraal is, en toch als een vriend(in) met je praat.
+    </p>
+    <p>
+        Het maakt niet uit wat er in je leven aan de hand is.
+        Het kan zijn dat je je weggetje kwijt bent op je werk, in je gezin, of
+        je op een andere manier afvraagt of je wel de juiste keuzes hebt gemaakt.
+        Het kan zijn dat je het gevoel hebt dat het leven aan je voorbij vliegt,
+        terwijl je eigenlijk niet eens weet wat je er nu mee wil.
+        Het kan zijn dat je niet met je partner kunt praten over bepaalde onderwerpen.
+        Maar ook andere zorgen, of overspannen zijn, in een burn-out belanden,
+        kan de reden zijn om een life coach in te schakelen.
+    </p>
+
+    {% include 'elements/hero.html.twig' with {
+        id: 'life_coach',
+        alt: company.founder.givenName ~ ' en partner met gedeelde visie'
+    } %}
+
+    <p>
+        Kom je bij mij als life coach, dan gaan we eerst in gesprek over wat je kwijt wil.
+        Daarna kom ik met gerichte vragen.
+        We blijven in het nu, tenzij het echt nodig is om je jeugd in te gaan.
+        Ik zal je
+        <dfn title="anders, onconventioneel of vanuit een nieuw perspectief denken.">outside of the box</dfn>
+        vragen stellen en je zo nu en dan een opdracht mee geven.
+        Ik probeer altijd met humor te werken, want dat kan heel erg relativerend zijn.
+    </p>
+    <p>
+        Als het goed gaat, en we klikken, dan ga je me beschouwen als een goede
+        vriend, waar je lekker alles tegen kunt zeggen.
+        En daar heeft bijna iedereen behoefte aan, maar zitten we allemaal in
+        relaties waar je om bepaalde redenen niet <em>alles</em> kunt zeggen.
+    </p>
+    <p>
+        Ik heb veel levenservaring, en zal je ook regelmatig iets vertellen,
+        waardoor je mij ook leert kennen en de <q>relatie</q> niet afstandelijk wordt.
+        In de intake ga ik met jou kijken of we denken dat mijn manier van doen
+        bij jou past.
+        Zo ja, dan kunnen we verder en spreken we samen een traject af.
+    </p>
+
+    {{ h2('Tarieven') }}
+    <table class="products">
+        <thead>
+            <tr>
+                <th>Behandeling</th>
+                <th>Duur</th>
+                <th>Prijs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr itemscope itemtype="https://schema.org/Product">
+                <td itemprop="name">De intake - Kennismakingssessie</td>
+                <td></td>
+                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
+                    <span itemprop="price" content="50">50,-</span>
+                </td>
+            </tr>
+            <tr itemscope itemtype="https://schema.org/Product">
+                <td itemprop="name">Losse behandeling</td>
+                <td>90 minuten</td>
+                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
+                    <span itemprop="price" content="95">95,-</span>
+                </td>
+            </tr>
+            <tr itemscope itemtype="https://schema.org/Product">
+                <td itemprop="name">
+                    Pakket: 6 behandelingen
+                    <small>(Gratis intake)</small>
+                </td>
+                <td>6x 90 minuten</td>
+                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
+                    <span itemprop="price" content="520">520,-</span>
+                </td>
+            </tr>
+            <tr itemscope itemtype="https://schema.org/Product">
+                <td itemprop="name">Telefonisch consult</td>
+                <td>30 minuten</td>
+                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
+                    <span itemprop="price" content="35">35,-</span>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <strong><abbr title="Nota bene">N.B.</abbr></strong>
+                    Er wordt een behandelplan voorgesteld met een tussenpoos
+                    tussen de behandelingen van 2 weken, tenzij anders nodig.
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    {% include 'elements/diplomas.html.twig' with { diplomas: diplomas } %}
 {% endblock %}
