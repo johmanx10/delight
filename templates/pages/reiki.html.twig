@@ -113,69 +113,13 @@
     </p>
 
     {{ h2('Tarieven') }}
-    <table class="products">
-        <thead>
-            <tr>
-                <th>Behandeling</th>
-                <th>Duur</th>
-                <th>Prijs</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">De intake - Kennismakingssessie</td>
-                <td></td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="50">50,-</span>
-                </td>
-            </tr>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">Losse behandeling</td>
-                <td>90 minuten</td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="95">95,-</span>
-                </td>
-            </tr>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">
-                    Pakket: 6 behandelingen
-                    <small>(Gratis intake)</small>
-                </td>
-                <td>6x 90 minuten</td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="520">520,-</span>
-                </td>
-            </tr>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">Telefonisch consult</td>
-                <td>30 minuten</td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="35">35,-</span>
-                </td>
-            </tr>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">Reikibehandeling op afstand</td>
-                <td>20 tot 30 minuten</td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="45">45,-</span>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3">
-                    <strong><abbr title="Nota bene">N.B.</abbr></strong>
-                    Er wordt een behandelplan voorgesteld met een tussenpoos
-                    tussen de behandelingen van 2 weken, tenzij anders nodig.
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+
+    {% include 'elements/products.html.twig' with {
+        headings: {
+            name: 'Behandeling'
+        },
+        products: products|filter((product) => product.type is not same as ('massage'))
+    } %}
 
     {{ h2('Massage') }}
 
@@ -205,41 +149,12 @@
         Er is een mogelijkheid voor alleen je voeten en benen. Dit is ook een half uur.
     </p>
 
-    <table class="products">
-        <thead>
-            <tr>
-                <th>Soort massage</th>
-                <th>Duur</th>
-                <th>Prijs</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">Hele lichaam</td>
-                <td>&plusmn; 60 minuten</td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="70">70,-</span>
-                </td>
-            </tr>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">Rug &amp; nek</td>
-                <td>&plusmn; 30 minuten</td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="35">35,-</span>
-                </td>
-            </tr>
-            <tr itemscope itemtype="https://schema.org/Product">
-                <td itemprop="name">Voeten &amp; benen</td>
-                <td>&plusmn; 30 minuten</td>
-                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <span itemprop="priceCurrency" content="EUR">&euro;</span>
-                    <span itemprop="price" content="35">35,-</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    {% include 'elements/products.html.twig' with {
+        headings: {
+            name: 'Soort massage'
+        },
+        products: products|filter((product) => product.type is same as ('massage'))
+    } %}
 
     {% include 'elements/diplomas.html.twig' with { diplomas: diplomas } %}
 {% endblock %}

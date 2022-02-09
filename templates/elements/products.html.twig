@@ -1,0 +1,44 @@
+<table class="products">
+    <thead>
+        <tr>
+            <th>{{ headings.name|default('') }}</th>
+            <th>{{ headings.duration|default('Duur') }}</th>
+            <th>{{ headings.price|default('Prijs') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr itemscope itemtype="https://schema.org/Product">
+                <td itemprop="name">
+                    {{ product.name }}
+                    {% for label in product.labels|default([]) %}
+                        <small>({{ label }})</small>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% if product.quantity|default(1) > 1 %}
+                        {{ product.quantity }}x
+                    {% endif %}
+                    {{ product.duration|default('') }}
+                </td>
+                <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="priceCurrency" content="{{ product.price.currency.code|default('EUR') }}">{{ product.price.currency.symbol|default('€') }}</span>
+                    <span itemprop="price" content="{{ product.price.unitPrice|number_format(2) }}">
+                        {{ product.price.unitPrice|number_format(2, ',', '.')|replace({',00':',-'}) }}
+                    </span>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    {% if products|filter((product) => product.type is same as 'therapy')|length > 0 %}
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <strong><abbr title="Nota bene">N.B.</abbr></strong>
+                    Er wordt een behandelplan voorgesteld met een tussenpoos
+                    tussen de behandelingen van 2 weken, tenzij anders nodig.
+                </td>
+            </tr>
+        </tfoot>
+    {% endif %}
+</table>
