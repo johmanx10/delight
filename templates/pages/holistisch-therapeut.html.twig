@@ -4,4 +4,11 @@
 
 {% block main %}
 
+
+    {% include 'elements/diplomas.html.twig' with {
+        colSize: 2,
+        diplomas: diplomas
+            |filter((diploma) => diploma.type in ['holistisch-therapeut', 'reiki'])
+            |sort((a, b) => a.type <=> b.type)
+    } %}
 {% endblock %}

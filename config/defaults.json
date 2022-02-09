@@ -107,5 +107,37 @@
         "unitPrice": 35
       }
     }
+  ],
+  "diplomas": [
+    {
+      "type": "reiki",
+      "level": "Reiki 1",
+      "thumbnail": "img/diplomas/reiki1.jpg",
+      "description": "Reiki 1 is gericht op het fysieke niveau. Het behandelen van lichamelijke klachten."
+    },
+    {
+      "type": "reiki",
+      "level": "Reiki 2",
+      "thumbnail": "img/diplomas/reiki2.jpg",
+      "description": "In Reiki 2 staan het mentale en emotionele niveau centraal. Vanuit intuïtie behandelen, door de energie door te laten stromen op de diepere niveaus."
+    },
+    {
+      "type": "reiki",
+      "level": "Reiki 3",
+      "thumbnail": "img/diplomas/reiki3.jpg",
+      "description": "Als Reiki Master kan ik op alle holistische niveaus een Reiki behandeling geven."
+    },
+    {
+      "type": "life-coach",
+      "level": "Life coach",
+      "thumbnail": "img/diplomas/life-coach.jpg",
+      "description": "Je leert in de cursus Life Coach alle aspecten die essentieel zijn om mensen goed te begeleiden en coachen.\n                Van de rol van de life coach tot gedragsverandering, verslavingsproblematiek, relationele zaken en stress: leer hoe je met de dingen des levens omgaat en mensen helpt in de rol van life coach."
+    },
+    {
+      "type": "holistisch-therapeut",
+      "level": "Holistisch therapeut",
+      "thumbnail": "img/diplomas/holistisch-therapeut.jpg",
+      "description": "In de opleiding tot Holistisch Therapeut op hbo-niveau leer je holistische behandelingen te geven, zodat je de oorzaak van een klacht of hulpvraag kunt behandelen."
+    }
   ]
 }

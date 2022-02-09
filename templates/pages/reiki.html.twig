@@ -156,5 +156,7 @@
         products: products|filter((product) => product.type is same as ('massage'))
     } %}
 
-    {% include 'elements/diplomas.html.twig' with { diplomas: diplomas } %}
+    {% include 'elements/diplomas.html.twig' with {
+        diplomas: diplomas|filter((diploma) => diploma.type is same as 'reiki')
+    } %}
 {% endblock %}
