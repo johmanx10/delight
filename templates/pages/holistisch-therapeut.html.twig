@@ -3,7 +3,28 @@
 {% block schema %}https://schema.org/ItemPage{% endblock %}
 
 {% block main %}
+    {{ h1('Holistisch therapeut') }}
 
+    <figure class="quote">
+        <blockquote>
+            <p>Zoals gezegd is het vaak lastig om een vinger te leggen op de
+            oorzaak van je probleem. Daarvoor is een holistische aanpak geschikt.
+            Als holistisch therapeut kijk je naar de mens als geheel.
+            Fysiek, mentaal, emotie en energetisch.
+            Tijdens ons gesprek luister ik niet alleen naar je verhaal.
+            Ook kijk ik of er verbanden zijn met bepaalde gebeurtenissen.
+            Iets dat in je leven is gebeurd, en of hier ook een bepaalde
+            lichaamskracht uit voortkomt.
+            Je wil alle ballen omhoog houden, maar dit gaat ten koste van je lichaam.
+            Maagklachten kunnen bijvoorbeeld gelinkt worden aan langdurige stress.
+            Door holistisch te werk te gaan, kom ik achter de betekenis van je klachten.</p>
+        </blockquote>
+    </figure>
+
+    {% include 'elements/hero.html.twig' with {
+        id: 'holistisch_therapeut',
+        alt: company.founder.givenName ~ ' lacht naar partner'
+    } %}
 
     {% include 'elements/diplomas.html.twig' with {
         colSize: 2,

@@ -13,18 +13,8 @@ return render(
         ],
         'social' => [
             'image' => [
-                'pattern' => 'img/photos/life-coach_hero-*x*.*',
+                'pattern' => 'img/photos/life_coach_hero-*x*.*',
                 'alt' => 'Anja en partner kijken naar de toekomst'
-            ]
-        ],
-        'diplomas' => [
-            [
-                'level' => 'Life coach',
-                'thumbnail' => 'img/diplomas/life-coach.jpg',
-                'description' => <<<DESCRIPTION
-                Je leert in de cursus Life Coach alle aspecten die essentieel zijn om mensen goed te begeleiden en coachen.
-                Van de rol van de life coach tot gedragsverandering, verslavingsproblematiek, relationele zaken en stress: leer hoe je met de dingen des levens omgaat en mensen helpt in de rol van life coach.
-                DESCRIPTION
             ]
         ]
     ]

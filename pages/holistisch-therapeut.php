@@ -9,7 +9,13 @@ return render(
     [
         'title' => 'Holistisch therapeut - Delight Coachingpraktijk',
         'meta' => [
-            'description' => ''
+            'description' => 'Wat is nou precies een holistisch therapeut en wat kan een reden zijn om naar een holistisch therapeut toe te gaan.'
+        ],
+        'social' => [
+            'image' => [
+                'pattern' => 'img/photos/holistisch_therapeut_hero-*x*.*',
+                'alt' => 'Anja lacht naar partner'
+            ]
         ]
     ]
 );

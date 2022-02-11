@@ -4,8 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "453eda26ae4ebf83f3305275babcef43",
+    "content-hash": "9c67f94e1c5ee7bd80f98741e576f922",
     "packages": [
+        {
+            "name": "nmarfurt/measurements",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marfurt/measurements.git",
+                "reference": "c0d81714aa24d90d9f03847d525a09227a48902b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marfurt/measurements/zipball/c0d81714aa24d90d9f03847d525a09227a48902b",
+                "reference": "c0d81714aa24d90d9f03847d525a09227a48902b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 | ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8 | ^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tests\\": "tests/",
+                    "Measurements\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Marfurt",
+                    "email": "nmarfurt@gmail.com"
+                }
+            ],
+            "description": "A PHP library for representing and converting dimensional units of measure.",
+            "keywords": [
+                "conversion",
+                "measurement",
+                "unit"
+            ],
+            "support": {
+                "issues": "https://github.com/marfurt/measurements/issues",
+                "source": "https://github.com/marfurt/measurements/tree/v1.4.0"
+            },
+            "time": "2022-02-10T20:06:21+00:00"
+        },
         {
             "name": "symfony/css-selector",
             "version": "v6.0.3",
@@ -1389,7 +1438,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-fileinfo": "*",
         "ext-spl": "*",
         "ext-json": "*",

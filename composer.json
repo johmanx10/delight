@@ -4,7 +4,7 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
-    "php": "^8.0",
+    "php": "^8.1",
     "ext-fileinfo": "*",
     "ext-spl": "*",
     "ext-json": "*",
@@ -12,7 +12,8 @@
     "twig/twig": "^3.0",
     "voku/html-min": "^4.4",
     "tubalmartin/cssmin": "^4.1",
-    "twig/string-extra": "^3.3"
+    "twig/string-extra": "^3.3",
+    "nmarfurt/measurements": "^1.4"
   },
   "require-dev": {
     "symfony/console": "^5.3"

@@ -86,26 +86,19 @@ public/img/photos/%:
 	@mkdir -p $(@D)
 	convert -density 300 assets/photos/$(NAME).png $(CONVERT_OPTIONS) -resize $(DIMENSIONS) $@
 
-photos:: public/img/photos/home_hero-800x.jpg
-photos:: public/img/photos/home_hero-800x.webp
-photos:: public/img/photos/home_hero-1280x.jpg
-photos:: public/img/photos/home_hero-1280x.webp
-photos:: public/img/photos/home_hero-1600x.jpg
-photos:: public/img/photos/home_hero-1600x.webp
+hero/%:
+	make \
+		public/img/photos/$(*F)_hero-800x.jpg \
+		public/img/photos/$(*F)_hero-800x.webp \
+		public/img/photos/$(*F)_hero-1280x.jpg \
+		public/img/photos/$(*F)_hero-1280x.webp \
+		public/img/photos/$(*F)_hero-1600x.jpg \
+		public/img/photos/$(*F)_hero-1600x.webp
 
-photos:: public/img/photos/reiki_hero-800x.jpg
-photos:: public/img/photos/reiki_hero-800x.webp
-photos:: public/img/photos/reiki_hero-1280x.jpg
-photos:: public/img/photos/reiki_hero-1280x.webp
-photos:: public/img/photos/reiki_hero-1600x.jpg
-photos:: public/img/photos/reiki_hero-1600x.webp
-
-photos:: public/img/photos/life_coach_hero-800x.jpg
-photos:: public/img/photos/life_coach_hero-800x.webp
-photos:: public/img/photos/life_coach_hero-1280x.jpg
-photos:: public/img/photos/life_coach_hero-1280x.webp
-photos:: public/img/photos/life_coach_hero-1600x.jpg
-photos:: public/img/photos/life_coach_hero-1600x.webp
+photos:: | hero/home
+photos:: | hero/reiki
+photos:: | hero/life_coach
+photos:: | hero/holistisch_therapeut
 
 public:: | photos
 

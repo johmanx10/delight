@@ -50,7 +50,7 @@
     {
       "name": "Losse behandeling",
       "type": "therapy",
-      "duration": "90 minuten",
+      "duration": "1:30",
       "price": {
         "unitPrice": 95
       }
@@ -62,7 +62,7 @@
         "Gratis intake"
       ],
       "quantity": 6,
-      "duration": "90 minuten",
+      "duration": "1:30",
       "price": {
         "unitPrice": 520
       }
@@ -70,7 +70,7 @@
     {
       "name": "Telefonisch consult",
       "type": "therapy",
-      "duration": "30 minuten",
+      "duration": "0:30",
       "price": {
         "unitPrice": 35
       }
@@ -78,7 +78,7 @@
     {
       "name": "Reikibehandeling op afstand",
       "type": "therapy",
-      "duration": "20 tot 30 minuten",
+      "duration": ["0:20", "0:30"],
       "price": {
         "unitPrice": 45
       }
@@ -86,7 +86,8 @@
     {
       "name": "Hele lichaam",
       "type": "massage",
-      "duration": "± 60 minuten",
+      "approximateDuration": true,
+      "duration": "1",
       "price": {
         "unitPrice": 70
       }
@@ -94,7 +95,8 @@
     {
       "name": "Rug & nek",
       "type": "massage",
-      "duration": "± 30 minuten",
+      "approximateDuration": true,
+      "duration": "0:30",
       "price": {
         "unitPrice": 35
       }
@@ -102,7 +104,8 @@
     {
       "name": "Voeten & benen",
       "type": "massage",
-      "duration": "± 30 minuten",
+      "approximateDuration": true,
+      "duration": "0:30",
       "price": {
         "unitPrice": 35
       }

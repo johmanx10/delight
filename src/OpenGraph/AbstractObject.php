@@ -25,12 +25,12 @@ abstract class AbstractObject implements IteratorAggregate, ArrayAccess
         return $this->getIterator()->offsetExists($offset);
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->getIterator()->offsetGet($offset);
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $property = preg_replace('/^og:[^:]+:?/', '', $offset) ?: 'url';
 
@@ -46,7 +46,7 @@ abstract class AbstractObject implements IteratorAggregate, ArrayAccess
         $this->{$property} = $value;
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         throw new LogicException(
             sprintf(

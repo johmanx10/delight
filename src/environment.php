@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Delight\Website\Twig\HeadingAnchorExtension;
+use Delight\Website\Twig\ProductExtension;
 use Delight\Website\Twig\RoutingExtension;
 use Delight\Website\Twig\SubresourceIntegrityExtension;
 use Symfony\Component\String\Slugger\AsciiSlugger;
@@ -27,5 +28,6 @@ $environment->addExtension(
 $environment->addExtension(
     new HeadingAnchorExtension(new AsciiSlugger())
 );
+$environment->addExtension(new ProductExtension());
 
 return $environment;

@@ -5,14 +5,17 @@ declare(strict_types=1);
 use Delight\Website\Context\CanonicalCompiler;
 use Delight\Website\Context\DefaultsCompiler;
 use Delight\Website\Context\DiplomasCompiler;
+use Delight\Website\Context\DurationCompiler;
 use Delight\Website\Context\FaviconCompiler;
 use Delight\Website\Context\NavCompiler;
 use Delight\Website\Context\PageCompiler;
 use Delight\Website\Context\OpenGraphCompiler;
+use Delight\Website\Context\ProductCompiler;
 use Delight\Website\ContextCompilerInterface;
 use Delight\Website\OpenGraph\FacebookShareFilter;
 use Delight\Website\OpenGraph\ImageFilterChain;
 use Delight\Website\OpenGraph\TwitterCardFilter;
+use Measurements\Units\UnitDuration;
 
 return new class (
     new DefaultsCompiler(__DIR__ . '/../config/defaults.json'),
@@ -22,6 +25,7 @@ return new class (
     new FaviconCompiler(WEB_ROOT, 'img/favicons/favicon-*.png'),
     new FaviconCompiler(WEB_ROOT, 'img/favicons/apple-touch-icon.png', 'apple-touch-icon'),
     new CanonicalCompiler(WEBSITE),
+    new ProductCompiler(new DurationCompiler(UnitDuration::minutes())),
     new OpenGraphCompiler(
         WEB_ROOT,
         require __DIR__ . '/../services/open-graph/image-factory.php',

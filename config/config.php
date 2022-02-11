@@ -85,7 +85,7 @@ const NAV_LAYOUT = [
 
 define(
     'IS_DEVELOPMENT',
-    (int)($_ENV['DEVELOPMENT_PHP80_1_ENV_PHP_VERSION'] ?? 0) === PHP_MAJOR_VERSION
+    (int)($_ENV['DEVELOPMENT_PHP81_1_ENV_PHP_VERSION'] ?? 0) === PHP_MAJOR_VERSION
 );
 
 define(

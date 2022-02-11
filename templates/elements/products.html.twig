@@ -16,10 +16,22 @@
                     {% endfor %}
                 </td>
                 <td>
-                    {% if product.quantity|default(1) > 1 %}
-                        {{ product.quantity }}x
+                    {% if product.duration is defined %}
+                        {% if product.quantity|default(1) > 1 %}
+                            {{ product.quantity }}x
+                        {% endif %}
+
+                        {% if product.approximateDuration|default(false) %}
+                            &plusmn;
+                        {% endif %}
+                        {% if product.duration is iterable %}
+                            {{ (product.duration|first).value }}
+                            tot
+                            {{ product.duration|last|duration }}
+                        {% else %}
+                            {{ product.duration|duration }}
+                        {% endif %}
                     {% endif %}
-                    {{ product.duration|default('') }}
                 </td>
                 <td itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                     <span itemprop="priceCurrency" content="{{ product.price.currency.code|default('EUR') }}">{{ product.price.currency.symbol|default('€') }}</span>
