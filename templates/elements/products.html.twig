@@ -25,7 +25,7 @@
                             &plusmn;
                         {% endif %}
                         {% if product.duration is iterable %}
-                            {{ (product.duration|first).value }}
+                            {{ (product.duration|first)|duration(false) }}
                             tot
                             {{ product.duration|last|duration }}
                         {% else %}
