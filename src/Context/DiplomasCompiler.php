@@ -19,16 +19,21 @@ class DiplomasCompiler implements ContextCompilerInterface
             return $context;
         }
 
-        $context[self::KEY] = array_map(
-            fn (array $diploma) => array_replace(
-                $diploma,
-                [
-                    'thumbnail' => $this->compileThumbnail(
-                        $diploma['thumbnail']
-                    )
-                ]
-            ),
-            $context[self::KEY]
+        $context[self::KEY] = array_reduce(
+            $context[self::KEY],
+            function (array $carry, array $diploma): array {
+                $thumbnail = $this->compileThumbnail($diploma['thumbnail']);
+
+                if (!empty($thumbnail['width']) && !empty($thumbnail['height'])) {
+                    $carry[] = array_replace(
+                        $diploma,
+                        ['thumbnail' => $thumbnail]
+                    );
+                }
+
+                return $carry;
+            },
+            []
         );
 
         return $context;
@@ -43,9 +48,9 @@ class DiplomasCompiler implements ContextCompilerInterface
     )]
     private function compileThumbnail(string $path): array
     {
-        [$width, $height] = getimagesize(
+        [$width, $height] = @getimagesize(
             rtrim($this->root, '/') . '/' . ltrim($path, '/')
-        );
+        ) ?: [0, 0];
 
         return [
             'path' => $path,
