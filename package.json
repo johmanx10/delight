@@ -1,4 +1,8 @@
 {
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git"
+  },
   "dependencies": {
     "@lhci/cli": "^0.8.2",
     "heroicons": "^1.0.5"
