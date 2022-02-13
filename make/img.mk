@@ -49,6 +49,58 @@ shields:: public/img/shields/gat-228x212.webp
 
 public:: | shields
 
+public/img/photos/%:
+	$(eval DIMENSIONS := $(shell echo $(*F) | cut -d- -f2 | cut -d. -f1))
+	$(eval NAME := $(shell echo $(*F) | cut -d- -f1))
+	@mkdir -p $(@D)
+	convert -density 300 assets/photos/$(NAME).png $(CONVERT_OPTIONS) -resize $(DIMENSIONS) $@
+
+#hero/home
+photos:: | public/img/photos/home_hero-800x.jpg
+photos:: | public/img/photos/home_hero-800x.webp
+photos:: | public/img/photos/home_hero-1280x.jpg
+photos:: | public/img/photos/home_hero-1280x.webp
+photos:: | public/img/photos/home_hero-1600x.jpg
+photos:: | public/img/photos/home_hero-1600x.webp
+
+#hero/reiki
+photos:: | public/img/photos/reiki_hero-800x.jpg
+photos:: | public/img/photos/reiki_hero-800x.webp
+photos:: | public/img/photos/reiki_hero-1280x.jpg
+photos:: | public/img/photos/reiki_hero-1280x.webp
+photos:: | public/img/photos/reiki_hero-1600x.jpg
+photos:: | public/img/photos/reiki_hero-1600x.webp
+
+#hero/life_coach
+photos:: | public/img/photos/life_coach_hero-800x.jpg
+photos:: | public/img/photos/life_coach_hero-800x.webp
+photos:: | public/img/photos/life_coach_hero-1280x.jpg
+photos:: | public/img/photos/life_coach_hero-1280x.webp
+photos:: | public/img/photos/life_coach_hero-1600x.jpg
+photos:: | public/img/photos/life_coach_hero-1600x.webp
+
+#hero/holistisch_therapeut
+photos:: | public/img/photos/holistisch_therapeut_hero-800x.jpg
+photos:: | public/img/photos/holistisch_therapeut_hero-800x.webp
+photos:: | public/img/photos/holistisch_therapeut_hero-1280x.jpg
+photos:: | public/img/photos/holistisch_therapeut_hero-1280x.webp
+photos:: | public/img/photos/holistisch_therapeut_hero-1600x.jpg
+photos:: | public/img/photos/holistisch_therapeut_hero-1600x.webp
+
+public:: | photos
+
+public/img/diplomas/%.jpg:
+	@mkdir -p $(@D)
+	convert -density 300 assets/diplomas/$*.png -resize 400x $@
+
+diplomas:: public/img/diplomas/reiki1.jpg
+diplomas:: public/img/diplomas/reiki2.jpg
+diplomas:: public/img/diplomas/reiki3.jpg
+diplomas:: public/img/diplomas/holistisch-therapeut.jpg
+diplomas:: public/img/diplomas/life-coach.jpg
+
+public:: | diplomas
+
 public/img/favicons/favicon.ico: assets/logo.png
 	@mkdir -p $(@D)
 	convert $^ $(CONVERT_OPTIONS) -resize 128x128 $@
@@ -79,39 +131,3 @@ favicons:: public/img/favicons/android-chrome-512x512.webp
 favicons:: public/img/favicons/manifest.json
 
 public:: | favicons
-
-public/img/photos/%:
-	$(eval DIMENSIONS := $(shell echo $(*F) | cut -d- -f2 | cut -d. -f1))
-	$(eval NAME := $(shell echo $(*F) | cut -d- -f1))
-	@mkdir -p $(@D)
-	convert -density 300 assets/photos/$(NAME).png $(CONVERT_OPTIONS) -resize $(DIMENSIONS) $@
-
-hero/%:
-	make \
-		public/img/photos/$(*F)_hero-800x.jpg \
-		public/img/photos/$(*F)_hero-800x.webp \
-		public/img/photos/$(*F)_hero-1280x.jpg \
-		public/img/photos/$(*F)_hero-1280x.webp \
-		public/img/photos/$(*F)_hero-1600x.jpg \
-		public/img/photos/$(*F)_hero-1600x.webp
-
-photos:: | hero/home
-photos:: | hero/reiki
-photos:: | hero/life_coach
-photos:: | hero/holistisch_therapeut
-
-public:: | photos
-
-public/img/diplomas:
-	mkdir -p $@
-
-public/img/diplomas/%.jpg: public/img/diplomas
-	convert -density 300 assets/diplomas/$*.png -resize 400x $@
-
-diplomas:: public/img/diplomas/reiki1.jpg
-diplomas:: public/img/diplomas/reiki2.jpg
-diplomas:: public/img/diplomas/reiki3.jpg
-diplomas:: public/img/diplomas/holistisch-therapeut.jpg
-diplomas:: public/img/diplomas/life-coach.jpg
-
-public:: | diplomas

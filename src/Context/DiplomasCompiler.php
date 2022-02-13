@@ -43,9 +43,9 @@ class DiplomasCompiler implements ContextCompilerInterface
     )]
     private function compileThumbnail(string $path): array
     {
-        [$width, $height] = @getimagesize(
+        [$width, $height] = getimagesize(
             rtrim($this->root, '/') . '/' . ltrim($path, '/')
-        ) ?: [0, 0];
+        );
 
         return [
             'path' => $path,
