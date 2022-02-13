@@ -21,15 +21,115 @@
         </blockquote>
     </figure>
 
+    <p>
+        Wat is nou precies een holistisch therapeut en wat kan een reden zijn om naar
+        een holistisch therapeut toe te gaan.
+    </p>
+    <p>
+        Holisme staat voor het geheel.
+        Als jij klachten hebt, zoals rugpijn, vaak blaasontstekingen, maagklachten
+        of een burn-out, om maar wat voorbeelden te noemen, komt het voor dat je
+        bij een arts gezegd wordt dat de oorzaak niet te vinden is en dat je er
+        mee mag/moet leren leven.
+        Dit is het moment om te gaan kijken naar andere oplossingen.
+        Vaak gebeurt het al dat je wordt doorverwezen naar een psycholoog; wat
+        natuurlijk een heel mooi resultaat zou kunnen geven.
+    </p>
+    <p>
+        Kom je bij mij, dan ga ik eerst samen met jou een gesprek aan,
+        over je leven, of er meer klachten zijn, hoe je leeft en zelfs hoe de
+        verstandhoudingen zijn binnen je familiekring.
+        Een klacht kan namelijk een signaal van een lichaam zijn, over iets heel
+        anders dan de plek zelf.
+        De uitspraken:
+        <a href="https://www.ensie.nl/spreekwoord/dat-ligt-hem-als-een-steen-op-de-maag" target="_blank" rel="noreferrer nofollow">
+            <q>een steen op je maag hebben</q>
+        </a>
+        of
+        <a href="https://www.ensie.nl/spreekwoord/onder-veel-zorgen-gebukt-gaan" target="_blank" rel="noreferrer nofollow">
+            <q>gebukt gaan onder de zorgen</q>
+        </a>
+        bestaan niet voor niks.
+    </p>
+
     {% include 'elements/hero.html.twig' with {
         id: 'holistisch_therapeut',
         alt: company.founder.givenName ~ ' lacht naar partner'
     } %}
 
+    <p>
+        In het holisme is er kennis opgebouwd over de betekenis achter een klacht.
+        Alleen al hier inzicht in krijgen kan soms helpen.
+        Maar verder zijn er een aantal tools die ingezet kunnen worden om bij de
+        kern te komen, en ze los te laten.
+        Elk mens loopt trauma’s op in het leven, groot of klein.
+        Als we daar overheen stappen, en het niet goed verwerken, omdat we er
+        <q>geen tijd</q> voor hebben, dan gaat dit zich ergens in het lijf vastzetten.
+        Het kan zijn dat ik, in samenwerking met jou,
+        <dfn title="Bij loslaten via ademhaling kan er oude pijn en trauma los- of weggeblazen worden. Door naar de plek toe te aderen, waar de pijn zit, en daar ook de handen neer te leggen.">
+            <q>loslaat</q>-ademhalingsoefeningen</dfn> toe ga passen.
+        Het kan ook zo zijn dat we {{ anchor('systemisch werk') }} gaan doen.
+        Of <a href="{{ path('reiki') }}" title="{{ label('reiki') }}">Reiki</a>. Of allemaal.
+    </p>
+    <p>
+        Ik leg de manieren van werken verder uit op deze site.
+        Als je voor het eerst bij mij komt, gaat het er voornamelijk om dat ik alles goed
+        in kaart breng.
+        Daarna kan ik ook vertellen hoeveel behandelingen we
+        nodig hebben, en welke behandelingen het worden.
+    </p>
+
+    {{ h2('Systemisch werk') }}
+
+    <p>
+        Systemisch werk is ook energiewerk. Maar dan de energie van een systeem.
+        Een systeem kan zijn: <em>een familie</em>. Familie-opstellingen zijn dan ook wat het
+        meest bekend is. Een systeem kan ook zijn: <em>jij en jouw collega’s</em>
+        of <em>jij in de maatschappij</em> of <em>leefomgeving</em>.
+    </p>
+    <p>
+        Bij familie-opstellingen worden alle mensen in de familie vertegenwoordigd
+        door een poppetje, die op een bepaalde plaats in een veld komt te staan.
+        Belangrijk daarin is, dat, bijvoorbeeld, ook het kind dat niet geboren is
+        (bijvoorbeeld: doordat er een miskraam geweest), mee doet om de familiecirkel
+        compleet te maken.
+    </p>
+    <p>
+        In sommige gevallen gaan we ook naar de voorouders, omdat ik door krijg
+        dat er een probleem bij een oma of overgrootoma geweest is, wat
+        energetisch is meegegeven aan het kind, en zo weer aan de huidige generatie.
+        Dit werk is erg dankbaar om te doen, want we kunnen iedereen er bij halen.
+        Of ze nu in leven zijn of niet.
+        Bovendien treedt er ook genezing op voor de niet meer levenden.
+        En zo wordt het trauma verwerkt, en stopt het bij jou.
+        Dan kun je het ook niet meer doorgeven aan jouw kinderen.
+    </p>
+    <p>Heel bijzondere en mooie resultaten levert dit op.</p>
+
+    {{ h2('Tarieven') }}
+
+    {% include 'elements/products.html.twig' with {
+        headings: {
+            name: 'Behandeling'
+        },
+        products: products|filter((product) => product.type is not same as ('massage'))
+    } %}
+
+    {{ h2('Massage') }}
+
+    {% include 'sections/massage.html.twig' %}
+
+    {{ h2('Cerficering') }}
+
     {% include 'elements/diplomas.html.twig' with {
-        colSize: 2,
         diplomas: diplomas
-            |filter((diploma) => diploma.type in ['holistisch-therapeut', 'reiki'])
-            |sort((a, b) => a.type <=> b.type)
+        |filter((diploma) => diploma.type in ['holistisch-therapeut', 'life-coach'])
+        |sort((a, b) => a.type <=> b.type)
+    } %}
+
+    {% include 'elements/diplomas.html.twig' with {
+        diplomas: diplomas
+        |filter((diploma) => diploma.type in ['reiki'])
+        |sort((a, b) => a.type <=> b.type)
     } %}
 {% endblock %}

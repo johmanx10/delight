@@ -72,6 +72,8 @@
         products: products|filter((product) => product.type is not same as ('massage'))
     } %}
 
+    {{ h2('Cerficering') }}
+
     {% include 'elements/diplomas.html.twig' with {
         diplomas: diplomas|filter((diploma) => diploma.type is same as 'life-coach')
     } %}

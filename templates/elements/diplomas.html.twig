@@ -1,5 +1,4 @@
 {% block diplomas %}
-    {{ h2('Cerficering') }}
     <div class="diplomas grid grid-cols-{{ colSize|default(max(1, min(3, diplomas|length))) }}">
         {% for diploma in diplomas %}
             {# TODO: implement https://schema.org/EducationalOccupationalCredential #}

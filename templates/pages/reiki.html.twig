@@ -123,38 +123,9 @@
 
     {{ h2('Massage') }}
 
-    <p>
-        Mocht je zin hebben in een ontspannende massage, om even alles los te
-        laten en te relaxen, dan kan ik je ook een massage geven met etherische
-        oliën en reiki.
-        De massage is op zichzelf al heerlijk, maar doordat ik “reiki” handen
-        heb, zal ik automatisch je energie een boost geven.
-    </p>
-    <p>
-        De oliën die ik gebruik zijn van
-        <a href="https://www.doterra.com/NL/nl_NL/" target="_blank" rel="noreferrer">doTERRA</a>.
-        Ik heb verschillende massage-oliën, waar bepaalde combinaties van de oliën in zitten.
-        Deze geven allemaal een andere ondersteuning, en ik zal ze op mijn gevoel gaan gebruiken.
-    </p>
+    {% include 'sections/massage.html.twig' %}
 
-    <p>
-        Voor een massage verwacht ik dat je gedoucht bent, en je mag je slip aan
-        houden, maar voor de rest wil ik graag je lichaam kunnen masseren.
-        Trek iets aan dat makkelijk aan en uit kan en er tegen kan dat er na de
-        massage nog olie op je huid zit.
-        Ik zal jou afdekken met handdoeken en daarna ook drogen met de handdoeken,
-        maar het kan zijn dat er restjes olie op je huid achterblijven.
-        Een hele lichaamsmassage duurt ongeveer een uur.
-        Je kan ook kiezen voor een rug- en nekmassage. Dat is dan een half uur
-        Er is een mogelijkheid voor alleen je voeten en benen. Dit is ook een half uur.
-    </p>
-
-    {% include 'elements/products.html.twig' with {
-        headings: {
-            name: 'Soort massage'
-        },
-        products: products|filter((product) => product.type is same as ('massage'))
-    } %}
+    {{ h2('Cerficering') }}
 
     {% include 'elements/diplomas.html.twig' with {
         diplomas: diplomas|filter((diploma) => diploma.type is same as 'reiki')
