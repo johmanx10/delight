@@ -22,7 +22,7 @@ class DiplomasCompiler implements ContextCompilerInterface
         $context[self::KEY] = array_reduce(
             $context[self::KEY],
             function (array $carry, array $diploma): array {
-                $thumbnail = @$this->compileThumbnail($diploma['thumbnail']);
+                $thumbnail = $this->compileThumbnail($diploma['thumbnail']);
 
                 if (!empty($thumbnail['width']) && !empty($thumbnail['height'])) {
                     $carry[] = array_replace(
