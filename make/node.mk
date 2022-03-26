@@ -22,8 +22,3 @@ public/img/svg/%: node_modules
 svg: $(SVGS:%.svg=public/img/svg/%.svg)
 
 public:: | svg
-
-.lighthouseci/assertion-results.json: html node_modules .lighthouserc.json
-	npx lhci autorun
-
-lighthouse: .lighthouseci/assertion-results.json
