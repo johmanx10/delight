@@ -13,11 +13,6 @@ jobs:
     container: srcoder/development-php:php81-fpm
 
     steps:
-      - name: Install GIT LFS
-        run: |
-          if ! apt satisfy git-lfs &> /dev/null; then apt update -y; fi
-          apt install git-lfs -y
-
       - name: Install NPM
         run: |
           curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
@@ -27,10 +22,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-
-#      # https://www.kb.cert.org/vuls/id/332928/
-#      - name: Remove PDF restrictions for old versions of GhostScript
-#        run: sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
 
       - name: Build website
         run: make public
