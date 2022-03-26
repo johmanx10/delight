@@ -2,10 +2,14 @@
 
 ## Content
 
-- [ ] Over jou
-- [ ] Over mij
-- [ ] Reviews
-- [ ] Contact
+- [ ] Pages
+   - [ ] "Over jou"
+   - [ ] "Over mij"
+   - [ ] "Reviews"
+   - [ ] "Contact"
+- [ ] Add opengraph data
+- [ ] Apply microdata
+- [ ] Fill in meta data
 
 ## Hosting
 
@@ -16,11 +20,5 @@
 
 ## SEO
 
-- [ ] Fill in meta data
 - [ ] Register sitemap
 - [ ] Configure webmaster tools
-- [ ] Apply microdata
-
-## Social media
-
-- [ ] Add opengraph data
