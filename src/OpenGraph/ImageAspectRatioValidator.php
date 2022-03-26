@@ -11,7 +11,7 @@ class ImageAspectRatioValidator implements ImageValidatorInterface
 
     public function __construct(
         private float $aspectRatio,
-        private float $tolerance = .5,
+        private float $tolerance = .55,
         private int $precision = 2
     ) {}
 
