@@ -257,16 +257,10 @@ figure.quote, details.quote {
     margin-top: -.5em;
 }
 
-.quote.review {
-    height: 2.6em;
-}
-.quote.review[open] {
-    height: auto;
-}
-
 .quote.review summary {
-    width: 100%;
     cursor: pointer;
+    line-height: 1.6em;
+    margin: .7em 1em 1em;
 }
 
 .quote.review summary:after {
@@ -278,23 +272,15 @@ figure.quote, details.quote {
     content: ':';
 }
 
-.quote.review figure {
-    margin-top: 3em;
-}
-
 .quote figcaption, .quote.review summary {
-    float: left;
-    margin: 1.2em 1em 0 1em;
     font-style: italic;
     color: var(--theme-primary);
     font-weight: bolder;
 }
 
-.quote.review summary {
-    margin-top: .7em;
-}
-
 .quote figcaption {
+    margin: 1.2em 1em 0 1em;
+    float: left;
     display: block;
 }
 

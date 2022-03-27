@@ -11,7 +11,7 @@
     </p>
 
     {% for review in reviews %}
-        <details itemscope itemtype="https://schema.org/UserReview" class="quote review"{% if loop.first %} open{% endif %}>
+        <details itemscope itemtype="https://schema.org/UserReview" class="quote review">
             <summary itemprop="name">{{ review.summary }}</summary>
             <figure>
                 <figcaption itemprop="author">{{ review.author }}</figcaption>
