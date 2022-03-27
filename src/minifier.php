@@ -8,5 +8,6 @@ $minifier = new HtmlMin();
 
 $minifier->doRemoveWhitespaceAroundTags();
 $minifier->doRemoveOmittedQuotes(false);
+$minifier->doRemoveOmittedHtmlTags(false);
 
 return $minifier;
