@@ -37,6 +37,10 @@
     padding: .3em 0;
 }
 
+.container {
+    clear: both;
+}
+
 #nav-contextual a {
     color: inherit;
 }
@@ -235,27 +239,71 @@ blockquote {
     margin: 0;
 }
 
-figure {
+figure, details {
     margin: 0;
 }
 
-figure.quote {
+figure.quote, details.quote {
     margin: 1em 0;
+    box-shadow: var(--shadow-dimensions) var(--theme-secondary-shadow);
+    border-radius: .5em;
 }
 
-figure.quote figcaption {
+.quote.review {
+    border-top: .5em solid var(--theme-secondary);
+}
+
+.review p:first-child {
+    margin-top: -.5em;
+}
+
+.quote.review {
+    height: 2.6em;
+}
+.quote.review[open] {
+    height: auto;
+}
+
+.quote.review summary {
+    width: 100%;
+    cursor: pointer;
+}
+
+.quote.review summary:after {
+    display: inline;
+    content: '\2026';
+}
+.quote.review[open] summary:after {
+    display: inline;
+    content: ':';
+}
+
+.quote.review figure {
+    margin-top: 3em;
+}
+
+.quote figcaption, .quote.review summary {
     float: left;
-    display: block;
     margin: 1.2em 1em 0 1em;
     font-style: italic;
     color: var(--theme-primary);
     font-weight: bolder;
 }
 
+.quote.review summary {
+    margin-top: .7em;
+}
+
+.quote figcaption {
+    display: block;
+}
+
 blockquote p {
     padding: 1em;
-    box-shadow: var(--shadow-dimensions) var(--theme-secondary-shadow);
-    border-radius: .5em;
+}
+
+blockquote p:not(:last-child) {
+    padding-bottom: 0;
 }
 
 blockquote p::before {
@@ -271,7 +319,7 @@ p a {
     white-space: nowrap;
 }
 
-figure.quote + p {
+figure.quote + p, details.quote + p {
     margin-top: 2em;
 }
 

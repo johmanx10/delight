@@ -3,4 +3,29 @@
 {% block schema %}https://schema.org/CollectionPage{% endblock %}
 
 {% block main %}
+
+    {{ h1('Beoordelingen') }}
+
+    <p>
+        Hieronder vindt u beoordelingen van
+    </p>
+
+    {% for review in reviews %}
+        <details itemscope itemtype="https://schema.org/UserReview" class="quote review"{% if loop.first %} open{% endif %}>
+            <summary itemprop="name">{{ review.summary }}</summary>
+            <figure>
+                <figcaption itemprop="author">{{ review.author }}</figcaption>
+                <blockquote itemprop="reviewBody">
+                    {% if review.reviewBody is iterable %}
+                        {% for paragraph in review.reviewBody %}
+                            <p>{{ paragraph }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p>{{ review.reviewBody }}</p>
+                    {% endif %}
+                </blockquote>
+            </figure>
+        </details>
+    {% endfor %}
+
 {% endblock %}
