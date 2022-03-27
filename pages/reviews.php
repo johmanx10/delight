@@ -11,6 +11,12 @@ return render(
         'meta' => [
             'description' => 'Zoals een ander over mij vertelt, zo spreekt men, oprecht en open.'
         ],
+        'social' => [
+            'image' => [
+                'pattern' => 'img/photos/reviews_hero-*x*.*',
+                'alt' => 'Anja op pad met partner'
+            ]
+        ],
         'reviews' => [
             [
                 'summary' => 'Ik was al lang zoekende',

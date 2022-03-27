@@ -24,4 +24,9 @@
         </details>
     {% endfor %}
 
+    {% include 'elements/hero.html.twig' with {
+        id: 'reviews',
+        alt: company.founder.givenName ~ ' op pad met partner'
+    } %}
+
 {% endblock %}

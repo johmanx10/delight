@@ -69,6 +69,14 @@ photos:: public/img/photos/holistisch_therapeut_hero-1280x.webp
 photos:: public/img/photos/holistisch_therapeut_hero-1600x.jpg
 photos:: public/img/photos/holistisch_therapeut_hero-1600x.webp
 
+#hero/reviews
+photos:: public/img/photos/reviews_hero-800x.jpg
+photos:: public/img/photos/reviews_hero-800x.webp
+photos:: public/img/photos/reviews_hero-1280x.jpg
+photos:: public/img/photos/reviews_hero-1280x.webp
+photos:: public/img/photos/reviews_hero-1600x.jpg
+photos:: public/img/photos/reviews_hero-1600x.webp
+
 public:: photos
 
 public/img/diplomas/%.jpg:
