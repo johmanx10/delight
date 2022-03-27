@@ -111,6 +111,49 @@ return render(
                     Ik ben zo dankbaar voor deze verandering in mijn leven.
                     PARAGRAPH
                 ]
+            ],
+            [
+                'summary' => <<<SUMMARY
+                Toen ik Anja tegenkwam, kwam er een gevoel van “het kan anders” over me
+                SUMMARY,
+                'author' => 'Claudia',
+                'reviewBody' => [
+                    <<<PARAGRAPH
+                    Altijd moe en koud en duizelig. Zo probeerde ik al jaren te
+                    functioneren. Ik sleepte me door de dagen heen en had geen
+                    idee hoe ik verder moest naar de volgende dag.
+                    PARAGRAPH,
+                    <<<PARAGRAPH
+                    Toen ik Anja tegenkwam, kwam er een gevoel van “het kan
+                    anders” over me.
+                    PARAGRAPH,
+                    <<<PARAGRAPH
+                    De behandelingen bij haar waren erg afwisselend. Een
+                    combinatie van Reiki en praten. Maar ook door in beeld te
+                    krijgen hoe mijn gezondheid verder verliep, wist ze
+                    verbanden te leggen die ik niet eerder gehoord had.
+                    PARAGRAPH,
+                    <<<PARAGRAPH
+                    Ze was vriendelijk maar duidelijk in haar adviezen.
+                    "Ik kan je de weg wijzen maar je moet het pad zelf
+                    bewandelen," zei ze regelmatig.
+                    PARAGRAPH,
+                    <<<PARAGRAPH
+                    Na 5 behandelingen had ik het minder koud en was niet meer
+                    zo moe.
+                    Ook wist in inmiddels dat ik bepaald voeding beter kon
+                    vermijden.
+                    En ze had mijn aura gereinigd en opnieuw gevuld met schone
+                    energie.
+                    Verschillende oefeningen, meditaties en affirmaties hielpen
+                    hier ook bij.
+                    PARAGRAPH,
+                    <<<PARAGRAPH
+                    Na deze 5 behandelingen had ik kunnen stoppen, maar ik heb
+                    besloten om door te gaan. Zo heel ik mezelf en ik leer
+                    steeds beter hoe van mezelf te houden.
+                    PARAGRAPH
+                ]
             ]
         ]
     ]

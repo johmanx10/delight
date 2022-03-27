@@ -6,10 +6,6 @@
 
     {{ h1('Beoordelingen') }}
 
-    <p>
-        Hieronder vindt u beoordelingen van
-    </p>
-
     {% for review in reviews %}
         <details itemscope itemtype="https://schema.org/UserReview" class="quote review">
             <summary itemprop="name">{{ review.summary }}</summary>
