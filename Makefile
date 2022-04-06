@@ -6,5 +6,5 @@ CONFIG := $(shell find config -type f)
 
 include make/*.mk
 
-clean:
+clean::
 	rm -rf public/* schemas node_modules

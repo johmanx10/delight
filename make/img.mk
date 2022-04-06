@@ -1,5 +1,14 @@
 CONVERT_OPTIONS=-strip
 
+assets/CAT.png:
+	wget https://catcollectief.nl/wp-content/uploads/2021/10/cat_collectief_schild_internet.png --output-document $@
+
+assets/GAT.png:
+	wget https://www.gatgeschillen.nl/wp-content/uploads/2021/11/gat_geschilleninstantie_alternatieve_therapeuten_schild_internet.png --output-document $@
+
+clean::
+	rm -f assets/CAT.png assets/GAT.png
+
 public/img/shields/cat-%.png: assets/CAT.png
 	@mkdir -p $(@D)
 	convert $^ $(CONVERT_OPTIONS) -quality 05 -resize $(*F) -density $(*F) $@
