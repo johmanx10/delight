@@ -97,10 +97,31 @@ a[target="_blank"]:after {
     -webkit-mask-image: var(--icon-external-link);
 }
 
-p.block {
+p.block, ul.block {
     box-shadow: inset 1em 0 0 0 var(--theme-secondary);
+}
+
+p.block {
     padding: 0 1em 0 2em;
     font-style: italic;
+}
+
+ul.block > li, ul.checklist > li {
+    line-height: 1.6em;
+    padding: .5em 0 .5em 2em;
+}
+
+ul.block.checklist {
+    padding-left: 4em;
+    margin: 2em 0 1em;
+}
+
+ul.checklist > li {
+    list-style-type: "\2713";
+}
+
+ul.block > li + li, ul.checklist > li + li {
+    margin-top: 1em;
 }
 
 #nav {

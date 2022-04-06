@@ -3,4 +3,60 @@
 {% block schema %}https://schema.org/ItemPage{% endblock %}
 
 {% block main %}
+
+    {{ h1('Over jou') }}
+
+    <p>
+        Hey jij,
+        Kom jij bij mij?
+        Ben je net als ik een vrouw die zich het hele leven al verplicht voelt om
+        te zorgen?
+    </p>
+
+    <ul class="block checklist">
+        <li>
+            Wordt je regelmatig overgevoelig genoemd en geeft je dat het gevoel
+            dat er niemand is die jou echt begrijpt?
+        </li>
+        <li>
+            Is de wereld met zijn strikte regels overweldigend voor jou?
+            Heb je ook de neiging om iemand voor te laten gaan in plaats van
+            weer een discussie te moeten voeren?
+        </li>
+        <li>
+            Vraag je je af wanneer jouw tijd nou eens komt?
+        </li>
+        <li>
+            Weet je nog wel wat jouw wensen en verlangens zijn, of is dat inmiddels
+            al ondergesneeuwd onder de verplichtingen?
+        </li>
+        <li>
+            Vraag jij je af waarom jij meestal weet wat een ander nodig heeft, maar
+            eigenlijk zelf geen idee meer hebt van wat jij nodig hebt?
+        </li>
+    </ul>
+
+    {{ h2('Prachtige, krachtige wezens') }}
+    <p>
+        Ben je het zat, durf je op te staan voor jezelf? Heb je het lef om aan
+        jezelf te gaan werken?
+        Heb je hier hulp bij nodig, dan ben ik
+        <a href="{{ path('over-mij') }}" title="{{ label('over-mij') }}">de juiste vrouw voor jou</a>.
+    </p>
+    <p>
+        Ik heb dat pad al helemaal gelopen en weet inmiddels hoe het komt
+        dat we onszelf uitputten.
+        Hou een beetje van jezelf en kom nog meer liefde halen. Ik leer je wat
+        energieën met je doen en wat zelfzorg betekent. Ik leer je te geloven in
+        jezelf. Ik doe het omdat ik vrouwen prachtige, krachtige wezens vind,
+        die de wereld nog veel mooier kunnen maken dan ze al is.
+        Laat van je horen.
+    </p>
+
+    <p>Je bent <a href="{{ path('home') }}" title="{{ label('home') }}">welkom</a>!</p>
+
+    {% include 'elements/hero.html.twig' with {
+        id: 'over_jou',
+        alt: 'Wandelend vooruit.'
+    } %}
 {% endblock %}

@@ -77,6 +77,15 @@ photos:: public/img/photos/reviews_hero-1280x.webp
 photos:: public/img/photos/reviews_hero-1600x.jpg
 photos:: public/img/photos/reviews_hero-1600x.webp
 
+#hero/over_jou
+photos:: public/img/photos/over_jou_hero-800x.jpg
+photos:: public/img/photos/over_jou_hero-800x.webp
+photos:: public/img/photos/over_jou_hero-1280x.jpg
+photos:: public/img/photos/over_jou_hero-1280x.webp
+photos:: public/img/photos/over_jou_hero-1600x.jpg
+photos:: public/img/photos/over_jou_hero-1600x.webp
+
+
 public:: photos
 
 public/img/diplomas/%.jpg:
