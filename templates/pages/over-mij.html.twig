@@ -3,4 +3,72 @@
 {% block schema %}https://schema.org/AboutPage{% endblock %}
 
 {% block main %}
+    {{ h1('Over mij') }}
+
+    <p>
+        Ik ben {{ company.founder.givenName }},
+        {{ company.founder.dateOfBirth|age }} jaar jong.
+        Ik voel me nog regelmatig een springlevende tiener maar ik heb de
+        wijsheid van eeuwen in mij.
+    </p>
+    <p>
+        Mijn leven is langs vele wegen en woonplaatsen gelopen; en overal waar
+        ik gelopen heb liggen lessen en liefde.
+    </p>
+
+    {{ h2('Mijn verhaal') }}
+    <p>
+        Mijn gevangenis zat hem in het feit dat ik van jongs af aan geleerd
+        heb dat andere mensen belangrijker zijn dan ikzelf. Ik had zelf de
+        sleutel van die gevangenis, maar wist het niet.
+    </p>
+    <p>
+        Overal gezocht; veel raad en advies opgevolgd.
+        Psychologen en therapeuten beten zich stuk op mij.
+        Velen wilden etiketjes plakken, en die plakten niet bij mij.
+        Ik heb daarom besloten te gaan studeren.
+        Dit heeft geen windeieren gelegd.
+    </p>
+    <p>
+        Ik voel me beter dan ooit en ben nu in staat om naar mezelf te kijken en
+        energie te geven aan de goede dingen in het leven.
+        Ik hou me minder met anderen bezig, tenzij het een gerichte vraag is,
+        die ik als professional kan behandelen.
+        Mijn leven is weer van mij en ik heb de sleutel van mijn geluk.
+        En weet je wat zo grappig is?
+        Nu ik vrij ben en mezelf belangrijk heb gemaakt, gaat het ook beter met
+        mijn relaties en mijn dierbaren.
+    </p>
+
+    {% include 'elements/hero.html.twig' with {
+        id: 'over_mij',
+        alt: company.founder.givenName ~ ' kijkt naar jou.'
+    } %}
+
+    {{ h2('Zelfacceptatie') }}
+    <p>
+        Ik heb erkend dat ik spiritueel ben, hoogsensitief, helderwetend,
+        soms helderziend en helderhorend ben.
+        Sinds ik dit voor mezelf heb erkend en ermee de kast uit ben gekomen,
+        word ik geaccepteerd om wie ik ben.
+        Er zijn daardoor mensen afgevallen maar er zijn ook
+        nieuwe mooie contacten bij gekomen.
+    </p>
+
+    {{ h2('Inspireren') }}
+    <p>
+        Wat ik wil is vrouwen helpen.
+        Ik wil ze graag leren over de geschiedenis in ons bloed.
+        Hoe wij door de eeuwen heen altijd maar zorgen.
+        En dat dit generatie op generatie is overgebracht.
+    </p>
+    <p>
+        Het is tijd om wakker te worden.
+        Het is tijd om uit je harnas te stappen.
+        Vrouwen zijn de meest krachtige wezens op aarde.
+        Help mij jezelf helpen.
+        Kom en durf aan jezelf te werken.
+        Je helpt jezelf, en daarmee ook de andere vrouwen.
+        Als jij licht gaat uitstralen, kan ook jij andere vrouwen inspireren.
+    </p>
 {% endblock %}

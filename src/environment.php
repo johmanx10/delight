@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Delight\Website\Twig\DateExtension;
 use Delight\Website\Twig\HeadingAnchorExtension;
 use Delight\Website\Twig\ProductExtension;
 use Delight\Website\Twig\RoutingExtension;
@@ -29,5 +30,6 @@ $environment->addExtension(
     new HeadingAnchorExtension(new AsciiSlugger())
 );
 $environment->addExtension(new ProductExtension());
+$environment->addExtension(new DateExtension());
 
 return $environment;

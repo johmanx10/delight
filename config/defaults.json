@@ -18,7 +18,8 @@
     },
     "founder": {
       "givenName": "Anja",
-      "familyName": "de Boer Groenhof"
+      "familyName": "de Boer Groenhof",
+      "dateOfBirth": "1961-11-02"
     },
     "address": {
       "locality": "Leeuwarden",

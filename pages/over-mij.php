@@ -9,7 +9,13 @@ return render(
     [
         'title' => 'Over mij - Delight Coachingpraktijk',
         'meta' => [
-            'description' => ''
+            'description' => 'Wie ben ik en waarom kan ik jou verder helpen?'
+        ],
+        'social' => [
+            'image' => [
+                'pattern' => 'img/photos/over_mij_hero-*x*.*',
+                'alt' => 'Anja kijkt naar jou.'
+            ]
         ]
     ]
 );
