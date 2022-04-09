@@ -6,7 +6,12 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+if (defined('PAGES')) {
+    return;
+}
+
 $env = new Dotenv();
+$env->usePutenv(true);
 $env->loadEnv(__DIR__ . '/../.env');
 
 const PAGES = [

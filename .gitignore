@@ -2,6 +2,8 @@
 /public
 /schemas
 /node_modules
+/assets/map-*.png
 /assets/CAT.png
 /assets/GAT.png
 /.env.local
+/var

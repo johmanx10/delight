@@ -14,7 +14,9 @@
     "tubalmartin/cssmin": "^4.1",
     "twig/string-extra": "^3.3",
     "nmarfurt/measurements": "^1.4",
-    "symfony/dotenv": "^6.0"
+    "symfony/dotenv": "^6.0",
+    "symfony/http-client": "^6.0",
+    "symfony/cache": "^6.0"
   },
   "require-dev": {
     "symfony/console": "^5.3"

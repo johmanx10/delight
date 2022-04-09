@@ -9,7 +9,13 @@ return render(
     [
         'title' => 'Contact - Delight Coachingpraktijk',
         'meta' => [
-            'description' => ''
+            'description' => 'Neem contact op met Delight Coachingpraktijk.'
+        ],
+        'social' => [
+            'image' => [
+                'pattern' => 'img/map/office-*x*.*',
+                'alt' => 'Kantoor van Delight Coachingpraktijk.'
+            ]
         ]
     ]
 );

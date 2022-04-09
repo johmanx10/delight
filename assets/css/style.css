@@ -405,7 +405,7 @@ table.products tfoot td {
         text-align: center;
     }
 
-    picture.hero img {
+    picture.hero img, picture.map img {
         width: 100%;
         height: auto;
     }
@@ -660,6 +660,10 @@ header picture img {
     picture.hero img {
         width: 1280px;
         height: 853px;
+    }
+    picture.map img {
+        width: 1280px;
+        height: 640px;
     }
 
     :root {

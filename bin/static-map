@@ -1,0 +1,79 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Delight\Website\Geoapify\Api\StaticMapRequest;
+use Delight\Website\Geoapify\Api\StaticMapFormatter;
+use Delight\Website\Geoapify\IconSize;
+use Delight\Website\Geoapify\ImageFormat;
+use Delight\Website\Geoapify\MapSize;
+use Delight\Website\Geoapify\MapStyle;
+use Delight\Website\Geoapify\Marker;
+use Delight\Website\PositionStack\ApiLookup;
+use Delight\Website\PositionStack\CacheProxyLookup;
+use Delight\Website\PositionStack\CoordinateLookup;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\HttpClient\HttpClient;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+if (count($argv) < 2) {
+    fwrite(STDERR, 'Missing dimensions argument.');
+    exit(1);
+}
+
+[, $dimensions] = $argv;
+[$width, $height] = explode('x', $dimensions, 3);
+
+$lookup = new CoordinateLookup(
+    new CacheProxyLookup(
+        new ApiLookup(
+            HttpClient::createForBaseUri(getenv('POINTSTACK_API')),
+            getenv('POINTSTACK_ACCESS_KEY')
+        ),
+        new FilesystemAdapter(
+            namespace: 'addresses',
+            directory: __DIR__ . '/../var/cache'
+        )
+    )
+);
+
+$defaults = json_decode(
+    json: file_get_contents(__DIR__ . '/../config/defaults.json'),
+    associative: true,
+    flags: JSON_THROW_ON_ERROR
+);
+$address = $defaults['company']['address'];
+
+$mapRequest = new StaticMapRequest(
+    center:      $lookup->lookup(
+        sprintf(
+            '%s %s %s',
+            $address['street'],
+            $address['number'],
+            $address['locality']
+        )
+    ),
+    zoomLevel:   14.5,
+    size:        new MapSize(
+        width: (int)$width,
+        height: (int)$height ?: (int)($width / 2)
+    ),
+    style:       MapStyle::BRIGHT,
+    imageFormat: ImageFormat::PNG
+);
+$mapRequest->addMarker(
+    new Marker(
+        center: $mapRequest->center,
+        color: $defaults['meta']['themeColor'],
+        iconSize: IconSize::LARGE
+    )
+);
+
+$service = new StaticMapFormatter(
+    getenv('GEOAPIFY_API'),
+    getenv('GEOAPIFY_API_KEY')
+);
+
+echo $service->formatUrl($mapRequest);

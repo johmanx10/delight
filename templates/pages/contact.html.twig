@@ -3,4 +3,20 @@
 {% block schema %}https://schema.org/ContactPage{% endblock %}
 
 {% block main %}
+
+    <figure itemprop="primaryImageOfPage" itemscope itemtype="https://schema.org/ImageObject" title="Kantoor Delight Coachingpraktijk">
+        <picture class="map">
+            <source type="image/webp" srcset="img/map/office-1280x.webp" media="(min-width: 2000px)">
+            <source type="image/jpeg" srcset="img/map/office-1280x.jpg" media="(min-width: 2000px)">
+            <source type="image/jpeg" srcset="img/map/office-800x.jpg">
+            <img
+                    alt="Kantoor Delight Coachingpraktijk"
+                    width="800"
+                    height="400"
+                    itemprop="contentUrl"
+                    src="img/map/office-800x.webp">
+        </picture>
+    </figure>
+
+
 {% endblock %}

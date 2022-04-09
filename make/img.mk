@@ -1,5 +1,25 @@
 CONVERT_OPTIONS=-strip
 
+assets/map-%.png: bin/static-map | vendor
+	$(eval DIMENSIONS := $(shell echo $(*F) | cut -d- -f2 | cut -d. -f1))
+	wget `bin/static-map $(DIMENSIONS)` --output-document $@
+
+public/img/map/%: bin/static-map | vendor
+	$(eval DIMENSIONS := $(shell echo $(*F) | cut -d- -f2 | cut -d. -f1))
+	make assets/map-$(DIMENSIONS).png
+	@mkdir -p $(@D)
+	convert -density 300 assets/map-$(DIMENSIONS).png $(CONVERT_OPTIONS) -resize $(DIMENSIONS) $@
+
+map:: public/img/map/office-800x.jpg
+map:: public/img/map/office-800x.webp
+map:: public/img/map/office-1280x.jpg
+map:: public/img/map/office-1280x.webp
+
+public:: map
+
+clean::
+	rm -f assets/map
+
 assets/CAT.png:
 	wget https://catcollectief.nl/wp-content/uploads/2021/10/cat_collectief_schild_internet.png --output-document $@
 
