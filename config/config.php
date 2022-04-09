@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+use Symfony\Component\Dotenv\Dotenv;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$env = new Dotenv();
+$env->loadEnv(__DIR__ . '/../.env');
+
 const PAGES = [
     'home' => [
         'label' => 'Home',
@@ -83,10 +90,7 @@ const NAV_LAYOUT = [
     ]
 ];
 
-define(
-    'IS_DEVELOPMENT',
-    (int)($_ENV['DEVELOPMENT_PHP81_1_ENV_PHP_VERSION'] ?? 0) === PHP_MAJOR_VERSION
-);
+define('IS_DEVELOPMENT', ($_ENV['APP_ENV'] ?? 'prod') === 'dev');
 
 define(
     'WEBSITE',

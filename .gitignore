@@ -4,3 +4,4 @@
 /node_modules
 /assets/CAT.png
 /assets/GAT.png
+/.env.local
