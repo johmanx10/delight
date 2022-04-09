@@ -30,6 +30,8 @@ jobs:
         run: make public
         env:
           WEBSITE: ${{ secrets.WEBSITE }}
+          POINTSTACK_ACCESS_KEY: ${{ secrets.POINTSTACK_ACCESS_KEY }}
+          GEOAPIFY_API_KEY: ${{ secrets.GEOAPIFY_API_KEY }}
 
       - name: Upload artifact
         if: ${{ !env.ACT }}
