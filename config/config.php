@@ -14,10 +14,21 @@ $env = new Dotenv();
 $env->usePutenv(true);
 $env->loadEnv(__DIR__ . '/../.env');
 
+define('IS_DEVELOPMENT', ($_ENV['APP_ENV'] ?? 'prod') === 'dev');
+
+define(
+    'WEBSITE',
+    getenv('WEBSITE') ?: (
+    IS_DEVELOPMENT
+        ? 'http://johmanx10.delight.localhost'
+        : 'https://www.delightcoachingpraktijk.nl'
+    )
+);
+
 const PAGES = [
     'home' => [
         'label' => 'Home',
-        'path' => '',
+        'path' => WEBSITE,
         'controller' => __DIR__ . '/../pages/home.php',
         'output' => 'index.html'
     ],
@@ -94,16 +105,5 @@ const NAV_LAYOUT = [
         'Klantenservice' => ['contact']
     ]
 ];
-
-define('IS_DEVELOPMENT', ($_ENV['APP_ENV'] ?? 'prod') === 'dev');
-
-define(
-    'WEBSITE',
-    getenv('WEBSITE') ?: (
-        IS_DEVELOPMENT
-            ? 'http://johmanx10.delight.localhost'
-            : 'https://www.delightcoachingpraktijk.nl'
-    )
-);
 
 const WEB_ROOT = __DIR__ . '/../public/';
