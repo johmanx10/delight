@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Delight\Website\Context\AddressCompiler;
 use Delight\Website\Context\CanonicalCompiler;
 use Delight\Website\Context\DefaultsCompiler;
 use Delight\Website\Context\DiplomasCompiler;
@@ -43,7 +44,8 @@ return new class (
             )
         )
     ),
-    new DiplomasCompiler(WEB_ROOT)
+    new DiplomasCompiler(WEB_ROOT),
+    new AddressCompiler()
 ) implements ContextCompilerInterface {
     private array $compilers;
 

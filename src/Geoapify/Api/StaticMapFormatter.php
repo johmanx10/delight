@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Delight\Website\Geoapify\Api;
 
 use Delight\Website\Geoapify\Marker;
-use Delight\Website\OpenStreetMap\Coordinates;
+use Delight\Website\Map\Coordinates;
 
 final class StaticMapFormatter
 {

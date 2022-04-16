@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Delight\Website\PositionStack;
 
-use Delight\Website\OpenStreetMap\Coordinates;
-use Delight\Website\OpenStreetMap\CoordinateLookupInterface;
+use Delight\Website\Map\Coordinates;
+use Delight\Website\Map\CoordinateLookupInterface;
 
 class CoordinateLookup implements CoordinateLookupInterface
 {

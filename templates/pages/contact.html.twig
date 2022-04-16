@@ -3,20 +3,61 @@
 {% block schema %}https://schema.org/ContactPage{% endblock %}
 
 {% block main %}
+    <div itemscope itemtype="https://schema.org/LocalBusiness">
 
-    <figure itemprop="primaryImageOfPage" itemscope itemtype="https://schema.org/ImageObject" title="Kantoor Delight Coachingpraktijk">
-        <picture class="map">
-            <source type="image/webp" srcset="img/map/office-1280x.webp" media="(min-width: 2000px)">
-            <source type="image/jpeg" srcset="img/map/office-1280x.jpg" media="(min-width: 2000px)">
-            <source type="image/jpeg" srcset="img/map/office-800x.jpg">
-            <img
-                    alt="Kantoor Delight Coachingpraktijk"
-                    width="800"
-                    height="400"
-                    itemprop="contentUrl"
-                    src="img/map/office-800x.webp">
-        </picture>
-    </figure>
+        {{ h1('Contact') }}
 
+        <meta itemprop="email" content="{{ company.email.address }}">
+        <meta itemprop="telephone" content="{{ company.phone.number }}">
+        <p>
+            <span itemprop="legalName">{{ company.name }}</span>
+            is bereikbaar via
+            <a title="Bel nu met {{ company.name }}" href="tel:{{ company.phone.number }}">telefoon</a>
+            en
+            <a title="Stuur een e-mail naar {{ company.name }}" href="mailto:{{ company.name }}<{{ company.email.address }}>">e-mail</a>.
+        </p>
 
+        <p class="block">
+            Mocht het niet lukken mij telefonisch te bereiken, dan wordt dit
+            beschouwd als een terugbelverzoek.
+            Ik zal dan proberen diezelfde dag nog contact te zoeken.
+        </p>
+
+        {{ h2('Openingstijden') }}
+
+        <p>
+            De praktijk is 6 dagen in de week geopend,
+            <time itemprop="openingHours" datetime="Mo-Sa">van maandag t/m zaterdag.</time>
+            Zowel ochtend, middag als avond.
+        </p>
+
+        <p>
+            Alle behandelingen zijn op afspraak, op een tijd die we samen
+            bespreken, wanneer het jou het beste uitkomt.
+        </p>
+
+        {{ h2('Adres') }}
+
+        <a href="{{ company.address|mapLink }}" target="_blank" rel="noreferrer nofollow" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <figure title="Kantoor {{ company.name }}">
+                <meta itemprop="addressCountry" content="{{ company.address.country }}">
+                <picture class="map" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <source type="image/webp" srcset="img/map/office-1280x.webp" media="(min-width: 2000px)">
+                    <source type="image/jpeg" srcset="img/map/office-1280x.jpg" media="(min-width: 2000px)">
+                    <source type="image/jpeg" srcset="img/map/office-800x.jpg">
+                    <img
+                        alt="Kantoor {{ company.name }}"
+                        width="800"
+                        height="400"
+                        itemprop="contentUrl"
+                        src="img/map/office-800x.webp">
+                </picture>
+                <figcaption>
+                    <span itemprop="streetAddress">{{ company.address.street }} {{ company.address.number }}</span>
+                    <span itemprop="postalCode">{{ company.address.postalCode }}</span>
+                    <span itemprop="addressLocality">{{ company.address.locality }}</span>
+                </figcaption>
+            </figure>
+        </a>
+    </div>
 {% endblock %}

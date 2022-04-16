@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Delight\Website\Geoapify;
 
-use Delight\Website\OpenStreetMap\Coordinates;
+use Delight\Website\Map\Coordinates;
 
 final class Marker
 {

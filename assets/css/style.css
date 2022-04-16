@@ -54,7 +54,7 @@ a:visited {
 }
 
 /* Shared link icon properties */
-a:before, a:after, a.anchor {
+a:before, a:after, a.anchor, a[itemprop="address"] figcaption:after {
     background-color: currentColor;
     width: 1em;
     height: 1em;
@@ -77,11 +77,11 @@ a.anchor {
     -webkit-mask-image: var(--icon-link);
 }
 
-a:before, a:after {
+a:before, a:after, a[itemprop="address"] figcaption:after {
     transform: translateY(.15em);
 }
 
-a:after {
+a:after, a[itemprop="address"] figcaption:after {
     margin: 0 -.15em 0 .15em;
 }
 
@@ -90,11 +90,16 @@ a:before {
 }
 
 /* External links */
-a[target="_blank"]:after {
+a[target="_blank"]:not([itemprop="address"]):after, a[target="_blank"][itemprop="address"] figcaption:after {
     display: inline-block;
     content: "";
     mask-image: var(--icon-external-link);
     -webkit-mask-image: var(--icon-external-link);
+}
+
+figcaption {
+    padding: 1em 1em 1em 2em;
+    box-shadow: inset 1em 0 0 0 var(--theme-secondary);
 }
 
 p.block, ul.block {

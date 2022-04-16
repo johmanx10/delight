@@ -8,7 +8,7 @@ use Delight\Website\Geoapify\ImageFormat;
 use Delight\Website\Geoapify\MapSize;
 use Delight\Website\Geoapify\MapStyle;
 use Delight\Website\Geoapify\Marker;
-use Delight\Website\OpenStreetMap\Coordinates;
+use Delight\Website\Map\Coordinates;
 
 final class StaticMapRequest
 {

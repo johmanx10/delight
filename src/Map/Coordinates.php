@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Delight\Website\OpenStreetMap;
+namespace Delight\Website\Map;
 
 final class Coordinates
 {
