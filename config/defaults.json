@@ -3,7 +3,7 @@
     "author": "Anja de Boer Groenhof",
     "language": "nl-NL",
     "themeColor": "#478fb8",
-    "robots": "noindex, nofollow"
+    "robots": "all"
   },
   "social": {
     "og:locale": "nl_NL",
