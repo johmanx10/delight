@@ -331,6 +331,10 @@ p a {
     white-space: nowrap;
 }
 
+.footer-doormat p a {
+    white-space: normal;
+}
+
 figure.quote + p, details.quote + p {
     margin-top: 2em;
 }
