@@ -537,6 +537,10 @@ table.products tfoot td {
         font-size: inherit;
     }
 
+    main p {
+        text-align: justify;
+    }
+
     header a[href^='tel:'] {
         --shadow-color: var(--theme-primary-shadow);
         --shadow-size: .1em;
@@ -785,7 +789,6 @@ header span[itemprop='name'] {
 main p {
     line-height: 1.6em;
     margin-top: .6em;
-    text-align: justify;
 }
 
 main p + p {
