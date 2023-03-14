@@ -5,11 +5,11 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-  schedule:
-    # Run once every week, in order to update external assets.
-    - cron: '0 0 * * 1'
-    # Run at the birthday of the founder.
-    - cron: '30 0 2 11 *'
+#  schedule:
+#    # Run once every week, in order to update external assets.
+#    - cron: '0 0 * * 1'
+#    # Run at the birthday of the founder.
+#    - cron: '30 0 2 11 *'
 
 jobs:
   build:
